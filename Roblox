@@ -73,6 +73,10 @@ local Config = {
 	},
 }
 
+--// State
+local favorites = {}
+local filteredScripts = {}
+
 --// GUI Setup
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "NexorGui"
@@ -89,6 +93,7 @@ mainFrame.Active = true
 mainFrame.Draggable = true
 Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0, 16)
 
+-- Title
 local titleLabel = Instance.new("TextLabel")
 titleLabel.Parent = mainFrame
 titleLabel.Text = "Nexor"
@@ -99,173 +104,6 @@ titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 titleLabel.Font = Enum.Font.GothamBlack
 titleLabel.TextSize = 38
 titleLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-local toggleLabel = Instance.new("TextLabel")
-toggleLabel.Parent = mainFrame
-toggleLabel.Text = "GUI Toggle: Right-Shift"
-toggleLabel.Size = UDim2.new(0, 300, 0, 40)
-toggleLabel.Position = UDim2.new(1, -320, 0, 20)
-toggleLabel.BackgroundTransparency = 1
-toggleLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
-toggleLabel.Font = Enum.Font.GothamSemibold
-toggleLabel.TextSize = 20
-toggleLabel.TextXAlignment = Enum.TextXAlignment.Right
-
--- Content Frame
-local contentFrame = Instance.new("Frame")
-contentFrame.Parent = mainFrame
-contentFrame.Size = UDim2.new(0.65, -30, 0.75, -20)
-contentFrame.Position = UDim2.new(0, 20, 0, 80)
-contentFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-Instance.new("UICorner", contentFrame).CornerRadius = UDim.new(0, 12)
-
-local contentLabel = Instance.new("TextLabel")
-contentLabel.Parent = contentFrame
-contentLabel.Size = UDim2.new(1, -20, 1, -20)
-contentLabel.Position = UDim2.new(0, 10, 0, 10)
-contentLabel.BackgroundTransparency = 1
-contentLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-contentLabel.Font = Enum.Font.GothamSemibold
-contentLabel.TextSize = 22
-contentLabel.TextWrapped = true
-contentLabel.TextXAlignment = Enum.TextXAlignment.Left
-contentLabel.TextYAlignment = Enum.TextYAlignment.Top
-contentLabel.Text = "-- Nexor Release GUI 1.11.2025.\n-- Adding Misc Soon!\nAdding Key System: 10.11.2025"
-
--- Scroll Frame
-local scrollFrame = Instance.new("ScrollingFrame")
-scrollFrame.Parent = contentFrame
-scrollFrame.Size = UDim2.new(1, -10, 1, -10)
-scrollFrame.Position = UDim2.new(0, 5, 0, 5)
-scrollFrame.BackgroundTransparency = 1
-scrollFrame.ScrollBarThickness = 6
-scrollFrame.Visible = false
-
-local listLayout = Instance.new("UIListLayout", scrollFrame)
-listLayout.Padding = UDim.new(0, 10)
-listLayout.FillDirection = Enum.FillDirection.Vertical
-listLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-listLayout.VerticalAlignment = Enum.VerticalAlignment.Top
-
---// Notification System ohne Buttons
-local notifications = {}
-local function showLoadingNotification(scriptName)
-	local notification = Instance.new("Frame")
-	notification.Size = UDim2.new(0, 300, 0, 70)
-	notification.Position = UDim2.new(1, -310, 1, -90 - (#notifications * 80))
-	notification.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-	notification.BorderSizePixel = 0
-	notification.Parent = screenGui
-	Instance.new("UICorner", notification).CornerRadius = UDim.new(0, 12)
-	table.insert(notifications, notification)
-
-	local title = Instance.new("TextLabel")
-	title.Parent = notification
-	title.Size = UDim2.new(1, -20, 0, 30)
-	title.Position = UDim2.new(0, 10, 0, 5)
-	title.BackgroundTransparency = 1
-	title.Text = scriptName.." is Loading!"
-	title.TextColor3 = Color3.fromRGB(255, 255, 255)
-	title.Font = Enum.Font.GothamBold
-	title.TextSize = 18
-	title.TextXAlignment = Enum.TextXAlignment.Left
-
-	local progressBg = Instance.new("Frame")
-	progressBg.Parent = notification
-	progressBg.Size = UDim2.new(1, -20, 0, 20)
-	progressBg.Position = UDim2.new(0, 10, 0, 40)
-	progressBg.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-	Instance.new("UICorner", progressBg).CornerRadius = UDim.new(0, 8)
-
-	local progress = Instance.new("Frame")
-	progress.Parent = progressBg
-	progress.Size = UDim2.new(0, 0, 1, 0)
-	progress.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
-	Instance.new("UICorner", progress).CornerRadius = UDim.new(0, 8)
-
-	-- Animate progressbar über 5 Sekunden
-	spawn(function()
-		for i = 0, 1, 0.02 do
-			progress.Size = UDim2.new(i,0,1,0)
-			task.wait(0.1)
-		end
-		-- Entfernen der Notification nach 5 Sekunden
-		notification:Destroy()
-		for i, notif in pairs(notifications) do
-			if notif == notification then
-				table.remove(notifications,i)
-			end
-		end
-		-- Re-stack remaining notifications
-		for i, notif in pairs(notifications) do
-			notif.Position = UDim2.new(1, -310, 1, -90 - ((i-1) * 80))
-		end
-	end)
-end
-
-
---// Content Rows
-local function createContentRow(data)
-	local row = Instance.new("Frame")
-	row.Parent = scrollFrame
-	row.Size = UDim2.new(0.95, 0, 0, 50)
-	row.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-	Instance.new("UICorner", row).CornerRadius = UDim.new(0, 8)
-
-	local nameLabel = Instance.new("TextLabel")
-	nameLabel.Parent = row
-	nameLabel.Size = UDim2.new(0, 200, 1, 0)
-	nameLabel.Position = UDim2.new(0, 10, 0, 0)
-	nameLabel.BackgroundTransparency = 1
-	nameLabel.Text = data.Name
-	nameLabel.Font = Enum.Font.GothamBold
-	nameLabel.TextSize = 20
-	nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-	nameLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-	local runStatus = Instance.new("TextLabel")
-	runStatus.Parent = row
-	runStatus.Size = UDim2.new(0, 120, 1, 0)
-	runStatus.Position = UDim2.new(1, -220, 0, 0)
-	runStatus.BackgroundTransparency = 1
-	runStatus.Font = Enum.Font.GothamBold
-	runStatus.TextSize = 18
-	runStatus.TextColor3 = Color3.fromRGB(255, 255, 255)
-	runStatus.Text = ""
-
-	local runButton = Instance.new("TextButton")
-	runButton.Parent = row
-	runButton.Size = UDim2.new(0, 80, 0, 35)
-	runButton.Position = UDim2.new(1, -90, 0.5, -17)
-	runButton.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
-	runButton.Text = "RUN"
-	runButton.Font = Enum.Font.GothamBlack
-	runButton.TextSize = 18
-	runButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Instance.new("UICorner", runButton).CornerRadius = UDim.new(0, 6)
-
-	runButton.MouseButton1Click:Connect(function()
-		runStatus.Text = "Loading..."
-		runStatus.TextColor3 = Color3.fromRGB(255, 255, 0)
-		showLoadingNotification(data.Name)
-		task.spawn(function()
-			local success, err = pcall(data.Run)
-			if success then
-				runStatus.Text = "Done!"
-				runStatus.TextColor3 = Color3.fromRGB(0, 255, 0)
-			else
-				runStatus.Text = "Error!"
-				runStatus.TextColor3 = Color3.fromRGB(255, 0, 0)
-				warn(err)
-			end
-		end)
-	end)
-end
-
-for i = 1, #Config do
-	createContentRow(Config[i])
-end
-scrollFrame.CanvasSize = UDim2.new(0, 0, 0, listLayout.AbsoluteContentSize.Y)
 
 --// Side Buttons
 local buttonFrame = Instance.new("Frame")
@@ -298,23 +136,224 @@ end
 local homeButton = createButton("Home")
 local contentButton = createButton("Content")
 local miscButton = createButton("Misc")
-local creditsButton = createButton("Credits") -- Neue Kategorie
+local creditsButton = createButton("Credits")
 
+-- Content Frame
+local contentFrame = Instance.new("Frame")
+contentFrame.Parent = mainFrame
+contentFrame.Size = UDim2.new(0.65, -30, 0.75, -20)
+contentFrame.Position = UDim2.new(0, 20, 0, 80)
+contentFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Instance.new("UICorner", contentFrame).CornerRadius = UDim.new(0, 12)
+
+local contentLabel = Instance.new("TextLabel")
+contentLabel.Parent = contentFrame
+contentLabel.Size = UDim2.new(1, -20, 1, -20)
+contentLabel.Position = UDim2.new(0, 10, 0, 10)
+contentLabel.BackgroundTransparency = 1
+contentLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+contentLabel.Font = Enum.Font.GothamSemibold
+contentLabel.TextSize = 22
+contentLabel.TextWrapped = true
+contentLabel.TextXAlignment = Enum.TextXAlignment.Left
+contentLabel.TextYAlignment = Enum.TextYAlignment.Top
+contentLabel.Text = "-- Nexor Release GUI 1.11.2025.\n-- Adding Misc Soon!\nAdding Key System: 10.11.2025"
+
+-- Scroll Frame für Scripts
+local scrollFrame = Instance.new("ScrollingFrame")
+scrollFrame.Parent = contentFrame
+scrollFrame.Size = UDim2.new(1, -10, 1, -60)
+scrollFrame.Position = UDim2.new(0, 5, 0, 55)
+scrollFrame.BackgroundTransparency = 1
+scrollFrame.ScrollBarThickness = 6
+scrollFrame.Visible = false
+
+local listLayout = Instance.new("UIListLayout", scrollFrame)
+listLayout.Padding = UDim.new(0, 10)
+listLayout.FillDirection = Enum.FillDirection.Vertical
+listLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+listLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+
+-- Search Box
+local searchBox = Instance.new("TextBox")
+searchBox.Parent = contentFrame
+searchBox.Size = UDim2.new(1, -20, 0, 40)
+searchBox.Position = UDim2.new(0, 10, 0, 10)
+searchBox.PlaceholderText = "Search scripts..."
+searchBox.BackgroundColor3 = Color3.fromRGB(40,40,40)
+searchBox.TextColor3 = Color3.fromRGB(255,255,255)
+searchBox.Font = Enum.Font.GothamSemibold
+searchBox.TextSize = 20
+Instance.new("UICorner", searchBox).CornerRadius = UDim.new(0,8)
+searchBox.Visible = false
+
+-- Overlay Frame beim RUN
+local function showScriptOverlay(scriptData)
+	local overlay = Instance.new("Frame")
+	overlay.Size = mainFrame.Size
+	overlay.Position = mainFrame.Position
+	overlay.BackgroundColor3 = Color3.fromRGB(20,20,20)
+	overlay.BorderSizePixel = 0
+	overlay.Parent = screenGui
+	Instance.new("UICorner", overlay).CornerRadius = UDim.new(0,12)
+
+	local nameLabel = Instance.new("TextLabel")
+	nameLabel.Parent = overlay
+	nameLabel.Size = UDim2.new(0.7,0,0,40)
+	nameLabel.Position = UDim2.new(0,10,0,10)
+	nameLabel.BackgroundTransparency = 1
+	nameLabel.Text = scriptData.Name
+	nameLabel.TextColor3 = Color3.fromRGB(255,255,255)
+	nameLabel.Font = Enum.Font.GothamBold
+	nameLabel.TextSize = 22
+	nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+	local backButton = Instance.new("TextButton")
+	backButton.Parent = overlay
+	backButton.Size = UDim2.new(0,80,0,35)
+	backButton.Position = UDim2.new(1,-90,0,10)
+	backButton.Text = "Back"
+	backButton.Font = Enum.Font.GothamBold
+	backButton.TextSize = 18
+	backButton.TextColor3 = Color3.fromRGB(255,255,255)
+	backButton.BackgroundColor3 = Color3.fromRGB(200,0,0)
+	Instance.new("UICorner", backButton).CornerRadius = UDim.new(0,6)
+	backButton.MouseButton1Click:Connect(function()
+		overlay:Destroy()
+	end)
+
+	local image = Instance.new("ImageLabel")
+	image.Parent = overlay
+	image.Size = UDim2.new(0.3,0,0.5,0)
+	image.Position = UDim2.new(0,10,0,60)
+	image.BackgroundTransparency = 1
+	image.Image = "" -- Platzhalter
+
+	local descLabel = Instance.new("TextLabel")
+	descLabel.Parent = overlay
+	descLabel.Size = UDim2.new(0.65, -20,0.5,0)
+	descLabel.Position = UDim2.new(0.35,10,0,60)
+	descLabel.BackgroundTransparency = 1
+	descLabel.Text = scriptData.Description or "No description available"
+	descLabel.TextColor3 = Color3.fromRGB(255,255,255)
+	descLabel.TextWrapped = true
+	descLabel.Font = Enum.Font.GothamSemibold
+	descLabel.TextSize = 18
+	descLabel.TextXAlignment = Enum.TextXAlignment.Left
+	descLabel.TextYAlignment = Enum.TextYAlignment.Top
+
+	local runButton = Instance.new("TextButton")
+	runButton.Parent = overlay
+	runButton.Size = UDim2.new(0,120,0,40)
+	runButton.Position = UDim2.new(0.5,-60,1,-50)
+	runButton.Text = "RUN"
+	runButton.Font = Enum.Font.GothamBold
+	runButton.TextSize = 20
+	runButton.TextColor3 = Color3.fromRGB(255,255,255)
+	runButton.BackgroundColor3 = Color3.fromRGB(0,200,0)
+	Instance.new("UICorner", runButton).CornerRadius = UDim.new(0,6)
+	runButton.MouseButton1Click:Connect(function()
+		local success, err = pcall(scriptData.Run)
+		if not success then warn(err) end
+	end)
+end
+
+-- Content Rows erstellen
+local function updateContentList()
+	for _, child in pairs(scrollFrame:GetChildren()) do
+		if child:IsA("Frame") then child:Destroy() end
+	end
+	filteredScripts = {}
+	for i,v in ipairs(Config) do
+		if not searchBox.Visible or searchBox.Text == "" or string.find(string.lower(v.Name), string.lower(searchBox.Text)) then
+			table.insert(filteredScripts, v)
+		end
+	end
+	-- Favorites oben
+	table.sort(filteredScripts,function(a,b)
+		local aFav = favorites[a.Name] and 1 or 0
+		local bFav = favorites[b.Name] and 1 or 0
+		return aFav > bFav
+	end)
+
+	for i,v in ipairs(filteredScripts) do
+		local row = Instance.new("Frame")
+		row.Parent = scrollFrame
+		row.Size = UDim2.new(0.95,0,0,50)
+		row.BackgroundColor3 = Color3.fromRGB(45,45,45)
+		Instance.new("UICorner", row).CornerRadius = UDim.new(0,8)
+
+		local nameLabel = Instance.new("TextLabel")
+		nameLabel.Parent = row
+		nameLabel.Size = UDim2.new(0,200,1,0)
+		nameLabel.Position = UDim2.new(0,10,0,0)
+		nameLabel.BackgroundTransparency = 1
+		nameLabel.Text = v.Name
+		nameLabel.Font = Enum.Font.GothamBold
+		nameLabel.TextSize = 20
+		nameLabel.TextColor3 = Color3.fromRGB(255,255,255)
+		nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+		local runButton = Instance.new("TextButton")
+		runButton.Parent = row
+		runButton.Size = UDim2.new(0,80,0,35)
+		runButton.Position = UDim2.new(1,-90,0.5,-17)
+		runButton.BackgroundColor3 = Color3.fromRGB(0,200,0)
+		runButton.Text = "RUN"
+		runButton.Font = Enum.Font.GothamBlack
+		runButton.TextSize = 18
+		runButton.TextColor3 = Color3.fromRGB(255,255,255)
+		Instance.new("UICorner", runButton).CornerRadius = UDim.new(0,6)
+		runButton.MouseButton1Click:Connect(function()
+			showScriptOverlay(v)
+		end)
+
+		local favButton = Instance.new("TextButton")
+		favButton.Parent = row
+		favButton.Size = UDim2.new(0,50,0,35)
+		favButton.Position = UDim2.new(1,-180,0.5,-17)
+		favButton.Text = favorites[v.Name] and "★" or "☆"
+		favButton.Font = Enum.Font.GothamBlack
+		favButton.TextSize = 18
+		favButton.TextColor3 = Color3.fromRGB(255,255,0)
+		favButton.BackgroundColor3 = Color3.fromRGB(60,60,60)
+		Instance.new("UICorner", favButton).CornerRadius = UDim.new(0,6)
+		favButton.MouseButton1Click:Connect(function()
+			if favorites[v.Name] then
+				favorites[v.Name] = nil
+			else
+				favorites[v.Name] = true
+			end
+			updateContentList()
+		end)
+	end
+	scrollFrame.CanvasSize = UDim2.new(0,0,0,listLayout.AbsoluteContentSize.Y)
+end
+
+updateContentList()
+
+searchBox:GetPropertyChangedSignal("Text"):Connect(updateContentList)
+
+-- Buttons Aktionen
 homeButton.MouseButton1Click:Connect(function()
 	contentLabel.Text = "-- Nexor Release GUI 1.11.2025.\n-- Adding Misc Soon!\nAdding Key System: 10.11.2025"
 	contentLabel.Visible = true
 	scrollFrame.Visible = false
+	searchBox.Visible = false
 end)
 
 contentButton.MouseButton1Click:Connect(function()
 	contentLabel.Visible = false
 	scrollFrame.Visible = true
+	searchBox.Visible = true
+	updateContentList()
 end)
 
 miscButton.MouseButton1Click:Connect(function()
 	contentLabel.Text = "-- Misc Coming Soon!\n-- GUI Config & more"
 	contentLabel.Visible = true
 	scrollFrame.Visible = false
+	searchBox.Visible = false
 end)
 
 creditsButton.MouseButton1Click:Connect(function()
@@ -326,11 +365,12 @@ creditsButton.MouseButton1Click:Connect(function()
 		"Website : https://nexor-as.netlify.app/ \n"
 	contentLabel.Visible = true
 	scrollFrame.Visible = false
+	searchBox.Visible = false
 end)
 
---// Toggle GUI
+-- Toggle GUI
 local UserInputService = game:GetService("UserInputService")
-UserInputService.InputBegan:Connect(function(input, gpe)
+UserInputService.InputBegan:Connect(function(input,gpe)
 	if gpe then return end
 	if input.KeyCode == Enum.KeyCode.RightShift then
 		mainFrame.Visible = not mainFrame.Visible
