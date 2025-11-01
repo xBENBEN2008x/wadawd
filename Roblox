@@ -166,7 +166,7 @@ scrollFrame.Size = UDim2.new(1, -10, 1, -60)
 scrollFrame.Position = UDim2.new(0, 5, 0, 55)
 scrollFrame.BackgroundTransparency = 1
 scrollFrame.ScrollBarThickness = 6
-scrollFrame.Visible = false
+scrollFrame.Visible = true -- direkt sichtbar
 
 local listLayout = Instance.new("UIListLayout", scrollFrame)
 listLayout.Padding = UDim.new(0, 10)
@@ -185,78 +185,7 @@ searchBox.TextColor3 = Color3.fromRGB(255,255,255)
 searchBox.Font = Enum.Font.GothamSemibold
 searchBox.TextSize = 20
 Instance.new("UICorner", searchBox).CornerRadius = UDim.new(0,8)
-searchBox.Visible = false
-
--- Overlay Frame beim RUN
-local function showScriptOverlay(scriptData)
-	local overlay = Instance.new("Frame")
-	overlay.Size = mainFrame.Size
-	overlay.Position = mainFrame.Position
-	overlay.BackgroundColor3 = Color3.fromRGB(20,20,20)
-	overlay.BorderSizePixel = 0
-	overlay.Parent = screenGui
-	Instance.new("UICorner", overlay).CornerRadius = UDim.new(0,12)
-
-	local nameLabel = Instance.new("TextLabel")
-	nameLabel.Parent = overlay
-	nameLabel.Size = UDim2.new(0.7,0,0,40)
-	nameLabel.Position = UDim2.new(0,10,0,10)
-	nameLabel.BackgroundTransparency = 1
-	nameLabel.Text = scriptData.Name
-	nameLabel.TextColor3 = Color3.fromRGB(255,255,255)
-	nameLabel.Font = Enum.Font.GothamBold
-	nameLabel.TextSize = 22
-	nameLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-	local backButton = Instance.new("TextButton")
-	backButton.Parent = overlay
-	backButton.Size = UDim2.new(0,80,0,35)
-	backButton.Position = UDim2.new(1,-90,0,10)
-	backButton.Text = "Back"
-	backButton.Font = Enum.Font.GothamBold
-	backButton.TextSize = 18
-	backButton.TextColor3 = Color3.fromRGB(255,255,255)
-	backButton.BackgroundColor3 = Color3.fromRGB(200,0,0)
-	Instance.new("UICorner", backButton).CornerRadius = UDim.new(0,6)
-	backButton.MouseButton1Click:Connect(function()
-		overlay:Destroy()
-	end)
-
-	local image = Instance.new("ImageLabel")
-	image.Parent = overlay
-	image.Size = UDim2.new(0.3,0,0.5,0)
-	image.Position = UDim2.new(0,10,0,60)
-	image.BackgroundTransparency = 1
-	image.Image = "" -- Platzhalter
-
-	local descLabel = Instance.new("TextLabel")
-	descLabel.Parent = overlay
-	descLabel.Size = UDim2.new(0.65, -20,0.5,0)
-	descLabel.Position = UDim2.new(0.35,10,0,60)
-	descLabel.BackgroundTransparency = 1
-	descLabel.Text = scriptData.Description or "No description available"
-	descLabel.TextColor3 = Color3.fromRGB(255,255,255)
-	descLabel.TextWrapped = true
-	descLabel.Font = Enum.Font.GothamSemibold
-	descLabel.TextSize = 18
-	descLabel.TextXAlignment = Enum.TextXAlignment.Left
-	descLabel.TextYAlignment = Enum.TextYAlignment.Top
-
-	local runButton = Instance.new("TextButton")
-	runButton.Parent = overlay
-	runButton.Size = UDim2.new(0,120,0,40)
-	runButton.Position = UDim2.new(0.5,-60,1,-50)
-	runButton.Text = "RUN"
-	runButton.Font = Enum.Font.GothamBold
-	runButton.TextSize = 20
-	runButton.TextColor3 = Color3.fromRGB(255,255,255)
-	runButton.BackgroundColor3 = Color3.fromRGB(0,200,0)
-	Instance.new("UICorner", runButton).CornerRadius = UDim.new(0,6)
-	runButton.MouseButton1Click:Connect(function()
-		local success, err = pcall(scriptData.Run)
-		if not success then warn(err) end
-	end)
-end
+searchBox.Visible = true -- direkt sichtbar
 
 -- Content Rows erstellen
 local function updateContentList()
@@ -265,7 +194,7 @@ local function updateContentList()
 	end
 	filteredScripts = {}
 	for i,v in ipairs(Config) do
-		if not searchBox.Visible or searchBox.Text == "" or string.find(string.lower(v.Name), string.lower(searchBox.Text)) then
+		if searchBox.Text == "" or string.find(string.lower(v.Name), string.lower(searchBox.Text)) then
 			table.insert(filteredScripts, v)
 		end
 	end
@@ -280,7 +209,7 @@ local function updateContentList()
 		local row = Instance.new("Frame")
 		row.Parent = scrollFrame
 		row.Size = UDim2.new(0.95,0,0,50)
-		row.BackgroundColor3 = Color3.fromRGB(45,45,45)
+		row.BackgroundColor3 = favorites[v.Name] and Color3.fromRGB(255, 215, 0) or Color3.fromRGB(45,45,45)
 		Instance.new("UICorner", row).CornerRadius = UDim.new(0,8)
 
 		local nameLabel = Instance.new("TextLabel")
@@ -305,7 +234,8 @@ local function updateContentList()
 		runButton.TextColor3 = Color3.fromRGB(255,255,255)
 		Instance.new("UICorner", runButton).CornerRadius = UDim.new(0,6)
 		runButton.MouseButton1Click:Connect(function()
-			showScriptOverlay(v)
+			local success, err = pcall(v.Run)
+			if not success then warn(err) end
 		end)
 
 		local favButton = Instance.new("TextButton")
@@ -324,15 +254,19 @@ local function updateContentList()
 			else
 				favorites[v.Name] = true
 			end
-			updateContentList()
+			updateContentList() -- refresh row Farbe + Stern
 		end)
 	end
 	scrollFrame.CanvasSize = UDim2.new(0,0,0,listLayout.AbsoluteContentSize.Y)
 end
 
 updateContentList()
-
 searchBox:GetPropertyChangedSignal("Text"):Connect(updateContentList)
+
+-- Startzustand
+contentLabel.Visible = true -- Home Text sichtbar
+scrollFrame.Visible = false -- Scripts versteckt
+searchBox.Visible = false   -- Suche versteckt
 
 -- Buttons Aktionen
 homeButton.MouseButton1Click:Connect(function()
@@ -367,6 +301,7 @@ creditsButton.MouseButton1Click:Connect(function()
 	scrollFrame.Visible = false
 	searchBox.Visible = false
 end)
+
 
 -- Toggle GUI
 local UserInputService = game:GetService("UserInputService")
