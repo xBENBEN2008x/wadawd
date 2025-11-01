@@ -71,18 +71,6 @@ local Config = {
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 		end
 	},
-	[12] = { 
-		Name = "Plants Vs Brainrots", 
-		Run = function()
-			loadstring(game:HttpGet('https://pastefy.app/Vn9St10L/raw', true))()
-		end
-	},
-	[13] = { 
-		Name = "My Pet Rock", 
-		Run = function()
-			loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-Size-Rock-Cat-Puppy-Snowball-ETC-24882'))()
-		end
-	},
 }
 
 --// GUI Setup
@@ -123,6 +111,7 @@ toggleLabel.Font = Enum.Font.GothamSemibold
 toggleLabel.TextSize = 20
 toggleLabel.TextXAlignment = Enum.TextXAlignment.Right
 
+-- Content Frame
 local contentFrame = Instance.new("Frame")
 contentFrame.Parent = mainFrame
 contentFrame.Size = UDim2.new(0.65, -30, 0.75, -20)
@@ -143,6 +132,7 @@ contentLabel.TextXAlignment = Enum.TextXAlignment.Left
 contentLabel.TextYAlignment = Enum.TextYAlignment.Top
 contentLabel.Text = "-- Nexor Release GUI 1.11.2025.\n-- Adding Misc Soon!\nAdding Key System: 10.11.2025"
 
+-- Scroll Frame
 local scrollFrame = Instance.new("ScrollingFrame")
 scrollFrame.Parent = contentFrame
 scrollFrame.Size = UDim2.new(1, -10, 1, -10)
@@ -156,6 +146,63 @@ listLayout.Padding = UDim.new(0, 10)
 listLayout.FillDirection = Enum.FillDirection.Vertical
 listLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 listLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+
+--// Notification System ohne Buttons
+local notifications = {}
+local function showLoadingNotification(scriptName)
+	local notification = Instance.new("Frame")
+	notification.Size = UDim2.new(0, 300, 0, 70)
+	notification.Position = UDim2.new(1, -310, 1, -90 - (#notifications * 80))
+	notification.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+	notification.BorderSizePixel = 0
+	notification.Parent = screenGui
+	Instance.new("UICorner", notification).CornerRadius = UDim.new(0, 12)
+	table.insert(notifications, notification)
+
+	local title = Instance.new("TextLabel")
+	title.Parent = notification
+	title.Size = UDim2.new(1, -20, 0, 30)
+	title.Position = UDim2.new(0, 10, 0, 5)
+	title.BackgroundTransparency = 1
+	title.Text = scriptName.." is Loading!"
+	title.TextColor3 = Color3.fromRGB(255, 255, 255)
+	title.Font = Enum.Font.GothamBold
+	title.TextSize = 18
+	title.TextXAlignment = Enum.TextXAlignment.Left
+
+	local progressBg = Instance.new("Frame")
+	progressBg.Parent = notification
+	progressBg.Size = UDim2.new(1, -20, 0, 20)
+	progressBg.Position = UDim2.new(0, 10, 0, 40)
+	progressBg.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+	Instance.new("UICorner", progressBg).CornerRadius = UDim.new(0, 8)
+
+	local progress = Instance.new("Frame")
+	progress.Parent = progressBg
+	progress.Size = UDim2.new(0, 0, 1, 0)
+	progress.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
+	Instance.new("UICorner", progress).CornerRadius = UDim.new(0, 8)
+
+	-- Animate progressbar über 5 Sekunden
+	spawn(function()
+		for i = 0, 1, 0.02 do
+			progress.Size = UDim2.new(i,0,1,0)
+			task.wait(0.1)
+		end
+		-- Entfernen der Notification nach 5 Sekunden
+		notification:Destroy()
+		for i, notif in pairs(notifications) do
+			if notif == notification then
+				table.remove(notifications,i)
+			end
+		end
+		-- Re-stack remaining notifications
+		for i, notif in pairs(notifications) do
+			notif.Position = UDim2.new(1, -310, 1, -90 - ((i-1) * 80))
+		end
+	end)
+end
+
 
 --// Content Rows
 local function createContentRow(data)
@@ -200,6 +247,7 @@ local function createContentRow(data)
 	runButton.MouseButton1Click:Connect(function()
 		runStatus.Text = "Loading..."
 		runStatus.TextColor3 = Color3.fromRGB(255, 255, 0)
+		showLoadingNotification(data.Name)
 		task.spawn(function()
 			local success, err = pcall(data.Run)
 			if success then
@@ -252,7 +300,6 @@ local contentButton = createButton("Content")
 local miscButton = createButton("Misc")
 local creditsButton = createButton("Credits") -- Neue Kategorie
 
---// Button Actions
 homeButton.MouseButton1Click:Connect(function()
 	contentLabel.Text = "-- Nexor Release GUI 1.11.2025.\n-- Adding Misc Soon!\nAdding Key System: 10.11.2025"
 	contentLabel.Visible = true
@@ -277,11 +324,9 @@ creditsButton.MouseButton1Click:Connect(function()
 		"Discord : https://discord.gg/BbRurkED \n" ..
 		"\n" ..
 		"Website : https://nexor-as.netlify.app/ \n"
-
 	contentLabel.Visible = true
 	scrollFrame.Visible = false
 end)
-
 
 --// Toggle GUI
 local UserInputService = game:GetService("UserInputService")
