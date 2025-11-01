@@ -1,0 +1,281 @@
+--// Nexor GUI Script
+--// by xBENBEN2008x
+
+local player = game.Players.LocalPlayer
+
+-- CONFIG
+local Config = {
+	[1] = { 
+		Name = "Notruf Hambrug", 
+		Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/ghost-749/nebula-free-hub/refs/heads/main/nebula.lua'))()
+		end
+	},
+	[2] = { 
+		Name = "THA BRONX 3", 
+		Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/voidrzn/Axion-/refs/heads/main/Tha%20bronx%203',true))()
+		end
+	},
+	[3] = { 
+		Name = "99 Night in the Forest", 
+		Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/inkgame.lua", true))()
+		end
+	},
+	[4] = { 
+		Name = "Murder Mystery 2", 
+		Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/Ihaveash0rtnamefordiscord/Releases/main/MurderMystery2HighlightESP'))(' Watermelon ?')
+		end
+	},
+	[5] = { 
+		Name = "Cut trees simulator", 
+		Run = function()
+			loadstring(game:HttpGet("https://pastebin.com/raw/Rh3nPMpF"))()
+		end
+	},
+	[6] = { 
+		Name = "Brookhaven 🏡 RP", 
+		Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/TheDarkoneMarcillisePex/Other-Scripts/main/Brook%20Haven%20Gui'))()
+		end
+	},
+	[7] = { 
+		Name = "Slap Battles", 
+		Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
+		end
+	},
+	[8] = { 
+		Name = "Counter Blox", 
+		Run = function()
+			loadstring(game:HttpGet("https://pastebin.com/raw/bPUYMYis"))()
+		end
+	},
+	[9] = { 
+		Name = "Universal ESP", 
+		Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/RostarG/Universal-ESP/refs/heads/main/univESP.lua'))()
+		end
+	},
+	[10] = { 
+		Name = "Vc Unban", 
+		Run = function()
+			loadstring(game:HttpGet('https://pastebin.com/raw/GG5i3uRG'))()
+		end
+	},
+	[11] = { 
+		Name = "Infinite Yield (cmds)", 
+		Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+		end
+	},
+}
+
+--// GUI Setup
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "NexorGui"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+local mainFrame = Instance.new("Frame")
+mainFrame.Parent = screenGui
+mainFrame.Size = UDim2.new(0, 650, 0, 400)
+mainFrame.Position = UDim2.new(0.5, -325, 0.5, -200)
+mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+mainFrame.BorderSizePixel = 0
+mainFrame.Active = true
+mainFrame.Draggable = true
+Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0, 16)
+
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Parent = mainFrame
+titleLabel.Text = "Nexor"
+titleLabel.Size = UDim2.new(0, 250, 0, 50)
+titleLabel.Position = UDim2.new(0, 20, 0, 10)
+titleLabel.BackgroundTransparency = 1
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.Font = Enum.Font.GothamBlack
+titleLabel.TextSize = 38
+titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+local toggleLabel = Instance.new("TextLabel")
+toggleLabel.Parent = mainFrame
+toggleLabel.Text = "GUI Toggle: Right-Shift"
+toggleLabel.Size = UDim2.new(0, 300, 0, 40)
+toggleLabel.Position = UDim2.new(1, -320, 0, 20)
+toggleLabel.BackgroundTransparency = 1
+toggleLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+toggleLabel.Font = Enum.Font.GothamSemibold
+toggleLabel.TextSize = 20
+toggleLabel.TextXAlignment = Enum.TextXAlignment.Right
+
+local contentFrame = Instance.new("Frame")
+contentFrame.Parent = mainFrame
+contentFrame.Size = UDim2.new(0.65, -30, 0.75, -20)
+contentFrame.Position = UDim2.new(0, 20, 0, 80)
+contentFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Instance.new("UICorner", contentFrame).CornerRadius = UDim.new(0, 12)
+
+local contentLabel = Instance.new("TextLabel")
+contentLabel.Parent = contentFrame
+contentLabel.Size = UDim2.new(1, -20, 1, -20)
+contentLabel.Position = UDim2.new(0, 10, 0, 10)
+contentLabel.BackgroundTransparency = 1
+contentLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+contentLabel.Font = Enum.Font.GothamSemibold
+contentLabel.TextSize = 22
+contentLabel.TextWrapped = true
+contentLabel.TextXAlignment = Enum.TextXAlignment.Left
+contentLabel.TextYAlignment = Enum.TextYAlignment.Top
+contentLabel.Text = "-- Nexor Release GUI 1.11.2025.\n-- Adding Misc Soon!\nAdding Key System: 10.11.2025"
+
+local scrollFrame = Instance.new("ScrollingFrame")
+scrollFrame.Parent = contentFrame
+scrollFrame.Size = UDim2.new(1, -10, 1, -10)
+scrollFrame.Position = UDim2.new(0, 5, 0, 5)
+scrollFrame.BackgroundTransparency = 1
+scrollFrame.ScrollBarThickness = 6
+scrollFrame.Visible = false
+
+local listLayout = Instance.new("UIListLayout", scrollFrame)
+listLayout.Padding = UDim.new(0, 10)
+listLayout.FillDirection = Enum.FillDirection.Vertical
+listLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+listLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+
+--// Content Rows
+local function createContentRow(data)
+	local row = Instance.new("Frame")
+	row.Parent = scrollFrame
+	row.Size = UDim2.new(0.95, 0, 0, 50)
+	row.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+	Instance.new("UICorner", row).CornerRadius = UDim.new(0, 8)
+
+	local nameLabel = Instance.new("TextLabel")
+	nameLabel.Parent = row
+	nameLabel.Size = UDim2.new(0, 200, 1, 0)
+	nameLabel.Position = UDim2.new(0, 10, 0, 0)
+	nameLabel.BackgroundTransparency = 1
+	nameLabel.Text = data.Name
+	nameLabel.Font = Enum.Font.GothamBold
+	nameLabel.TextSize = 20
+	nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+	local runStatus = Instance.new("TextLabel")
+	runStatus.Parent = row
+	runStatus.Size = UDim2.new(0, 120, 1, 0)
+	runStatus.Position = UDim2.new(1, -220, 0, 0)
+	runStatus.BackgroundTransparency = 1
+	runStatus.Font = Enum.Font.GothamBold
+	runStatus.TextSize = 18
+	runStatus.TextColor3 = Color3.fromRGB(255, 255, 255)
+	runStatus.Text = ""
+
+	local runButton = Instance.new("TextButton")
+	runButton.Parent = row
+	runButton.Size = UDim2.new(0, 80, 0, 35)
+	runButton.Position = UDim2.new(1, -90, 0.5, -17)
+	runButton.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
+	runButton.Text = "RUN"
+	runButton.Font = Enum.Font.GothamBlack
+	runButton.TextSize = 18
+	runButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Instance.new("UICorner", runButton).CornerRadius = UDim.new(0, 6)
+
+	runButton.MouseButton1Click:Connect(function()
+		runStatus.Text = "Loading..."
+		runStatus.TextColor3 = Color3.fromRGB(255, 255, 0)
+		task.spawn(function()
+			local success, err = pcall(data.Run)
+			if success then
+				runStatus.Text = "Done!"
+				runStatus.TextColor3 = Color3.fromRGB(0, 255, 0)
+			else
+				runStatus.Text = "Error!"
+				runStatus.TextColor3 = Color3.fromRGB(255, 0, 0)
+				warn(err)
+			end
+		end)
+	end)
+end
+
+for i = 1, #Config do
+	createContentRow(Config[i])
+end
+scrollFrame.CanvasSize = UDim2.new(0, 0, 0, listLayout.AbsoluteContentSize.Y)
+
+--// Side Buttons
+local buttonFrame = Instance.new("Frame")
+buttonFrame.Parent = mainFrame
+buttonFrame.Size = UDim2.new(0.3, -40, 0.75, -20)
+buttonFrame.Position = UDim2.new(0.7, 20, 0, 80)
+buttonFrame.BackgroundTransparency = 1
+
+local layout = Instance.new("UIListLayout", buttonFrame)
+layout.Padding = UDim.new(0, 15)
+layout.FillDirection = Enum.FillDirection.Vertical
+layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+layout.VerticalAlignment = Enum.VerticalAlignment.Top
+
+local function createButton(name)
+	local btn = Instance.new("TextButton")
+	btn.Parent = buttonFrame
+	btn.Size = UDim2.new(0.9, 0, 0, 50)
+	btn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+	btn.Text = name
+	btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+	btn.Font = Enum.Font.GothamBlack
+	btn.TextSize = 22
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 10)
+	btn.MouseEnter:Connect(function() btn.BackgroundColor3 = Color3.fromRGB(70, 70, 70) end)
+	btn.MouseLeave:Connect(function() btn.BackgroundColor3 = Color3.fromRGB(50, 50, 50) end)
+	return btn
+end
+
+local homeButton = createButton("Home")
+local contentButton = createButton("Content")
+local miscButton = createButton("Misc")
+local creditsButton = createButton("Credits") -- Neue Kategorie
+
+--// Button Actions
+homeButton.MouseButton1Click:Connect(function()
+	contentLabel.Text = "-- Nexor Release GUI 1.11.2025.\n-- Adding Misc Soon!\nAdding Key System: 10.11.2025"
+	contentLabel.Visible = true
+	scrollFrame.Visible = false
+end)
+
+contentButton.MouseButton1Click:Connect(function()
+	contentLabel.Visible = false
+	scrollFrame.Visible = true
+end)
+
+miscButton.MouseButton1Click:Connect(function()
+	contentLabel.Text = "-- Misc Coming Soon!\n-- GUI Config & more"
+	contentLabel.Visible = true
+	scrollFrame.Visible = false
+end)
+
+creditsButton.MouseButton1Click:Connect(function()
+	contentLabel.Text = 
+		"Made by : xBENBEN2008x \n" ..
+		"\n" ..
+		"Discord : https://discord.gg/BbRurkED \n" ..
+		"\n" ..
+		"Website : https://nexor-as.netlify.app/ \n"
+
+	contentLabel.Visible = true
+	scrollFrame.Visible = false
+end)
+
+
+--// Toggle GUI
+local UserInputService = game:GetService("UserInputService")
+UserInputService.InputBegan:Connect(function(input, gpe)
+	if gpe then return end
+	if input.KeyCode == Enum.KeyCode.RightShift then
+		mainFrame.Visible = not mainFrame.Visible
+	end
+end)
