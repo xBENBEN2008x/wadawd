@@ -158,6 +158,27 @@ local Config = {
 			loadstring(game:HttpGet("https://rawscripts.net/raw/Forsaken-Stamina-settings-for-forsaken-35367"))()
 		end
 	},
+	[21] = { 
+		Name = "BEST UNIVERSAL", 
+		Category = {"Universal", "universal"},
+		Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Chxnged/2/refs/heads/main/universalaimbotesp.lua"))()
+		end
+	},
+	[22] = { 
+		Name = "Piggy", 
+		Category = {"Survival", "survival"},
+		Run = function()
+			loadstring(game:HttpGet("https://rawscripts.net/raw/Piggy-open-source-15390"))()
+		end
+	},
+	[23] = { 
+		Name = "Weird Gun Game", 
+		Category = {"FPS", "fps"},
+		Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Scripybara/WeirdGunGame-SwiftbaraHub/refs/heads/main/loader.lua"))()
+		end
+	},
 }
 
 local favorites = {}
