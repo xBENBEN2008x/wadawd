@@ -211,7 +211,8 @@ contentLabel.TextYAlignment = Enum.TextYAlignment.Top
 contentLabel.RichText = true
 contentLabel.Text = 		
 	"-- Nexor Release GUI 1.11.2025.\n" ..
-	"-- Adding Misc Soon!\n\n" ..
+	"\n" ..
+	"-- Adding more on Misc Soon!\n\n" ..
 	"-- <font color='rgb(255,0,0)'>Adding Key System: 10.11.2025</font>\n\n" ..
 	"-- <font color='rgb(255,0,0)'>Scripts Dont Load?</font>\n--<font color='rgb(255,0,0)'> Click on Search !!!</font>\n\n" ..
 	"-- Added Kategorie!\n-- example search at Scripts FPS"
@@ -334,7 +335,8 @@ homeButton.MouseButton1Click:Connect(function()
 	if miscFrame then miscFrame:Destroy() end
 	contentLabel.Text = 		
 		"-- Nexor Release GUI 1.11.2025.\n" ..
-		"-- Adding Misc Soon!\n\n" ..
+		"\n" ..
+		"-- Adding more on Misc Soon!\n\n" ..
 		"-- <font color='rgb(255,0,0)'>Adding Key System: 10.11.2025</font>\n\n" ..
 		"-- <font color='rgb(255,0,0)'>Scripts Dont Load?</font>\n--<font color='rgb(255,0,0)'> Click on Search !!!</font>\n\n" ..
 		"-- Added Kategorie!\n-- example search at Scripts FPS"
