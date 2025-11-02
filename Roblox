@@ -71,6 +71,24 @@ local Config = {
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 		end
 	},
+	[12] = { 
+		Name = "My Pet Rock", 
+		Run = function()
+			loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-Size-Rock-Cat-Puppy-Snowball-ETC-24882'))()
+		end
+	},
+	[13] = { 
+		Name = "Restaurant Tycoon 3", 
+		Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/ago106/SpaceHub/refs/heads/main/loader.lua'))()
+		end
+	},
+	[14] = { 
+		Name = "Flex Your FPS And Ping", 
+		Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/zezor-scripts/hi/refs/heads/main/main.lua'))()
+		end
+	},
 }
 
 --// State
