@@ -1,15 +1,11 @@
--- LocalScript in StarterGui
-
 local player = game.Players.LocalPlayer
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 
--- ScreenGui
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "NexorKeyGUI"
 screenGui.Parent = player:WaitForChild("PlayerGui")
 
--- Hauptframe (zentriert)
 local mainFrame = Instance.new("Frame")
 mainFrame.Size = UDim2.new(0, 350, 0, 220)
 mainFrame.Position = UDim2.new(0.5,0,0.5,0)
@@ -22,31 +18,29 @@ local frameCorner = Instance.new("UICorner")
 frameCorner.CornerRadius = UDim.new(0,15)
 frameCorner.Parent = mainFrame
 
--- Drag Funktion
 local dragging = false
 local dragInput, mousePos, framePos
 local function updateInput(input)
-    local delta = input.Position - mousePos
-    mainFrame.Position = UDim2.new(0, framePos.X + delta.X, 0, framePos.Y + delta.Y)
+	local delta = input.Position - mousePos
+	mainFrame.Position = UDim2.new(0, framePos.X + delta.X, 0, framePos.Y + delta.Y)
 end
 mainFrame.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        dragging = true
-        mousePos = input.Position
-        framePos = mainFrame.Position
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then dragging = false end
-        end)
-    end
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = true
+		mousePos = input.Position
+		framePos = mainFrame.Position
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then dragging = false end
+		end)
+	end
 end)
 mainFrame.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement then dragInput = input end
+	if input.UserInputType == Enum.UserInputType.MouseMovement then dragInput = input end
 end)
 UserInputService.InputChanged:Connect(function(input)
-    if input == dragInput and dragging then updateInput(input) end
+	if input == dragInput and dragging then updateInput(input) end
 end)
 
--- Titel
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1,0,0,50)
 title.Position = UDim2.new(0,0,0,0)
@@ -57,7 +51,6 @@ title.Font = Enum.Font.SourceSansBold
 title.TextSize = 28
 title.Parent = mainFrame
 
--- Input Box
 local keyInput = Instance.new("TextBox")
 keyInput.Size = UDim2.new(0.8,0,0,40)
 keyInput.Position = UDim2.new(0.1,0,0,70)
@@ -77,82 +70,76 @@ inputStroke.Color = Color3.fromRGB(0,0,0)
 inputStroke.Thickness = 2
 inputStroke.Parent = keyInput
 
--- Buttons
 local function createButton(text,pos)
-    local button = Instance.new("TextButton")
-    button.Size = UDim2.new(0.4,0,0,45)
-    button.Position = pos
-    button.Text = text
-    button.BackgroundColor3 = Color3.fromRGB(50,200,50)
-    button.TextColor3 = Color3.fromRGB(255,255,255)
-    button.Font = Enum.Font.SourceSansBold
-    button.TextSize = 22
-    button.Parent = mainFrame
+	local button = Instance.new("TextButton")
+	button.Size = UDim2.new(0.4,0,0,45)
+	button.Position = pos
+	button.Text = text
+	button.BackgroundColor3 = Color3.fromRGB(50,200,50)
+	button.TextColor3 = Color3.fromRGB(255,255,255)
+	button.Font = Enum.Font.SourceSansBold
+	button.TextSize = 22
+	button.Parent = mainFrame
 
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0,12)
-    corner.Parent = button
-    return button
+	local corner = Instance.new("UICorner")
+	corner.CornerRadius = UDim.new(0,12)
+	corner.Parent = button
+	return button
 end
 
 local getKeyButton = createButton("Get Key",UDim2.new(0.05,0,0,130))
 local checkKeyButton = createButton("Check Key",UDim2.new(0.55,0,0,130))
 
--- Key
-local correctKey = "Release25"
+local correctKey = "Release25"                                                                                             -- KEY
 
--- Get Key Funktion → setzt Discord-Link in Box
 getKeyButton.MouseButton1Click:Connect(function()
-    keyInput.Text = "https://discord.gg/BbRurkED"
+	keyInput.Text = "https://discord.gg/BbRurkED"
 end)
 
--- Check Key Funktion → GUI schließt & Loadstring ausführen bei korrektem Key
 checkKeyButton.MouseButton1Click:Connect(function()
-    if keyInput.Text == correctKey then
-        print("Key korrekt! ✅")
-        screenGui:Destroy()
-        -- Loadstring ausführen
-        local success, err = pcall(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/xBENBEN2008x/wadawd/refs/heads/main/Roblox", true))()
-        end)
-        if not success then
-            warn("Fehler beim Ausführen des Scripts: "..err)
-        end
-    else
-        print("Key falsch! ❌")
-    end
+	if keyInput.Text == correctKey then
+		print("Key korrekt! ✅")
+		screenGui:Destroy()
+		-- Loadstring ausführen
+		local success, err = pcall(function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/xBENBEN2008x/wadawd/refs/heads/main/Roblox", true))()
+		end)
+		if not success then
+			warn("Fehler beim Ausführen des Scripts: "..err)
+		end
+	else
+		print("Key falsch! ❌")
+	end
 end)
 
--- Sterne im MainFrame
 local stars = {}
 for i=1,50 do
-    local star = Instance.new("Frame")
-    local size = math.random(2,5)
-    star.Size = UDim2.new(0,size,0,size)
-    star.Position = UDim2.new(math.random(),0,math.random(),0)
-    star.BackgroundColor3 = Color3.fromRGB(255,255,255)
-    star.BorderSizePixel = 0
-    star.AnchorPoint = Vector2.new(0.5,0.5)
-    star.BackgroundTransparency = math.random()*0.5
-    star.Parent = mainFrame
+	local star = Instance.new("Frame")
+	local size = math.random(2,5)
+	star.Size = UDim2.new(0,size,0,size)
+	star.Position = UDim2.new(math.random(),0,math.random(),0)
+	star.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	star.BorderSizePixel = 0
+	star.AnchorPoint = Vector2.new(0.5,0.5)
+	star.BackgroundTransparency = math.random()*0.5
+	star.Parent = mainFrame
 
-    local starCorner = Instance.new("UICorner")
-    starCorner.CornerRadius = UDim.new(0,size/2)
-    starCorner.Parent = star
+	local starCorner = Instance.new("UICorner")
+	starCorner.CornerRadius = UDim.new(0,size/2)
+	starCorner.Parent = star
 
-    table.insert(stars,star)
+	table.insert(stars,star)
 end
 
--- Sterne bewegen
 for _,star in pairs(stars) do
-    spawn(function()
-        while true do
-            local startX = star.Position.X.Scale
-            local endX = math.clamp(startX + (math.random(-15,15)/100),0,1)
-            local tweenInfo = TweenInfo.new(math.random(3,6),Enum.EasingStyle.Sine,Enum.EasingDirection.InOut)
-            local tween = TweenService:Create(star,tweenInfo,{Position=UDim2.new(endX,0,star.Position.Y.Scale,0)})
-            tween:Play()
-            tween.Completed:Wait()
-        end
-    end)
+	spawn(function()
+		while true do
+			local startX = star.Position.X.Scale
+			local endX = math.clamp(startX + (math.random(-15,15)/100),0,1)
+			local tweenInfo = TweenInfo.new(math.random(3,6),Enum.EasingStyle.Sine,Enum.EasingDirection.InOut)
+			local tween = TweenService:Create(star,tweenInfo,{Position=UDim2.new(endX,0,star.Position.Y.Scale,0)})
+			tween:Play()
+			tween.Completed:Wait()
+		end
+	end)
 end
