@@ -144,6 +144,20 @@ local Config = {
 			loadstring(game:HttpGet('https://orbitsc.net/babft'))()
 		end
 	},
+	[19] = { 
+		Name = "Destruction Simulator", 
+		Category = {"Simulator", "simulator"},
+		Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/xBENBEN2008x/wadawd/refs/heads/main/inf%20Money%20ReplicatedStorage", true))()
+		end
+	},
+	[20] = { 
+		Name = "Forsaken", 
+		Category = {"FPS", "fps", "Survive", "survive"},
+		Run = function()
+			loadstring(game:HttpGet("https://rawscripts.net/raw/Forsaken-Stamina-settings-for-forsaken-35367"))()
+		end
+	},
 }
 
 local favorites = {}
