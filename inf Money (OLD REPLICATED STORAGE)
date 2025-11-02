@@ -1,3 +1,4 @@
+-- Services
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
@@ -6,6 +7,7 @@ local TweenService = game:GetService("TweenService")
 local player = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 
+-- GUI erstellen
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "BoostGUI"
 screenGui.ResetOnSpawn = false
@@ -19,6 +21,7 @@ frame.BorderSizePixel = 0
 frame.AnchorPoint = Vector2.new(0.5, 0.5)
 frame.Parent = screenGui
 
+-- UI Layout
 local uiList = Instance.new("UIListLayout")
 uiList.Padding = UDim.new(0, 10)
 uiList.FillDirection = Enum.FillDirection.Vertical
@@ -26,6 +29,7 @@ uiList.HorizontalAlignment = Enum.HorizontalAlignment.Center
 uiList.VerticalAlignment = Enum.VerticalAlignment.Center
 uiList.Parent = frame
 
+-- Styles
 local function createButton(text, color)
     local btn = Instance.new("TextButton")
     btn.Size = UDim2.new(0, 250, 0, 50)
@@ -37,6 +41,7 @@ local function createButton(text, color)
     btn.AutoButtonColor = false
     btn.Parent = frame
 
+    -- Hover Effekt
     btn.MouseEnter:Connect(function()
         TweenService:Create(btn, TweenInfo.new(0.2), {BackgroundColor3 = color:Lerp(Color3.fromRGB(70, 70, 70), 0.3)}):Play()
     end)
@@ -50,6 +55,7 @@ end
 local singleButton = createButton("Einmal Boost", Color3.fromRGB(50, 150, 50))
 local toggleButton = createButton("Auto Boost: OFF", Color3.fromRGB(150, 50, 50))
 
+-- Boost Funktion
 local function fireBoost()
     local success, err = pcall(function()
         game:GetService("ReplicatedStorage").Remotes.generateBoost:FireServer("Coins", 9999999, 99999999)
@@ -59,6 +65,7 @@ local function fireBoost()
     end
 end
 
+-- Button Events
 singleButton.MouseButton1Click:Connect(fireBoost)
 
 local autoBoost = false
@@ -67,15 +74,17 @@ toggleButton.MouseButton1Click:Connect(function()
     toggleButton.Text = "Auto Boost: " .. (autoBoost and "ON" or "OFF")
 end)
 
+-- Auto Boost jede 0.1 Sekunden
 spawn(function()
     while true do
         if autoBoost then
             fireBoost()
         end
-        wait(0.0001)
+        wait(0.1)
     end
 end)
 
+-- GUI mit K togglen
 local guiVisible = true
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if input.KeyCode == Enum.KeyCode.K and not gameProcessed then
@@ -84,11 +93,13 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
     end
 end)
 
+-- Drag & Move
 local dragging = false
 local dragInput
 local dragStart
 local startPos
 
+local function update(input)
     local delta = input.Position - dragStart
     frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 end
