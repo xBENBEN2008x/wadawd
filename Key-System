@@ -90,7 +90,7 @@ end
 local getKeyButton = createButton("Get Key",UDim2.new(0.05,0,0,130))
 local checkKeyButton = createButton("Check Key",UDim2.new(0.55,0,0,130))
 
-local correctKey = "Release25"                                                                                             -- KEY
+local correctKey = "Nexor-Universe25"                                                                                             -- KEY
 
 getKeyButton.MouseButton1Click:Connect(function()
 	keyInput.Text = "https://discord.gg/BbRurkED"
