@@ -89,6 +89,12 @@ local Config = {
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/zezor-scripts/hi/refs/heads/main/main.lua'))()
 		end
 	},
+	[15] = { 
+		Name = "Rivals/Arsenal", 
+		Run = function()
+			loadstring(game:HttpGet(('https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/main.lua')))()
+		end
+	},
 }
 
 --// State
