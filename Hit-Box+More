@@ -1,0 +1,405 @@
+-- LocalScript in StarterGui
+
+-- Services
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local LocalPlayer = Players.LocalPlayer
+local TweenService = game:GetService("TweenService")
+
+-- Delete old GUI if it exists
+if LocalPlayer:FindFirstChild("PlayerGui") then
+    for _,v in pairs(LocalPlayer.PlayerGui:GetChildren()) do
+        if v.Name == "UniversalGUI" then
+            v:Destroy()
+        end
+    end
+end
+
+-- Globals
+_G.HeadSize = 5
+_G.CombatEnabled = false
+_G.CurrentTab = "Combat"
+
+local ESPOptions = {Enabled=false, TeamCheck=false, Box=true, Health=true}
+local PlayerOptions = {WalkSpeed=16, JumpPower=50, Fly=false, FlySpeed=50}
+local FlyLoop
+
+-- ===== GUI Setup =====
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "UniversalGUI"
+ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+local MainFrame = Instance.new("Frame", ScreenGui)
+MainFrame.Size = UDim2.new(0,600,0,400)
+MainFrame.Position = UDim2.new(0.1,0,0.1,0)
+MainFrame.BackgroundColor3 = Color3.fromRGB(25,25,35)
+MainFrame.Active = true
+MainFrame.Draggable = true
+Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0,15)
+local Stroke = Instance.new("UIStroke", MainFrame)
+Stroke.Color = Color3.fromRGB(70,130,255)
+
+-- Title
+local TitleBar = Instance.new("Frame", MainFrame)
+TitleBar.Size = UDim2.new(1,0,0,40)
+TitleBar.BackgroundColor3 = Color3.fromRGB(35,35,50)
+Instance.new("UICorner", TitleBar).CornerRadius = UDim.new(0,15)
+
+local Title = Instance.new("TextLabel", TitleBar)
+Title.Size = UDim2.new(1,0,1,0)
+Title.Text="Universal GUI"
+Title.TextColor3=Color3.fromRGB(255,255,255)
+Title.Font=Enum.Font.GothamBold
+Title.TextSize=20
+Title.BackgroundTransparency=1
+
+-- Category Menu
+local CategoryFrame = Instance.new("Frame", MainFrame)
+CategoryFrame.Size = UDim2.new(0,150,1,-50)
+CategoryFrame.Position = UDim2.new(0,0,0,50)
+CategoryFrame.BackgroundColor3 = Color3.fromRGB(35,35,50)
+Instance.new("UICorner", CategoryFrame).CornerRadius = UDim.new(0,12)
+
+local categories = {"Combat","Visuals","Player","Settings"}
+for i,catName in ipairs(categories) do
+    local btn = Instance.new("TextButton", CategoryFrame)
+    btn.Size = UDim2.new(1,-10,0,40)
+    btn.Position = UDim2.new(0,5,0,(i-1)*50+10)
+    btn.Text = catName
+    btn.TextColor3 = Color3.fromRGB(255,255,255)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize=16
+    btn.BackgroundColor3 = Color3.fromRGB(60,120,255)
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0,8)
+    btn.MouseButton1Click:Connect(function()
+        _G.CurrentTab = catName
+    end)
+end
+
+local ContentFrame = Instance.new("Frame", MainFrame)
+ContentFrame.Size=UDim2.new(1,-170,1,-60)
+ContentFrame.Position=UDim2.new(0,160,0,50)
+ContentFrame.BackgroundTransparency=1
+
+-- ===== Combat Tab =====
+local CombatFrame = Instance.new("Frame", ContentFrame)
+CombatFrame.Size = UDim2.new(1,0,1,0)
+CombatFrame.BackgroundTransparency = 1
+
+-- Header
+local Header = Instance.new("TextLabel", CombatFrame)
+Header.Text = "Player Highlighter"
+Header.Size = UDim2.new(1,0,0,30)
+Header.Position = UDim2.new(0,0,0,0)
+Header.TextColor3 = Color3.fromRGB(255,255,255)
+Header.Font = Enum.Font.GothamBold
+Header.TextSize = 18
+Header.BackgroundTransparency = 1
+
+-- Head Size
+local SizeLabel = Instance.new("TextLabel", CombatFrame)
+SizeLabel.Text = "Head Size:"
+SizeLabel.Position = UDim2.new(0.05,0,0,40)
+SizeLabel.Size = UDim2.new(0,100,0,25)
+SizeLabel.TextColor3 = Color3.fromRGB(255,255,255)
+SizeLabel.Font = Enum.Font.Gotham
+SizeLabel.TextSize = 16
+SizeLabel.BackgroundTransparency = 1
+
+local SizeBox = Instance.new("TextBox", CombatFrame)
+SizeBox.Position = UDim2.new(0.35,0,0,40)
+SizeBox.Size = UDim2.new(0,80,0,25)
+SizeBox.Text = tostring(_G.HeadSize)
+SizeBox.TextColor3 = Color3.fromRGB(255,255,255)
+SizeBox.Font = Enum.Font.Gotham
+SizeBox.TextSize = 16
+SizeBox.BackgroundColor3 = Color3.fromRGB(45,45,60)
+SizeBox.BorderSizePixel = 0
+Instance.new("UICorner", SizeBox).CornerRadius=UDim.new(0,8)
+SizeBox.FocusLost:Connect(function(enter)
+    if enter then
+        local val=tonumber(SizeBox.Text)
+        if val and val>0 then _G.HeadSize=val else SizeBox.Text=tostring(_G.HeadSize) end
+    end
+end)
+
+-- Toggle Combat
+local ToggleButton = Instance.new("TextButton", CombatFrame)
+ToggleButton.Position = UDim2.new(0.65,0,0,35)
+ToggleButton.Size = UDim2.new(0,100,0,35)
+ToggleButton.Text = "Enable"
+ToggleButton.TextColor3=Color3.fromRGB(255,255,255)
+ToggleButton.Font = Enum.Font.GothamBold
+ToggleButton.TextSize=18
+ToggleButton.BackgroundColor3 = Color3.fromRGB(60,120,255)
+Instance.new("UICorner", ToggleButton).CornerRadius=UDim.new(0,10)
+ToggleButton.MouseButton1Click:Connect(function()
+    _G.CombatEnabled = not _G.CombatEnabled
+    if _G.CombatEnabled then
+        ToggleButton.Text="Enabled"
+        TweenService:Create(ToggleButton,TweenInfo.new(0.3),{BackgroundColor3=Color3.fromRGB(0,200,100)}):Play()
+    else
+        ToggleButton.Text="Disabled"
+        TweenService:Create(ToggleButton,TweenInfo.new(0.3),{BackgroundColor3=Color3.fromRGB(200,50,50)}):Play()
+    end
+end)
+
+-- ===== Visuals Tab =====
+local VisualFrame = Instance.new("Frame", ContentFrame)
+VisualFrame.Size=UDim2.new(1,0,1,0)
+VisualFrame.BackgroundTransparency=1
+
+local function CreateToggle(parent,text,pos,stateTable,key)
+    local btn = Instance.new("TextButton", parent)
+    btn.Size = UDim2.new(0,140,0,30)
+    btn.Position = pos
+    btn.Text = text..": "..(stateTable[key] and "On" or "Off")
+    btn.TextColor3 = Color3.fromRGB(255,255,255)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 14
+    btn.BackgroundColor3 = Color3.fromRGB(60,120,255)
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0,8)
+    btn.MouseButton1Click:Connect(function()
+        stateTable[key] = not stateTable[key]
+        btn.Text = text..": "..(stateTable[key] and "On" or "Off")
+        -- Remove ESP if toggled off
+        if key=="Enabled" and not stateTable[key] then
+            for _,player in pairs(Players:GetPlayers()) do
+                if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                    local adorn = player.Character.HumanoidRootPart:FindFirstChild("ESPBox")
+                    if adorn then adorn:Destroy() end
+                end
+            end
+        end
+    end)
+end
+
+CreateToggle(VisualFrame,"ESP",UDim2.new(0,10,0,10),ESPOptions,"Enabled")
+CreateToggle(VisualFrame,"TeamCheck",UDim2.new(0,10,0,50),ESPOptions,"TeamCheck")
+CreateToggle(VisualFrame,"Box",UDim2.new(0,10,0,90),ESPOptions,"Box")
+CreateToggle(VisualFrame,"Health",UDim2.new(0,10,0,130),ESPOptions,"Health")
+
+-- ===== Player Tab =====
+local PlayerFrame = Instance.new("Frame", ContentFrame)
+PlayerFrame.Size=UDim2.new(1,0,1,0)
+PlayerFrame.BackgroundTransparency=1
+
+-- WalkSpeed
+local WSLabel = Instance.new("TextLabel", PlayerFrame)
+WSLabel.Text = "WalkSpeed: "..PlayerOptions.WalkSpeed
+WSLabel.Position=UDim2.new(0,10,0,10)
+WSLabel.Size=UDim2.new(0,200,0,25)
+WSLabel.TextColor3 = Color3.fromRGB(255,255,255)
+WSLabel.Font = Enum.Font.GothamBold
+WSLabel.TextSize = 16
+WSLabel.BackgroundTransparency = 1
+
+local WSSlider = Instance.new("TextBox", PlayerFrame)
+WSSlider.Position = UDim2.new(0,220,0,10)
+WSSlider.Size = UDim2.new(0,100,0,25)
+WSSlider.Text = tostring(PlayerOptions.WalkSpeed)
+WSSlider.TextColor3 = Color3.fromRGB(255,255,255)
+WSSlider.Font = Enum.Font.Gotham
+WSSlider.TextSize = 16
+WSSlider.BackgroundColor3 = Color3.fromRGB(45,45,60)
+Instance.new("UICorner", WSSlider).CornerRadius=UDim.new(0,8)
+WSSlider.FocusLost:Connect(function(enter)
+    if enter then
+        local val=tonumber(WSSlider.Text)
+        if val and val>0 then
+            PlayerOptions.WalkSpeed=val
+            WSLabel.Text="WalkSpeed: "..val
+        else
+            WSSlider.Text=tostring(PlayerOptions.WalkSpeed)
+        end
+    end
+end)
+
+-- JumpPower
+local JLabel = Instance.new("TextLabel", PlayerFrame)
+JLabel.Text = "JumpPower: "..PlayerOptions.JumpPower
+JLabel.Position = UDim2.new(0,10,0,50)
+JLabel.Size = UDim2.new(0,200,0,25)
+JLabel.TextColor3=Color3.fromRGB(255,255,255)
+JLabel.Font = Enum.Font.GothamBold
+JLabel.TextSize = 16
+JLabel.BackgroundTransparency = 1
+
+local JSlider = Instance.new("TextBox", PlayerFrame)
+JSlider.Position=UDim2.new(0,220,0,50)
+JSlider.Size = UDim2.new(0,100,0,25)
+JSlider.Text = tostring(PlayerOptions.JumpPower)
+JSlider.TextColor3 = Color3.fromRGB(255,255,255)
+JSlider.Font = Enum.Font.Gotham
+JSlider.TextSize=16
+JSlider.BackgroundColor3 = Color3.fromRGB(45,45,60)
+Instance.new("UICorner", JSlider).CornerRadius=UDim.new(0,8)
+JSlider.FocusLost:Connect(function(enter)
+    if enter then
+        local val=tonumber(JSlider.Text)
+        if val and val>0 then
+            PlayerOptions.JumpPower=val
+            JLabel.Text="JumpPower: "..val
+        else
+            JSlider.Text=tostring(PlayerOptions.JumpPower)
+        end
+    end
+end)
+
+-- Fly
+local FlyButton = Instance.new("TextButton", PlayerFrame)
+FlyButton.Size = UDim2.new(0,140,0,30)
+FlyButton.Position = UDim2.new(0,10,0,90)
+FlyButton.Text = "Fly: Off"
+FlyButton.TextColor3=Color3.fromRGB(255,255,255)
+FlyButton.Font = Enum.Font.GothamBold
+FlyButton.TextSize = 14
+FlyButton.BackgroundColor3 = Color3.fromRGB(60,120,255)
+Instance.new("UICorner", FlyButton).CornerRadius=UDim.new(0,8)
+
+FlyButton.MouseButton1Click:Connect(function()
+    PlayerOptions.Fly = not PlayerOptions.Fly
+    FlyButton.Text = "Fly: "..(PlayerOptions.Fly and "On" or "Off")
+    if PlayerOptions.Fly then
+        FlyLoop = RunService.RenderStepped:Connect(function()
+            if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                local root = LocalPlayer.Character.HumanoidRootPart
+                local move = Vector3.new()
+                if UserInputService:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+                if UserInputService:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+                if UserInputService:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+                if UserInputService:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+                if move.Magnitude > 0 then
+                    root.Velocity = move.Unit*PlayerOptions.FlySpeed
+                else
+                    root.Velocity = Vector3.new(0,0,0)
+                end
+            end
+        end)
+    else
+        if FlyLoop then FlyLoop:Disconnect() FlyLoop=nil end
+    end
+end)
+
+-- ===== Settings Tab =====
+local SettingsFrame = Instance.new("Frame", ContentFrame)
+SettingsFrame.Size=UDim2.new(1,0,1,0)
+SettingsFrame.BackgroundTransparency=1
+
+local Label = Instance.new("TextLabel", SettingsFrame)
+Label.Text = "Change UIStroke Color (R,G,B)"
+Label.Size = UDim2.new(1,0,0,30)
+Label.Position = UDim2.new(0,0,0,0)
+Label.TextColor3 = Color3.fromRGB(255,255,255)
+Label.Font = Enum.Font.GothamBold
+Label.TextSize = 16
+Label.BackgroundTransparency = 1
+
+local ColorBox = Instance.new("TextBox", SettingsFrame)
+ColorBox.Position = UDim2.new(0,10,0,50)
+ColorBox.Size = UDim2.new(0,120,0,25)
+ColorBox.PlaceholderText = "255,0,0"
+ColorBox.TextColor3 = Color3.fromRGB(255,255,255)
+ColorBox.BackgroundColor3 = Color3.fromRGB(45,45,60)
+Instance.new("UICorner", ColorBox).CornerRadius=UDim.new(0,8)
+ColorBox.FocusLost:Connect(function(enter)
+    if enter then
+        local r,g,b = ColorBox.Text:match("(%d+),(%d+),(%d+)")
+        r,g,b = tonumber(r),tonumber(g),tonumber(b)
+        if r and g and b then
+            Stroke.Color = Color3.fromRGB(r,g,b)
+        end
+    end
+end)
+
+-- ===== Main Loop =====
+RunService.RenderStepped:Connect(function()
+    CombatFrame.Visible = (_G.CurrentTab=="Combat")
+    VisualFrame.Visible = (_G.CurrentTab=="Visuals")
+    PlayerFrame.Visible = (_G.CurrentTab=="Player")
+    SettingsFrame.Visible = (_G.CurrentTab=="Settings")
+    
+    -- Combat Hitbox
+    if _G.CombatEnabled then
+        for _,player in pairs(Players:GetPlayers()) do
+            if player~=LocalPlayer then
+                pcall(function()
+                    local part = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+                    if part then
+                        local hitbox = part:FindFirstChild("Hitbox")
+                        if not hitbox then
+                            hitbox = Instance.new("BoxHandleAdornment")
+                            hitbox.Name = "Hitbox"
+                            hitbox.Adornee = part
+                            hitbox.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+                            hitbox.Transparency = 0.7
+                            hitbox.Color3 = Color3.fromRGB(0,0,255)
+                            hitbox.ZIndex = 10
+                            hitbox.AlwaysOnTop = true
+                            hitbox.Parent = part
+                        else
+                            hitbox.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+                        end
+                    end
+                end)
+            end
+        end
+    else
+        -- Remove hitboxes if disabled
+        for _,player in pairs(Players:GetPlayers()) do
+            local part = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+            if part then
+                local hitbox = part:FindFirstChild("Hitbox")
+                if hitbox then hitbox:Destroy() end
+            end
+        end
+    end
+
+    -- Player Speed
+    if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") then
+        LocalPlayer.Character.Humanoid.WalkSpeed = PlayerOptions.WalkSpeed
+        LocalPlayer.Character.Humanoid.JumpPower = PlayerOptions.JumpPower
+    end
+end)
+
+-- ===== ESP Update =====
+RunService.Heartbeat:Connect(function()
+    for _,player in pairs(Players:GetPlayers()) do
+        if player~=LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local root = player.Character.HumanoidRootPart
+            local humanoid = player.Character:FindFirstChild("Humanoid")
+            if not humanoid then continue end
+
+            -- Remove ESP if disabled
+            if not ESPOptions.Enabled then
+                local existing = root:FindFirstChild("ESPBox")
+                if existing then existing:Destroy() end
+                continue
+            end
+
+            -- TeamCheck
+            if ESPOptions.TeamCheck and player.Team==LocalPlayer.Team then
+                local existing = root:FindFirstChild("ESPBox")
+                if existing then existing:Destroy() end
+                continue
+            end
+
+            -- Create ESP Box
+            local esp = root:FindFirstChild("ESPBox")
+            if not esp then
+                esp = Instance.new("BoxHandleAdornment")
+                esp.Name = "ESPBox"
+                esp.Adornee = root
+                esp.Size = Vector3.new(2,humanoid.HipHeight*2,1)
+                esp.Color3 = Color3.fromRGB(0,255,0)
+                esp.Transparency = ESPOptions.Box and 0.5 or 1
+                esp.AlwaysOnTop = true
+                esp.ZIndex = 10
+                esp.Parent = root
+            else
+                esp.Transparency = ESPOptions.Box and 0.5 or 1
+            end
+        end
+    end
+end)
