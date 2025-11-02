@@ -1,10 +1,9 @@
---// Nexor GUI Script mit Kategorie-Suche
---// LocalScript in StarterPlayerScripts
+--// Nexor GUI Script
+--// Made by xBENBEN2008x
 
 local player = game.Players.LocalPlayer
 local Players = game:GetService("Players")
 
--- Account-Reihenfolge für LocalScript
 local function getAccountNumber()
 	local allPlayers = Players:GetPlayers()
 	table.sort(allPlayers, function(a,b) return a.UserId < b.UserId end)
@@ -18,7 +17,6 @@ end
 
 local accountNumber = getAccountNumber()
 
--- CONFIG
 local Config = {
 	[1] = { 
 		Name = "Notruf Hambrug", 
@@ -127,11 +125,9 @@ local Config = {
 	},
 }
 
--- State
 local favorites = {}
 local filteredScripts = {}
 
--- GUI Setup
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "NexorGui"
 screenGui.Parent = player:WaitForChild("PlayerGui")
@@ -145,7 +141,6 @@ mainFrame.Draggable = true
 Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0,16)
 mainFrame.Parent = screenGui
 
--- Title
 local titleLabel = Instance.new("TextLabel")
 titleLabel.Parent = mainFrame
 titleLabel.Text = "Nexor"
@@ -157,7 +152,6 @@ titleLabel.Font = Enum.Font.GothamBlack
 titleLabel.TextSize = 38
 titleLabel.TextXAlignment = Enum.TextXAlignment.Left
 
--- Buttons
 local buttonFrame = Instance.new("Frame")
 buttonFrame.Parent = mainFrame
 buttonFrame.Size = UDim2.new(0.3,-40,0.75,-20)
@@ -189,7 +183,6 @@ local contentButton = createButton("Scripts")
 local miscButton = createButton("Misc")
 local creditsButton = createButton("Credits")
 
--- Content Frame
 local contentFrame = Instance.new("Frame")
 contentFrame.Parent = mainFrame
 contentFrame.Size = UDim2.new(0.65,-30,0.75,-20)
@@ -216,7 +209,6 @@ contentLabel.Text =
 	"-- <font color='rgb(255,0,0)'>Scripts Dont Load?</font>\n--<font color='rgb(255,0,0)'> Click on Search !!!</font>\n\n" ..
 	"-- Added Kategorie!\n-- example search at Scripts FPS"
 
--- Scroll Frame für Scripts
 local scrollFrame = Instance.new("ScrollingFrame")
 scrollFrame.Parent = contentFrame
 scrollFrame.Size = UDim2.new(1,-10,1,-60)
@@ -242,7 +234,6 @@ searchBox.TextSize = 20
 Instance.new("UICorner", searchBox).CornerRadius = UDim.new(0,8)
 searchBox.Visible = false
 
--- Content List Update
 local function updateContentList()
 	for _, child in pairs(scrollFrame:GetChildren()) do
 		if child:IsA("Frame") then child:Destroy() end
@@ -322,12 +313,10 @@ end
 updateContentList()
 searchBox:GetPropertyChangedSignal("Text"):Connect(updateContentList)
 
--- Startzustand
 contentLabel.Visible = true
 scrollFrame.Visible = false
 searchBox.Visible = false
 
--- Buttons Functionality
 local miscFrame
 
 homeButton.MouseButton1Click:Connect(function()
@@ -419,7 +408,6 @@ creditsButton.MouseButton1Click:Connect(function()
 	searchBox.Visible = false
 end)
 
--- Toggle GUI
 local UserInputService = game:GetService("UserInputService")
 UserInputService.InputBegan:Connect(function(input,gpe)
 	if gpe then return end
