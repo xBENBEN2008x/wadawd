@@ -1,9 +1,10 @@
---// Nexor GUI Script
---// Made by xBENBEN2008x
+--// Nexor GUI Script - All Black + Stars in every Frame, All Bigger
+--// Made by xBENBEN2008x, adapted by ChatGPT
 
 local player = game.Players.LocalPlayer
 local Players = game:GetService("Players")
 
+-- Helper function: get account number
 local function getAccountNumber()
 	local allPlayers = Players:GetPlayers()
 	table.sort(allPlayers, function(a,b) return a.UserId < b.UserId end)
@@ -17,6 +18,7 @@ end
 
 local accountNumber = getAccountNumber()
 
+-- Script config
 local Config = {
 	[1] = { 
 		Name = "Notruf Hambrug", 
@@ -181,71 +183,107 @@ local Config = {
 	},
 }
 
+-- Favorites and filtered scripts
 local favorites = {}
 local filteredScripts = {}
 
+-- Function: add animated stars
+local function addStarsToFrame(frame, amount)
+	if frame:FindFirstChild("Stars") then
+		frame.Stars:Destroy()
+	end
+	local starsFolder = Instance.new("Folder")
+	starsFolder.Name = "Stars"
+	starsFolder.Parent = frame
+
+	for i=1,amount do
+		local star = Instance.new("Frame")
+		star.Size = UDim2.new(0,3,0,3)
+		star.Position = UDim2.new(math.random(),0,math.random(),0)
+		star.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		star.BorderSizePixel = 0
+		star.Parent = starsFolder
+
+		spawn(function()
+			while frame.Parent do
+				star.BackgroundTransparency = math.random()
+				wait(math.random()*0.5)
+			end
+		end)
+	end
+end
+
+-- Main GUI
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "NexorGui"
 screenGui.Parent = player:WaitForChild("PlayerGui")
 
 local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0,650,0,400)
-mainFrame.Position = UDim2.new(0.5,-325,0.5,-200)
-mainFrame.BackgroundColor3 = Color3.fromRGB(25,25,25)
+mainFrame.Size = UDim2.new(0,850,0,550)
+mainFrame.Position = UDim2.new(0.5,-425,0.5,-275)
+mainFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
 mainFrame.Active = true
 mainFrame.Draggable = true
-Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0,16)
+Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0,20)
 mainFrame.Parent = screenGui
+addStarsToFrame(mainFrame, 100)
 
+-- Title
 local titleLabel = Instance.new("TextLabel")
 titleLabel.Parent = mainFrame
 titleLabel.Text = "Nexor"
-titleLabel.Size = UDim2.new(0,250,0,50)
+titleLabel.Size = UDim2.new(0,400,0,60)
 titleLabel.Position = UDim2.new(0,20,0,10)
 titleLabel.BackgroundTransparency = 1
 titleLabel.TextColor3 = Color3.fromRGB(255,255,255)
 titleLabel.Font = Enum.Font.GothamBlack
-titleLabel.TextSize = 38
+titleLabel.TextSize = 50
 titleLabel.TextXAlignment = Enum.TextXAlignment.Left
 
+-- Button Frame
 local buttonFrame = Instance.new("Frame")
 buttonFrame.Parent = mainFrame
 buttonFrame.Size = UDim2.new(0.3,-40,0.75,-20)
 buttonFrame.Position = UDim2.new(0.7,20,0,80)
 buttonFrame.BackgroundTransparency = 1
 local layout = Instance.new("UIListLayout", buttonFrame)
-layout.Padding = UDim.new(0,15)
+layout.Padding = UDim.new(0,20)
 layout.FillDirection = Enum.FillDirection.Vertical
 layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 layout.VerticalAlignment = Enum.VerticalAlignment.Top
 
+-- Create button function
 local function createButton(name)
 	local btn = Instance.new("TextButton")
 	btn.Parent = buttonFrame
-	btn.Size = UDim2.new(0.9,0,0,50)
-	btn.BackgroundColor3 = Color3.fromRGB(50,50,50)
+	btn.Size = UDim2.new(0.95,0,0,60)
+	btn.BackgroundColor3 = Color3.fromRGB(20,20,20)
 	btn.Text = name
 	btn.TextColor3 = Color3.fromRGB(255,255,255)
 	btn.Font = Enum.Font.GothamBlack
-	btn.TextSize = 22
-	Instance.new("UICorner", btn).CornerRadius = UDim.new(0,10)
-	btn.MouseEnter:Connect(function() btn.BackgroundColor3 = Color3.fromRGB(70,70,70) end)
-	btn.MouseLeave:Connect(function() btn.BackgroundColor3 = Color3.fromRGB(50,50,50) end)
+	btn.TextSize = 28
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(0,12)
+	btn.MouseEnter:Connect(function() btn.BackgroundColor3 = Color3.fromRGB(50,50,50) end)
+	btn.MouseLeave:Connect(function() btn.BackgroundColor3 = Color3.fromRGB(20,20,20) end)
 	return btn
 end
 
+-- Buttons
 local homeButton = createButton("Home")
 local contentButton = createButton("Scripts")
 local miscButton = createButton("Misc")
 local creditsButton = createButton("Credits")
 
+-- Content frame
 local contentFrame = Instance.new("Frame")
 contentFrame.Parent = mainFrame
 contentFrame.Size = UDim2.new(0.65,-30,0.75,-20)
 contentFrame.Position = UDim2.new(0,20,0,80)
-contentFrame.BackgroundColor3 = Color3.fromRGB(30,30,30)
-Instance.new("UICorner", contentFrame).CornerRadius = UDim.new(0,12)
+contentFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Instance.new("UICorner", contentFrame).CornerRadius = UDim.new(0,16)
+addStarsToFrame(contentFrame, 60)
 
+-- Content label
 local contentLabel = Instance.new("TextLabel")
 contentLabel.Parent = contentFrame
 contentLabel.Size = UDim2.new(1,-20,1,-20)
@@ -253,43 +291,41 @@ contentLabel.Position = UDim2.new(0,10,0,10)
 contentLabel.BackgroundTransparency = 1
 contentLabel.TextColor3 = Color3.fromRGB(255,255,255)
 contentLabel.Font = Enum.Font.GothamSemibold
-contentLabel.TextSize = 22
+contentLabel.TextSize = 28
 contentLabel.TextWrapped = true
 contentLabel.TextXAlignment = Enum.TextXAlignment.Left
 contentLabel.TextYAlignment = Enum.TextYAlignment.Top
 contentLabel.RichText = true
-contentLabel.Text = 		
-	"-- <font color='rgb(255, 162, 0)'>Nexor Release GUI Library 1.11.2025!</font>🎉\n" ..
-	"\n" ..
-	"-- Adding more on Misc Soon!\n\n" ..
-	"-- <font color='rgb(255,0,0)'>Scripts Dont Load?</font>\n--<font color='rgb(255,0,0)'> Click on Search !!!</font>\n\n" ..
-	"-- Added Kategorie!\n-- example search at Scripts FPS"
+contentLabel.Visible = false
 
+-- Scroll frame for scripts
 local scrollFrame = Instance.new("ScrollingFrame")
 scrollFrame.Parent = contentFrame
 scrollFrame.Size = UDim2.new(1,-10,1,-60)
 scrollFrame.Position = UDim2.new(0,5,0,55)
 scrollFrame.BackgroundTransparency = 1
-scrollFrame.ScrollBarThickness = 6
+scrollFrame.ScrollBarThickness = 12
 scrollFrame.Visible = false
 local listLayout = Instance.new("UIListLayout", scrollFrame)
-listLayout.Padding = UDim.new(0,10)
+listLayout.Padding = UDim.new(0,15)
 listLayout.FillDirection = Enum.FillDirection.Vertical
 listLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 listLayout.VerticalAlignment = Enum.VerticalAlignment.Top
 
+-- Search box
 local searchBox = Instance.new("TextBox")
 searchBox.Parent = contentFrame
-searchBox.Size = UDim2.new(1,-20,0,40)
+searchBox.Size = UDim2.new(1,-20,0,50)
 searchBox.Position = UDim2.new(0,10,0,10)
 searchBox.PlaceholderText = "Search scripts or categories..."
-searchBox.BackgroundColor3 = Color3.fromRGB(40,40,40)
+searchBox.BackgroundColor3 = Color3.fromRGB(20,20,20)
 searchBox.TextColor3 = Color3.fromRGB(255,255,255)
 searchBox.Font = Enum.Font.GothamSemibold
-searchBox.TextSize = 20
-Instance.new("UICorner", searchBox).CornerRadius = UDim.new(0,8)
+searchBox.TextSize = 24
+Instance.new("UICorner", searchBox).CornerRadius = UDim.new(0,10)
 searchBox.Visible = false
 
+-- Update content list function
 local function updateContentList()
 	for _, child in pairs(scrollFrame:GetChildren()) do
 		if child:IsA("Frame") then child:Destroy() end
@@ -317,31 +353,32 @@ local function updateContentList()
 	for i,v in ipairs(filteredScripts) do
 		local row = Instance.new("Frame")
 		row.Parent = scrollFrame
-		row.Size = UDim2.new(0.95,0,0,50)
-		row.BackgroundColor3 = favorites[v.Name] and Color3.fromRGB(255,215,0) or Color3.fromRGB(45,45,45)
-		Instance.new("UICorner", row).CornerRadius = UDim.new(0,8)
+		row.Size = UDim2.new(0.95,0,0,70)
+		row.BackgroundColor3 = favorites[v.Name] and Color3.fromRGB(255,215,0) or Color3.fromRGB(10,10,10)
+		Instance.new("UICorner", row).CornerRadius = UDim.new(0,10)
+		addStarsToFrame(row, 12)
 
 		local nameLabel = Instance.new("TextLabel")
 		nameLabel.Parent = row
-		nameLabel.Size = UDim2.new(0,200,1,0)
+		nameLabel.Size = UDim2.new(0,300,1,0)
 		nameLabel.Position = UDim2.new(0,10,0,0)
 		nameLabel.BackgroundTransparency = 1
 		nameLabel.Text = v.Name
 		nameLabel.Font = Enum.Font.GothamBold
-		nameLabel.TextSize = 20
+		nameLabel.TextSize = 24
 		nameLabel.TextColor3 = Color3.fromRGB(255,255,255)
 		nameLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 		local runButton = Instance.new("TextButton")
 		runButton.Parent = row
-		runButton.Size = UDim2.new(0,80,0,35)
-		runButton.Position = UDim2.new(1,-90,0.5,-17)
+		runButton.Size = UDim2.new(0,120,0,45)
+		runButton.Position = UDim2.new(1,-140,0.5,-22)
 		runButton.BackgroundColor3 = Color3.fromRGB(0,200,0)
 		runButton.Text = "RUN"
 		runButton.Font = Enum.Font.GothamBlack
-		runButton.TextSize = 18
+		runButton.TextSize = 22
 		runButton.TextColor3 = Color3.fromRGB(255,255,255)
-		Instance.new("UICorner", runButton).CornerRadius = UDim.new(0,6)
+		Instance.new("UICorner", runButton).CornerRadius = UDim.new(0,8)
 		runButton.MouseButton1Click:Connect(function()
 			local success, err = pcall(v.Run)
 			if not success then warn(err) end
@@ -349,14 +386,14 @@ local function updateContentList()
 
 		local favButton = Instance.new("TextButton")
 		favButton.Parent = row
-		favButton.Size = UDim2.new(0,50,0,35)
-		favButton.Position = UDim2.new(1,-180,0.5,-17)
+		favButton.Size = UDim2.new(0,70,0,45)
+		favButton.Position = UDim2.new(1,-230,0.5,-22)
 		favButton.Text = favorites[v.Name] and "★" or "☆"
 		favButton.Font = Enum.Font.GothamBlack
-		favButton.TextSize = 18
+		favButton.TextSize = 22
 		favButton.TextColor3 = Color3.fromRGB(255,255,0)
-		favButton.BackgroundColor3 = Color3.fromRGB(60,60,60)
-		Instance.new("UICorner", favButton).CornerRadius = UDim.new(0,6)
+		favButton.BackgroundColor3 = Color3.fromRGB(20,20,20)
+		Instance.new("UICorner", favButton).CornerRadius = UDim.new(0,8)
 		favButton.MouseButton1Click:Connect(function()
 			if favorites[v.Name] then favorites[v.Name] = nil else favorites[v.Name] = true end
 			updateContentList()
@@ -369,10 +406,7 @@ end
 updateContentList()
 searchBox:GetPropertyChangedSignal("Text"):Connect(updateContentList)
 
-contentLabel.Visible = true
-scrollFrame.Visible = false
-searchBox.Visible = false
-
+-- Misc and Credits
 local miscFrame
 
 homeButton.MouseButton1Click:Connect(function()
@@ -386,6 +420,7 @@ homeButton.MouseButton1Click:Connect(function()
 	contentLabel.Visible = true
 	scrollFrame.Visible = false
 	searchBox.Visible = false
+	addStarsToFrame(contentFrame, 60)
 end)
 
 contentButton.MouseButton1Click:Connect(function()
@@ -406,46 +441,46 @@ miscButton.MouseButton1Click:Connect(function()
 	miscFrame.Parent = mainFrame
 	miscFrame.Size = UDim2.new(0.65,-30,0.75,-20)
 	miscFrame.Position = UDim2.new(0,20,0,80)
-	miscFrame.BackgroundColor3 = Color3.fromRGB(30,30,30)
-	miscFrame.Active = false -- wichtig: blockiert keine Buttons
-	Instance.new("UICorner", miscFrame).CornerRadius = UDim.new(0,12)
+	miscFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+	Instance.new("UICorner", miscFrame).CornerRadius = UDim.new(0,16)
+	addStarsToFrame(miscFrame, 60)
 
 	local accountLabel = Instance.new("TextLabel")
 	accountLabel.Parent = miscFrame
 	accountLabel.Position = UDim2.new(0,10,0,10)
-	accountLabel.Size = UDim2.new(0,200,0,30)
+	accountLabel.Size = UDim2.new(0,300,0,40)
 	accountLabel.BackgroundTransparency = 1
 	accountLabel.TextColor3 = Color3.fromRGB(255,255,255)
 	accountLabel.Font = Enum.Font.GothamBold
-	accountLabel.TextSize = 22
+	accountLabel.TextSize = 28
 	accountLabel.Text = "My Account #" .. tostring(accountNumber)
 
 	local profileImage = Instance.new("ImageLabel")
 	profileImage.Parent = miscFrame
-	profileImage.Position = UDim2.new(0,10,0,50)
-	profileImage.Size = UDim2.new(0,60,0,60)
+	profileImage.Position = UDim2.new(0,10,0,60)
+	profileImage.Size = UDim2.new(0,80,0,80)
 	profileImage.BackgroundTransparency = 1
 	profileImage.Image = "rbxthumb://type=AvatarHeadShot&id="..player.UserId.."&w=150&h=150"
 	Instance.new("UICorner", profileImage).CornerRadius = UDim.new(1,0)
 
 	local usernameLabel = Instance.new("TextLabel")
 	usernameLabel.Parent = miscFrame
-	usernameLabel.Position = UDim2.new(0,80,0,50)
-	usernameLabel.Size = UDim2.new(0,200,0,30)
+	usernameLabel.Position = UDim2.new(0,100,0,60)
+	usernameLabel.Size = UDim2.new(0,300,0,40)
 	usernameLabel.BackgroundTransparency = 1
 	usernameLabel.TextColor3 = Color3.fromRGB(255,255,255)
 	usernameLabel.Font = Enum.Font.GothamBold
-	usernameLabel.TextSize = 20
+	usernameLabel.TextSize = 26
 	usernameLabel.Text = "Username: " .. player.Name
 
 	local userIdLabel = Instance.new("TextLabel")
 	userIdLabel.Parent = miscFrame
-	userIdLabel.Position = UDim2.new(0,80,0,80)
-	userIdLabel.Size = UDim2.new(0,200,0,30)
+	userIdLabel.Position = UDim2.new(0,100,0,100)
+	userIdLabel.Size = UDim2.new(0,300,0,35)
 	userIdLabel.BackgroundTransparency = 1
 	userIdLabel.TextColor3 = Color3.fromRGB(200,200,200)
 	userIdLabel.Font = Enum.Font.Gotham
-	userIdLabel.TextSize = 18
+	userIdLabel.TextSize = 22
 	userIdLabel.Text = "UserId: " .. player.UserId
 end)
 
@@ -462,8 +497,10 @@ creditsButton.MouseButton1Click:Connect(function()
 	contentLabel.Visible = true
 	scrollFrame.Visible = false
 	searchBox.Visible = false
+	addStarsToFrame(contentFrame, 60)
 end)
 
+-- Toggle GUI with RightShift
 local UserInputService = game:GetService("UserInputService")
 UserInputService.InputBegan:Connect(function(input,gpe)
 	if gpe then return end
