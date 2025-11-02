@@ -123,6 +123,13 @@ local Config = {
 			loadstring(game:HttpGet(('https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/main.lua')))()
 		end
 	},
+	[16] = { 
+		Name = "Murderers VS Sheriffs DUELS", 
+		Category = {"FPS", "fps"},
+		Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader.lua',true))()
+		end
+	},
 }
 
 local favorites = {}
