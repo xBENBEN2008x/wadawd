@@ -181,6 +181,27 @@ local Config = {
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Scripybara/WeirdGunGame-SwiftbaraHub/refs/heads/main/loader.lua"))()
 		end
 	},
+	[24] = { 
+		Name = "Hypershot", 
+		Category = {"FPS", "fps"},
+		Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Yomkaa/YOXI-HUB/refs/heads/main/loader",true))()
+		end
+	},
+	[25] = { 
+		Name = "Operation One", 
+		Category = {"FPS", "fps"},
+		Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/CheeseBall024/MidNight/refs/heads/main/Operation%20One%20Midnight.o1"))()
+		end
+	},
+	[26] = { 
+		Name = "Defuse Division", 
+		Category = {"FPS", "fps"},
+		Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Zylang104/Spectre/refs/heads/main/main.lua",true))()
+		end
+	},
 }
 
 -- Favorites and filtered scripts
