@@ -199,7 +199,14 @@ local Config = {
 		Name = "Defuse Division", 
 		Category = {"FPS", "fps"},
 		Run = function()
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/Zylang104/Spectre/refs/heads/main/main.lua",true))()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Zylang104/Spectre/refs/heads/main/main.lua",true))() 
+		end
+	},
+	[27] = { 
+		Name = "Defuse Division", 
+		Category = {"FPS", "fps"},
+		Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/SNIPER-DUELS.lua"))()
 		end
 	},
 }
