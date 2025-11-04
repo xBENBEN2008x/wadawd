@@ -23,6 +23,7 @@ local Config = {
 	[1] = { 
 		Name = "Notruf Hambrug", 
 		Category = {"FPS", "fps"},
+		PlaceId = 7711635737,
 		Run = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/ghost-749/nebula-free-hub/refs/heads/main/nebula.lua'))()
 		end
@@ -30,6 +31,7 @@ local Config = {
 	[2] = { 
 		Name = "THA BRONX 3", 
 		Category = {"FPS", "fps"},
+		PlaceId = 16472538603,
 		Run = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/voidrzn/Axion-/refs/heads/main/Tha%20bronx%203',true))()
 		end
@@ -37,6 +39,7 @@ local Config = {
 	[3] = { 
 		Name = "99 Night in the Forest",
 		Category = {"FPS", "fps", "Survival" , "survival"},
+		PlaceId = 79546208627805,
 		Run = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/inkgame.lua", true))()
 		end
@@ -44,6 +47,7 @@ local Config = {
 	[4] = { 
 		Name = "Murder Mystery 2",
 		Category = {"FPS", "fps", "Survive", "survive"},
+		PlaceId = 142823291,
 		Run = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/Ihaveash0rtnamefordiscord/Releases/main/MurderMystery2HighlightESP'))(' Watermelon ?')
 		end
@@ -51,6 +55,7 @@ local Config = {
 	[5] = { 
 		Name = "Cut trees simulator",
 		Category = {"Simulator", "simulator"},
+		PlaceId = 135880624242201,
 		Run = function()
 			loadstring(game:HttpGet("https://pastebin.com/raw/Rh3nPMpF"))()
 		end
@@ -58,6 +63,7 @@ local Config = {
 	[6] = { 
 		Name = "Brookhaven 🏡 RP",
 		Category = {"RP", "Rp", "rp"},
+		PlaceId = 4924922222,
 		Run = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/TheDarkoneMarcillisePex/Other-Scripts/main/Brook%20Haven%20Gui'))()
 		end
@@ -65,6 +71,7 @@ local Config = {
 	[7] = { 
 		Name = "Slap Battles",
 		Category = {"FPS", "fps"},
+		PlaceId = 6403373529,
 		Run = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
 		end
@@ -72,6 +79,7 @@ local Config = {
 	[8] = { 
 		Name = "Counter Blox",
 		Category = {"FPS", "fps"},
+		PlaceId = 301549746,
 		Run = function()
 			loadstring(game:HttpGet("https://pastebin.com/raw/bPUYMYis"))()
 		end
@@ -79,6 +87,7 @@ local Config = {
 	[9] = { 
 		Name = "Universal ESP",
 		Category = {"FPS", "fps", "ESP", "Esp", "esp"},
+		PlaceId = false,
 		Run = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/RostarG/Universal-ESP/refs/heads/main/univESP.lua'))()
 		end
@@ -86,6 +95,7 @@ local Config = {
 	[10] = { 
 		Name = "Vc Unban",
 		Category = {"Vc", "VC", "Voice", "voice"},
+		PlaceId = false,
 		Run = function()
 			loadstring(game:HttpGet('https://pastebin.com/raw/GG5i3uRG'))()
 		end
@@ -93,6 +103,7 @@ local Config = {
 	[11] = { 
 		Name = "Infinite Yield (cmds)",
 		Category = {"cmds", "Cmds"},
+		PlaceId = false,
 		Run = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 		end
@@ -100,6 +111,7 @@ local Config = {
 	[12] = { 
 		Name = "My Pet Rock",
 		Category = {"Rock", "rock"},
+		PlaceId = 91232956735357,
 		Run = function()
 			loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-Size-Rock-Cat-Puppy-Snowball-ETC-24882'))()
 		end
@@ -107,6 +119,7 @@ local Config = {
 	[13] = { 
 		Name = "Restaurant Tycoon 3",
 		Category = {"Simulator", "simulator"},
+		PlaceId = 119048529960596,
 		Run = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/ago106/SpaceHub/refs/heads/main/loader.lua'))()
 		end
@@ -114,6 +127,7 @@ local Config = {
 	[14] = { 
 		Name = "Flex Your FPS And Ping",
 		Category = {"Flex", "flex"},
+		PlaceId = 18667984660,
 		Run = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/zezor-scripts/hi/refs/heads/main/main.lua'))()
 		end
@@ -121,6 +135,7 @@ local Config = {
 	[15] = { 
 		Name = "Rivals/Arsenal", 
 		Category = {"FPS", "fps"},
+		PlaceId = 17625359962,
 		Run = function()
 			loadstring(game:HttpGet(('https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/main.lua')))()
 		end
@@ -128,6 +143,7 @@ local Config = {
 	[16] = { 
 		Name = "Murderers VS Sheriffs DUELS", 
 		Category = {"FPS", "fps"},
+		PlaceId = 12355337193,
 		Run = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader.lua',true))()
 		end
@@ -135,6 +151,7 @@ local Config = {
 	[17] = { 
 		Name = "Universal Hitbox Expander+", 
 		Category = {"FPS", "fps"},
+		PlaceId = false,
 		Run = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/xBENBEN2008x/wadawd/refs/heads/main/Hit-Box%2BMore", true))()
 		end
@@ -142,6 +159,7 @@ local Config = {
 	[18] = { 
 		Name = "Build A Boat For Treasure", 
 		Category = {"FPS", "fps"},
+		PlaceId = 537413528,
 		Run = function()
 			loadstring(game:HttpGet('https://orbitsc.net/babft'))()
 		end
@@ -149,6 +167,7 @@ local Config = {
 	[19] = { 
 		Name = "Destruction Simulator", 
 		Category = {"Simulator", "simulator"},
+		PlaceId = 2248408710,
 		Run = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/xBENBEN2008x/wadawd/refs/heads/main/inf%20Money%20ReplicatedStorage", true))()
 		end
@@ -156,6 +175,7 @@ local Config = {
 	[20] = { 
 		Name = "Forsaken", 
 		Category = {"FPS", "fps", "Survive", "survive"},
+		PlaceId = 18687417158,
 		Run = function()
 			loadstring(game:HttpGet("https://rawscripts.net/raw/Forsaken-Stamina-settings-for-forsaken-35367"))()
 		end
@@ -163,6 +183,7 @@ local Config = {
 	[21] = { 
 		Name = "BEST UNIVERSAL", 
 		Category = {"Universal", "universal"},
+		PlaceId = false,
 		Run = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Chxnged/2/refs/heads/main/universalaimbotesp.lua"))()
 		end
@@ -170,6 +191,7 @@ local Config = {
 	[22] = { 
 		Name = "Piggy", 
 		Category = {"Survival", "survival"},
+		PlaceId = 4623386862,
 		Run = function()
 			loadstring(game:HttpGet("https://rawscripts.net/raw/Piggy-open-source-15390"))()
 		end
@@ -177,6 +199,7 @@ local Config = {
 	[23] = { 
 		Name = "Weird Gun Game", 
 		Category = {"FPS", "fps"},
+		PlaceId = 94590879393563,
 		Run = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Scripybara/WeirdGunGame-SwiftbaraHub/refs/heads/main/loader.lua"))()
 		end
@@ -184,6 +207,7 @@ local Config = {
 	[24] = { 
 		Name = "Hypershot", 
 		Category = {"FPS", "fps"},
+		PlaceId = 17516596118,
 		Run = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Yomkaa/YOXI-HUB/refs/heads/main/loader",true))()
 		end
@@ -191,6 +215,7 @@ local Config = {
 	[25] = { 
 		Name = "Operation One", 
 		Category = {"FPS", "fps"},
+		PlaceId = 72920620366355,
 		Run = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/CheeseBall024/MidNight/refs/heads/main/Operation%20One%20Midnight.o1"))()
 		end
@@ -198,6 +223,7 @@ local Config = {
 	[26] = { 
 		Name = "Defuse Division", 
 		Category = {"FPS", "fps"},
+		PlaceId = 112757576021097,
 		Run = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Zylang104/Spectre/refs/heads/main/main.lua",true))() 
 		end
@@ -205,6 +231,7 @@ local Config = {
 	[27] = { 
 		Name = "SNIPER-DUELS", 
 		Category = {"FPS", "fps"},
+		PlaceId = 109397169461300,
 		Run = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/SNIPER-DUELS.lua"))()
 		end
@@ -360,6 +387,7 @@ local function updateContentList()
 	end
 	filteredScripts = {}
 
+	-- Filter scripts by search text
 	for i,v in ipairs(Config) do
 		local search = string.lower(searchBox.Text)
 		local match = false
@@ -372,17 +400,28 @@ local function updateContentList()
 		if searchBox.Text == "" or match then table.insert(filteredScripts, v) end
 	end
 
+	-- Sort: PlaceId match first, then favorites
 	table.sort(filteredScripts,function(a,b)
+		local aMatch = (a.PlaceId == game.PlaceId) and 2 or 0 -- Match = 2
+		local bMatch = (b.PlaceId == game.PlaceId) and 2 or 0
 		local aFav = favorites[a.Name] and 1 or 0
 		local bFav = favorites[b.Name] and 1 or 0
-		return aFav > bFav
+		return (aMatch + aFav) > (bMatch + bFav)
 	end)
 
+	-- Create buttons
 	for i,v in ipairs(filteredScripts) do
 		local row = Instance.new("Frame")
 		row.Parent = scrollFrame
 		row.Size = UDim2.new(0.95,0,0,70)
-		row.BackgroundColor3 = favorites[v.Name] and Color3.fromRGB(255,215,0) or Color3.fromRGB(10,10,10)
+		-- Set color: Blue for PlaceId match, Gold for favorite, else dark
+		if v.PlaceId == game.PlaceId then
+			row.BackgroundColor3 = Color3.fromRGB(0,170,255) -- Blau
+		elseif favorites[v.Name] then
+			row.BackgroundColor3 = Color3.fromRGB(255,215,0) -- Gold
+		else
+			row.BackgroundColor3 = Color3.fromRGB(10,10,10) -- Dunkel
+		end
 		Instance.new("UICorner", row).CornerRadius = UDim.new(0,10)
 		addStarsToFrame(row, 12)
 
@@ -430,6 +469,7 @@ local function updateContentList()
 
 	scrollFrame.CanvasSize = UDim2.new(0,0,0,listLayout.AbsoluteContentSize.Y)
 end
+
 
 updateContentList()
 searchBox:GetPropertyChangedSignal("Text"):Connect(updateContentList)
