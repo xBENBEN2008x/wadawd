@@ -1,1 +1,466 @@
-[CONTENT DELETET]
+--// Nexor GUI Script - All Black + Stars in every Frame, All Bigger
+--// Made by xBENBEN2008x, adapted by ChatGPT
+
+local player = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+
+-- Helper function: get account number
+local function getAccountNumber()
+	local allPlayers = Players:GetPlayers()
+	table.sort(allPlayers, function(a,b) return a.UserId < b.UserId end)
+	for i, plr in ipairs(allPlayers) do
+		if plr == player then
+			return i
+		end
+	end
+	return 1
+end
+
+local accountNumber = getAccountNumber()
+
+-- Script config (PlaceId-Felder wie von dir)
+local Config = {
+	[1] = { Name = "Notruf Hambrug", Category = {"FPS","fps"}, PlaceId = 7711635737, Run = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ghost-749/nebula-free-hub/refs/heads/main/nebula.lua'))()
+	end},
+	[2] = { Name = "THA BRONX 3", Category = {"FPS","fps"}, PlaceId = 16472538603, Run = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/voidrzn/Axion-/refs/heads/main/Tha%20bronx%203',true))()
+	end},
+	[3] = { Name = "99 Night in the Forest", Category = {"FPS","fps","Survival","survival"}, PlaceId = 79546208627805, Run = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/inkgame.lua", true))()
+	end},
+	[4] = { Name = "Murder Mystery 2", Category = {"FPS","fps","Survive","survive"}, PlaceId = 142823291, Run = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/Ihaveash0rtnamefordiscord/Releases/main/MurderMystery2HighlightESP'))(' Watermelon ?')
+	end},
+	[5] = { Name = "Cut trees simulator", Category = {"Simulator","simulator"}, PlaceId = 135880624242201, Run = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/Rh3nPMpF"))()
+	end},
+	[6] = { Name = "Brookhaven 🏡 RP", Category = {"RP","Rp","rp"}, PlaceId = 4924922222, Run = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/TheDarkoneMarcillisePex/Other-Scripts/main/Brook%20Haven%20Gui'))()
+	end},
+	[7] = { Name = "Slap Battles", Category = {"FPS","fps"}, PlaceId = 6403373529, Run = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
+	end},
+	[8] = { Name = "Counter Blox", Category = {"FPS","fps"}, PlaceId = 301549746, Run = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/bPUYMYis"))()
+	end},
+	[9] = { Name = "Universal ESP", Category = {"FPS","fps","ESP","Esp","esp"}, PlaceId = false, Run = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/RostarG/Universal-ESP/refs/heads/main/univESP.lua'))()
+	end},
+	[10] = { Name = "Vc Unban", Category = {"Vc","VC","Voice","voice"}, PlaceId = false, Run = function()
+		loadstring(game:HttpGet('https://pastebin.com/raw/GG5i3uRG'))()
+	end},
+	[11] = { Name = "Infinite Yield (cmds)", Category = {"cmds","Cmds"}, PlaceId = false, Run = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	end},
+	[12] = { Name = "My Pet Rock", Category = {"Rock","rock"}, PlaceId = 91232956735357, Run = function()
+		loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-Size-Rock-Cat-Puppy-Snowball-ETC-24882'))()
+	end},
+	[13] = { Name = "Restaurant Tycoon 3", Category = {"Simulator","simulator"}, PlaceId = 119048529960596, Run = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ago106/SpaceHub/refs/heads/main/loader.lua'))()
+	end},
+	[14] = { Name = "Flex Your FPS And Ping", Category = {"Flex","flex"}, PlaceId = 18667984660, Run = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/zezor-scripts/hi/refs/heads/main/main.lua'))()
+	end},
+	[15] = { Name = "Rivals/Arsenal", Category = {"FPS","fps"}, PlaceId = 17625359962, Run = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/main.lua')))()
+	end},
+	[16] = { Name = "Murderers VS Sheriffs DUELS", Category = {"FPS","fps"}, PlaceId = 12355337193, Run = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader.lua',true))()
+	end},
+	[17] = { Name = "Universal Hitbox Expander+", Category = {"FPS","fps"}, PlaceId = false, Run = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xBENBEN2008x/wadawd/refs/heads/main/Hit-Box%2BMore", true))()
+	end},
+	[18] = { Name = "Build A Boat For Treasure", Category = {"FPS","fps"}, PlaceId = 537413528, Run = function()
+		loadstring(game:HttpGet('https://orbitsc.net/babft'))()
+	end},
+	[19] = { Name = "Destruction Simulator", Category = {"Simulator","simulator"}, PlaceId = 2248408710, Run = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xBENBEN2008x/wadawd/refs/heads/main/inf%20Money%20ReplicatedStorage", true))()
+	end},
+	[20] = { Name = "Forsaken", Category = {"FPS","fps","Survive","survive"}, PlaceId = 18687417158, Run = function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Forsaken-Stamina-settings-for-forsaken-35367"))()
+	end},
+	[21] = { Name = "BEST UNIVERSAL", Category = {"Universal","universal"}, PlaceId = false, Run = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Chxnged/2/refs/heads/main/universalaimbotesp.lua"))()
+	end},
+	[22] = { Name = "Piggy", Category = {"Survival","survival"}, PlaceId = 4623386862, Run = function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Piggy-open-source-15390"))()
+	end},
+	[23] = { Name = "Weird Gun Game", Category = {"FPS","fps"}, PlaceId = 94590879393563, Run = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Scripybara/WeirdGunGame-SwiftbaraHub/refs/heads/main/loader.lua"))()
+	end},
+	[24] = { Name = "Hypershot", Category = {"FPS","fps"}, PlaceId = 17516596118, Run = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Yomkaa/YOXI-HUB/refs/heads/main/loader",true))()
+	end},
+	[25] = { Name = "Operation One", Category = {"FPS","fps"}, PlaceId = 72920620366355, Run = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CheeseBall024/MidNight/refs/heads/main/Operation%20One%20Midnight.o1"))()
+	end},
+	[26] = { Name = "Defuse Division", Category = {"FPS","fps"}, PlaceId = 112757576021097, Run = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Zylang104/Spectre/refs/heads/main/main.lua",true))() 
+	end},
+	[27] = { Name = "SNIPER-DUELS", Category = {"FPS","fps"}, PlaceId = 109397169461300, Run = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/SNIPER-DUELS.lua"))()
+	end},
+}
+
+-- Favorites and filtered scripts
+local favorites = {}
+local filteredScripts = {}
+
+-- Function: add animated stars
+local function addStarsToFrame(frame, amount)
+	if frame:FindFirstChild("Stars") then
+		frame.Stars:Destroy()
+	end
+	local starsFolder = Instance.new("Folder")
+	starsFolder.Name = "Stars"
+	starsFolder.Parent = frame
+
+	for i=1,amount do
+		local star = Instance.new("Frame")
+		star.Size = UDim2.new(0,3,0,3)
+		star.Position = UDim2.new(math.random(),0,math.random(),0)
+		star.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		star.BorderSizePixel = 0
+		star.Parent = starsFolder
+
+		spawn(function()
+			while frame.Parent do
+				star.BackgroundTransparency = math.random()
+				wait(math.random()*0.5)
+			end
+		end)
+	end
+end
+
+-- Main GUI
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "NexorGui"
+screenGui.ResetOnSpawn = false -- bleibt nach Respawn erhalten
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0,850,0,550)
+mainFrame.Position = UDim2.new(0.5,-425,0.5,-275)
+mainFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+mainFrame.Active = true
+mainFrame.Draggable = true
+Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0,20)
+mainFrame.Parent = screenGui
+addStarsToFrame(mainFrame, 100)
+
+-- Title
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Parent = mainFrame
+titleLabel.Text = "Nexor"
+titleLabel.Size = UDim2.new(0,400,0,60)
+titleLabel.Position = UDim2.new(0,20,0,10)
+titleLabel.BackgroundTransparency = 1
+titleLabel.TextColor3 = Color3.fromRGB(255,255,255)
+titleLabel.Font = Enum.Font.GothamBlack
+titleLabel.TextSize = 50
+titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Button Frame
+local buttonFrame = Instance.new("Frame")
+buttonFrame.Parent = mainFrame
+buttonFrame.Size = UDim2.new(0.3,-40,0.75,-20)
+buttonFrame.Position = UDim2.new(0.7,20,0,80)
+buttonFrame.BackgroundTransparency = 1
+local layout = Instance.new("UIListLayout", buttonFrame)
+layout.Padding = UDim.new(0,20)
+layout.FillDirection = Enum.FillDirection.Vertical
+layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+layout.VerticalAlignment = Enum.VerticalAlignment.Top
+
+-- Create button function
+local function createButton(name)
+	local btn = Instance.new("TextButton")
+	btn.Parent = buttonFrame
+	btn.Size = UDim2.new(0.95,0,0,60)
+	btn.BackgroundColor3 = Color3.fromRGB(20,20,20)
+	btn.Text = name
+	btn.TextColor3 = Color3.fromRGB(255,255,255)
+	btn.Font = Enum.Font.GothamBlack
+	btn.TextSize = 28
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(0,12)
+	btn.MouseEnter:Connect(function() btn.BackgroundColor3 = Color3.fromRGB(50,50,50) end)
+	btn.MouseLeave:Connect(function() btn.BackgroundColor3 = Color3.fromRGB(20,20,20) end)
+	return btn
+end
+
+-- Buttons
+local homeButton = createButton("Home")
+local contentButton = createButton("Scripts")
+local miscButton = createButton("Misc")
+local creditsButton = createButton("Credits")
+
+-- Content frame
+local contentFrame = Instance.new("Frame")
+contentFrame.Parent = mainFrame
+contentFrame.Size = UDim2.new(0.65,-30,0.75,-20)
+contentFrame.Position = UDim2.new(0,20,0,80)
+contentFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Instance.new("UICorner", contentFrame).CornerRadius = UDim.new(0,16)
+addStarsToFrame(contentFrame, 60)
+
+-- Content label
+local contentLabel = Instance.new("TextLabel")
+contentLabel.Parent = contentFrame
+contentLabel.Size = UDim2.new(1,-20,1,-20)
+contentLabel.Position = UDim2.new(0,10,0,10)
+contentLabel.BackgroundTransparency = 1
+contentLabel.TextColor3 = Color3.fromRGB(255,255,255)
+contentLabel.Font = Enum.Font.GothamSemibold
+contentLabel.TextSize = 28
+contentLabel.TextWrapped = true
+contentLabel.TextXAlignment = Enum.TextXAlignment.Left
+contentLabel.TextYAlignment = Enum.TextYAlignment.Top
+contentLabel.RichText = true
+contentLabel.Visible = false
+
+-- Scroll frame for scripts
+local scrollFrame = Instance.new("ScrollingFrame")
+scrollFrame.Parent = contentFrame
+scrollFrame.Size = UDim2.new(1,-10,1,-60)
+scrollFrame.Position = UDim2.new(0,5,0,55)
+scrollFrame.BackgroundTransparency = 1
+scrollFrame.ScrollBarThickness = 12
+scrollFrame.Visible = false
+local listLayout = Instance.new("UIListLayout", scrollFrame)
+listLayout.Padding = UDim.new(0,15)
+listLayout.FillDirection = Enum.FillDirection.Vertical
+listLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+listLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+
+-- Search box
+local searchBox = Instance.new("TextBox")
+searchBox.Parent = contentFrame
+searchBox.Size = UDim2.new(1,-20,0,50)
+searchBox.Position = UDim2.new(0,10,0,10)
+searchBox.PlaceholderText = "Search scripts or categories..."
+searchBox.BackgroundColor3 = Color3.fromRGB(20,20,20)
+searchBox.TextColor3 = Color3.fromRGB(255,255,255)
+searchBox.Font = Enum.Font.GothamSemibold
+searchBox.TextSize = 24
+Instance.new("UICorner", searchBox).CornerRadius = UDim.new(0,10)
+searchBox.Visible = false
+
+-- Update content list function
+local function updateContentList()
+	-- clear old rows (only frames)
+	for _, child in pairs(scrollFrame:GetChildren()) do
+		if child:IsA("Frame") then child:Destroy() end
+	end
+	filteredScripts = {}
+
+	local search = string.lower(tostring(searchBox.Text or ""))
+
+	for i,v in ipairs(Config) do
+		local match = false
+		if string.find(string.lower(v.Name or ""), search) then match = true end
+		if v.Category then
+			for _,cat in pairs(v.Category) do
+				if string.find(string.lower(cat), search) then match = true break end
+			end
+		end
+		-- if search empty or matched -> include
+		if search == "" or match then
+			table.insert(filteredScripts, v)
+		end
+	end
+
+	-- Sort: PlaceId match (highest), then favorites, then keep original order
+	table.sort(filteredScripts, function(a,b)
+		local aMatch = (a.PlaceId == game.PlaceId) and 10 or 0
+		local bMatch = (b.PlaceId == game.PlaceId) and 10 or 0
+		local aFav = favorites[a.Name] and 1 or 0
+		local bFav = favorites[b.Name] and 1 or 0
+		if (aMatch + aFav) == (bMatch + bFav) then
+			return a.Name < b.Name -- stable fallback sort by name
+		end
+		return (aMatch + aFav) > (bMatch + bFav)
+	end)
+
+	-- Build UI rows
+	for i,v in ipairs(filteredScripts) do
+		local row = Instance.new("Frame")
+		row.Parent = scrollFrame
+		row.Size = UDim2.new(0.95,0,0,70)
+		-- Color priority: Place match (blue) > favorite (gold) > default dark
+		if v.PlaceId == game.PlaceId then
+			row.BackgroundColor3 = Color3.fromRGB(0,170,255) -- blau
+		elseif favorites[v.Name] then
+			row.BackgroundColor3 = Color3.fromRGB(255,215,0) -- gold
+		else
+			row.BackgroundColor3 = Color3.fromRGB(10,10,10) -- dunkel
+		end
+		Instance.new("UICorner", row).CornerRadius = UDim.new(0,10)
+		addStarsToFrame(row, 12)
+
+		local nameLabel = Instance.new("TextLabel")
+		nameLabel.Parent = row
+		nameLabel.Size = UDim2.new(0,300,1,0)
+		nameLabel.Position = UDim2.new(0,10,0,0)
+		nameLabel.BackgroundTransparency = 1
+		nameLabel.Text = v.Name or "Unnamed"
+		nameLabel.Font = Enum.Font.GothamBold
+		nameLabel.TextSize = 24
+		nameLabel.TextColor3 = Color3.fromRGB(255,255,255)
+		nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+		local runButton = Instance.new("TextButton")
+		runButton.Parent = row
+		runButton.Size = UDim2.new(0,120,0,45)
+		runButton.Position = UDim2.new(1,-140,0.5,-22)
+		runButton.BackgroundColor3 = Color3.fromRGB(0,200,0)
+		runButton.Text = "RUN"
+		runButton.Font = Enum.Font.GothamBlack
+		runButton.TextSize = 22
+		runButton.TextColor3 = Color3.fromRGB(255,255,255)
+		Instance.new("UICorner", runButton).CornerRadius = UDim.new(0,8)
+		runButton.MouseButton1Click:Connect(function()
+			local success, err = pcall(v.Run)
+			if not success then warn(err) end
+		end)
+
+		local favButton = Instance.new("TextButton")
+		favButton.Parent = row
+		favButton.Size = UDim2.new(0,70,0,45)
+		favButton.Position = UDim2.new(1,-230,0.5,-22)
+		favButton.Text = favorites[v.Name] and "★" or "☆"
+		favButton.Font = Enum.Font.GothamBlack
+		favButton.TextSize = 22
+		favButton.TextColor3 = Color3.fromRGB(255,255,0)
+		favButton.BackgroundColor3 = Color3.fromRGB(20,20,20)
+		Instance.new("UICorner", favButton).CornerRadius = UDim.new(0,8)
+		favButton.MouseButton1Click:Connect(function()
+			if favorites[v.Name] then favorites[v.Name] = nil else favorites[v.Name] = true end
+			updateContentList()
+		end)
+	end
+
+	-- Update canvas size AFTER rows exist
+	scrollFrame.CanvasSize = UDim2.new(0,0,0,listLayout.AbsoluteContentSize.Y)
+end
+
+-- initial populate (invisible until user opens Scripts)
+updateContentList()
+
+-- ensure update when typing search
+searchBox:GetPropertyChangedSignal("Text"):Connect(function()
+	updateContentList()
+end)
+
+-- Misc and Credits
+local miscFrame
+
+homeButton.MouseButton1Click:Connect(function()
+	if miscFrame then miscFrame:Destroy() end
+	contentLabel.Text =
+		"-- <font color='rgb(255, 162, 0)'>Nexor Release GUI Library 1.11.2025!</font>🎉\n" ..
+		"\n" ..
+		"-- Adding more on Misc Soon!\n\n" ..
+		"-- <font color='rgb(255,0,0)'>Scripts Dont Load?</font>\n--<font color='rgb(255,0,0)'> Click on Search !!!</font>\n\n" ..
+		"-- Added Kategorie!\n-- example search at Scripts FPS"
+	contentLabel.Visible = true
+	scrollFrame.Visible = false
+	searchBox.Visible = false
+	addStarsToFrame(contentFrame, 60)
+end)
+
+contentButton.MouseButton1Click:Connect(function()
+	if miscFrame then miscFrame:Destroy() end
+	contentLabel.Visible = false
+	scrollFrame.Visible = true
+	searchBox.Visible = true
+	-- force empty search so all scripts are shown immediately
+	searchBox.Text = ""
+	updateContentList()
+end)
+
+miscButton.MouseButton1Click:Connect(function()
+	if miscFrame then miscFrame:Destroy() end
+	contentLabel.Visible = false
+	scrollFrame.Visible = false
+	searchBox.Visible = false
+
+	miscFrame = Instance.new("Frame")
+	miscFrame.Parent = mainFrame
+	miscFrame.Size = UDim2.new(0.65,-30,0.75,-20)
+	miscFrame.Position = UDim2.new(0,20,0,80)
+	miscFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+	Instance.new("UICorner", miscFrame).CornerRadius = UDim.new(0,16)
+	addStarsToFrame(miscFrame, 60)
+
+	local accountLabel = Instance.new("TextLabel")
+	accountLabel.Parent = miscFrame
+	accountLabel.Position = UDim2.new(0,10,0,10)
+	accountLabel.Size = UDim2.new(0,300,0,40)
+	accountLabel.BackgroundTransparency = 1
+	accountLabel.TextColor3 = Color3.fromRGB(255,255,255)
+	accountLabel.Font = Enum.Font.GothamBold
+	accountLabel.TextSize = 28
+	accountLabel.Text = "My Account #" .. tostring(accountNumber)
+
+	local profileImage = Instance.new("ImageLabel")
+	profileImage.Parent = miscFrame
+	profileImage.Position = UDim2.new(0,10,0,60)
+	profileImage.Size = UDim2.new(0,80,0,80)
+	profileImage.BackgroundTransparency = 1
+	profileImage.Image = "rbxthumb://type=AvatarHeadShot&id="..player.UserId.."&w=150&h=150"
+	Instance.new("UICorner", profileImage).CornerRadius = UDim.new(1,0)
+
+	local usernameLabel = Instance.new("TextLabel")
+	usernameLabel.Parent = miscFrame
+	usernameLabel.Position = UDim2.new(0,100,0,60)
+	usernameLabel.Size = UDim2.new(0,300,0,40)
+	usernameLabel.BackgroundTransparency = 1
+	usernameLabel.TextColor3 = Color3.fromRGB(255,255,255)
+	usernameLabel.Font = Enum.Font.GothamBold
+	usernameLabel.TextSize = 26
+	usernameLabel.Text = "Username: " .. player.Name
+
+	local userIdLabel = Instance.new("TextLabel")
+	userIdLabel.Parent = miscFrame
+	userIdLabel.Position = UDim2.new(0,100,0,100)
+	userIdLabel.Size = UDim2.new(0,300,0,35)
+	userIdLabel.BackgroundTransparency = 1
+	userIdLabel.TextColor3 = Color3.fromRGB(200,200,200)
+	userIdLabel.Font = Enum.Font.Gotham
+	userIdLabel.TextSize = 22
+	userIdLabel.Text = "UserId: " .. player.UserId
+end)
+
+creditsButton.MouseButton1Click:Connect(function()
+	if miscFrame then miscFrame:Destroy() end
+	contentLabel.Text = "Dis In-Game Library\n" ..
+		"<font color='rgb(255,0,0)'>is made by : acc_vergessen \n(DISCORD NAME)</font>\n" ..
+		"\n" ..
+		"Discord : https://discord.gg/BbRurkED\n" ..
+		"<font color='rgb(0, 167, 205)'>is made by : razergk101_80511 \n(DISCORD NAME)</font>\n" ..
+		"\n" ..
+		"Website : https://nexor-as.netlify.app/ \n" ..
+		"<font color='rgb(255,0,0)'>is made by : acc_vergessen \n(DISCORD NAME)</font>\n"
+	contentLabel.Visible = true
+	scrollFrame.Visible = false
+	searchBox.Visible = false
+	addStarsToFrame(contentFrame, 60)
+end)
+
+-- Toggle GUI with RightShift
+local UserInputService = game:GetService("UserInputService")
+UserInputService.InputBegan:Connect(function(input,gpe)
+	if gpe then return end
+	if input.KeyCode == Enum.KeyCode.RightShift then
+		mainFrame.Visible = not mainFrame.Visible
+	end
+end)
+
+-- ensure GUI stays parented to PlayerGui on character respawn just in case
+player.CharacterAdded:Connect(function()
+	local pg = player:FindFirstChild("PlayerGui")
+	if pg then
+		screenGui.Parent = pg
+	end
+end)
