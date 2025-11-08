@@ -1,0 +1,2327 @@
+local __converted = function()
+	local player = game:GetService('Players').LocalPlayer
+	local v1 = Instance.new("ScreenGui")
+	v1.Name = "NexorGui"
+	local v2 = Instance.new("Frame")
+	v2.Name = "MainFrame"
+	v2.AnchorPoint = Vector2.new(0.5, 0.5)
+	v2.Size = UDim2.new(0, 750, 0, 450)
+	v2.Position = UDim2.new(0.5, 0, 0.5, 0)
+	v2.LayoutOrder = 0
+	v2.ZIndex = 1
+	v2.BackgroundColor3 = Color3.fromRGB(179, 1, 170)
+	v2.BackgroundTransparency = 0.5
+	v2.BorderSizePixel = 0
+	v2.ClipsDescendants = false
+	v2.Visible = true
+	v2.Active = false
+	v2.Selectable = false
+	v2.Rotation = 0
+	v2.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v3 = Instance.new("UICorner")
+	v3.Name = "UICorner"
+	v3.CornerRadius = UDim.new(0, 25)
+	v3.CornerRadius = UDim.new(0, 25)
+	local v4 = Instance.new("UIStroke")
+	v4.Name = "UIStroke"
+	v4.ZIndex = 1
+	v4.Thickness = 5
+	v4.Color = Color3.fromRGB(140, 1, 133)
+	v4.Transparency = 0.5
+	v4.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v4.Thickness = 5
+	v4.Color = Color3.fromRGB(140, 1, 133)
+	v4.Transparency = 0.5
+	local v5 = Instance.new("TextLabel")
+	v5.Name = "Nexorandgamename"
+	v5.AnchorPoint = Vector2.new(0.5, 0.5)
+	v5.Size = UDim2.new(0, 200, 0, 35)
+	v5.Position = UDim2.new(0.1586666703224182, 0, 0.09333333373069763, 0)
+	v5.LayoutOrder = 0
+	v5.ZIndex = 1
+	v5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v5.BackgroundTransparency = 1
+	v5.BorderSizePixel = 0
+	v5.ClipsDescendants = false
+	v5.Visible = true
+	v5.Active = false
+	v5.Selectable = false
+	v5.Text = "Nexor V2 BETA | Game"
+	v5.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v5.TextSize = 14
+	v5.Font = Enum.Font.FredokaOne
+	v5.TextWrapped = true
+	v5.TextScaled = true
+	v5.TextTransparency = 0
+	v5.TextStrokeTransparency = 1
+	v5.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v5.Rotation = 0
+	v5.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v6 = Instance.new("UIStroke")
+	v6.Name = "UIStroke"
+	v6.ZIndex = 1
+	v6.Thickness = 5
+	v6.Color = Color3.fromRGB(0, 0, 0)
+	v6.Transparency = 0.5
+	v6.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v6.Thickness = 5
+	v6.Color = Color3.fromRGB(0, 0, 0)
+	v6.Transparency = 0.5
+	local v7 = Instance.new("ScrollingFrame")
+	v7.Name = "SideBarScrollingFrame"
+	v7.AnchorPoint = Vector2.new(0.5, 0.5)
+	v7.Size = UDim2.new(0, 200, 0, 385)
+	v7.Position = UDim2.new(0.15199999511241913, 0, 0.5600000023841858, 0)
+	v7.LayoutOrder = 0
+	v7.ZIndex = 1
+	v7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v7.BackgroundTransparency = 1
+	v7.BorderSizePixel = 0
+	v7.ClipsDescendants = true
+	v7.Visible = true
+	v7.Active = true
+	v7.Selectable = true
+	v7.Rotation = 0
+	v7.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	v7.CanvasSize = UDim2.new(0, 0, 0, 0)
+	v7.ScrollBarThickness = 0
+	v7.ScrollingDirection = Enum.ScrollingDirection.XY
+	local v8 = Instance.new("UIListLayout")
+	v8.Name = "UIListLayout"
+	v8.SortOrder = Enum.SortOrder.LayoutOrder
+	v8.Padding = UDim.new(0, 20)
+	v8.FillDirection = Enum.FillDirection.Vertical
+	v8.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	v8.VerticalAlignment = Enum.VerticalAlignment.Center
+	local v9 = Instance.new("TextButton")
+	v9.Name = "Home"
+	v9.AnchorPoint = Vector2.new(0, 0)
+	v9.Size = UDim2.new(0, 190, 0, 50)
+	v9.Position = UDim2.new(0, 0, 0.0714285746216774, 0)
+	v9.LayoutOrder = 0
+	v9.ZIndex = 1
+	v9.BackgroundColor3 = Color3.fromRGB(183, 1, 255)
+	v9.BackgroundTransparency = 0.5
+	v9.BorderSizePixel = 0
+	v9.ClipsDescendants = false
+	v9.Visible = true
+	v9.Active = true
+	v9.Selectable = true
+	v9.Modal = false
+	v9.Text = "🏠 Home"
+	v9.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v9.TextSize = 14
+	v9.Font = Enum.Font.FredokaOne
+	v9.TextWrapped = true
+	v9.TextScaled = true
+	v9.TextTransparency = 0
+	v9.TextStrokeTransparency = 1
+	v9.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v9.AutoButtonColor = true
+	v9.Rotation = 0
+	v9.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v10 = Instance.new("UICorner")
+	v10.Name = "UICorner"
+	v10.CornerRadius = UDim.new(0, 25)
+	v10.CornerRadius = UDim.new(0, 25)
+	local v11 = Instance.new("UIStroke")
+	v11.Name = "UIStroke"
+	v11.ZIndex = 0
+	v11.Thickness = 5
+	v11.Color = Color3.fromRGB(140, 1, 133)
+	v11.Transparency = 0.5
+	v11.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v11.Thickness = 5
+	v11.Color = Color3.fromRGB(140, 1, 133)
+	v11.Transparency = 0.5
+	local v12 = Instance.new("TextButton")
+	v12.Name = "Scripts"
+	v12.AnchorPoint = Vector2.new(0, 0)
+	v12.Size = UDim2.new(0, 190, 0, 50)
+	v12.Position = UDim2.new(0, 0, 0.2532467544078827, 0)
+	v12.LayoutOrder = 0
+	v12.ZIndex = 1
+	v12.BackgroundColor3 = Color3.fromRGB(183, 1, 255)
+	v12.BackgroundTransparency = 0.5
+	v12.BorderSizePixel = 0
+	v12.ClipsDescendants = false
+	v12.Visible = true
+	v12.Active = true
+	v12.Selectable = true
+	v12.Modal = false
+	v12.Text = "📄Scripts"
+	v12.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v12.TextSize = 14
+	v12.Font = Enum.Font.FredokaOne
+	v12.TextWrapped = true
+	v12.TextScaled = true
+	v12.TextTransparency = 0
+	v12.TextStrokeTransparency = 1
+	v12.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v12.AutoButtonColor = true
+	v12.Rotation = 0
+	v12.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v13 = Instance.new("UICorner")
+	v13.Name = "UICorner"
+	v13.CornerRadius = UDim.new(0, 25)
+	v13.CornerRadius = UDim.new(0, 25)
+	local v14 = Instance.new("UIStroke")
+	v14.Name = "UIStroke"
+	v14.ZIndex = 0
+	v14.Thickness = 5
+	v14.Color = Color3.fromRGB(140, 1, 133)
+	v14.Transparency = 0.5
+	v14.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v14.Thickness = 5
+	v14.Color = Color3.fromRGB(140, 1, 133)
+	v14.Transparency = 0.5
+	local v15 = Instance.new("TextButton")
+	v15.Name = "Misc"
+	v15.AnchorPoint = Vector2.new(0, 0)
+	v15.Size = UDim2.new(0, 190, 0, 50)
+	v15.Position = UDim2.new(0, 0, 0.4350649416446686, 0)
+	v15.LayoutOrder = 0
+	v15.ZIndex = 1
+	v15.BackgroundColor3 = Color3.fromRGB(183, 1, 255)
+	v15.BackgroundTransparency = 0.5
+	v15.BorderSizePixel = 0
+	v15.ClipsDescendants = false
+	v15.Visible = true
+	v15.Active = true
+	v15.Selectable = true
+	v15.Modal = false
+	v15.Text = "✨ Misc"
+	v15.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v15.TextSize = 14
+	v15.Font = Enum.Font.FredokaOne
+	v15.TextWrapped = true
+	v15.TextScaled = true
+	v15.TextTransparency = 0
+	v15.TextStrokeTransparency = 1
+	v15.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v15.AutoButtonColor = true
+	v15.Rotation = 0
+	v15.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v16 = Instance.new("UICorner")
+	v16.Name = "UICorner"
+	v16.CornerRadius = UDim.new(0, 25)
+	v16.CornerRadius = UDim.new(0, 25)
+	local v17 = Instance.new("UIStroke")
+	v17.Name = "UIStroke"
+	v17.ZIndex = 0
+	v17.Thickness = 5
+	v17.Color = Color3.fromRGB(140, 1, 133)
+	v17.Transparency = 0.5
+	v17.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v17.Thickness = 5
+	v17.Color = Color3.fromRGB(140, 1, 133)
+	v17.Transparency = 0.5
+	local v18 = Instance.new("TextButton")
+	v18.Name = "Profile"
+	v18.AnchorPoint = Vector2.new(0, 0)
+	v18.Size = UDim2.new(0, 190, 0, 50)
+	v18.Position = UDim2.new(0, 0, 0.6168830990791321, 0)
+	v18.LayoutOrder = 0
+	v18.ZIndex = 1
+	v18.BackgroundColor3 = Color3.fromRGB(183, 1, 255)
+	v18.BackgroundTransparency = 0.5
+	v18.BorderSizePixel = 0
+	v18.ClipsDescendants = false
+	v18.Visible = true
+	v18.Active = true
+	v18.Selectable = true
+	v18.Modal = false
+	v18.Text = "😁 Profile"
+	v18.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v18.TextSize = 14
+	v18.Font = Enum.Font.FredokaOne
+	v18.TextWrapped = true
+	v18.TextScaled = true
+	v18.TextTransparency = 0
+	v18.TextStrokeTransparency = 1
+	v18.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v18.AutoButtonColor = true
+	v18.Rotation = 0
+	v18.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v19 = Instance.new("UICorner")
+	v19.Name = "UICorner"
+	v19.CornerRadius = UDim.new(0, 25)
+	v19.CornerRadius = UDim.new(0, 25)
+	local v20 = Instance.new("UIStroke")
+	v20.Name = "UIStroke"
+	v20.ZIndex = 0
+	v20.Thickness = 5
+	v20.Color = Color3.fromRGB(140, 1, 133)
+	v20.Transparency = 0.5
+	v20.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v20.Thickness = 5
+	v20.Color = Color3.fromRGB(140, 1, 133)
+	v20.Transparency = 0.5
+	local v21 = Instance.new("TextButton")
+	v21.Name = "News"
+	v21.AnchorPoint = Vector2.new(0, 0)
+	v21.Size = UDim2.new(0, 190, 0, 50)
+	v21.Position = UDim2.new(0, 0, 0.798701286315918, 0)
+	v21.LayoutOrder = 0
+	v21.ZIndex = 1
+	v21.BackgroundColor3 = Color3.fromRGB(183, 1, 255)
+	v21.BackgroundTransparency = 0.5
+	v21.BorderSizePixel = 0
+	v21.ClipsDescendants = false
+	v21.Visible = true
+	v21.Active = true
+	v21.Selectable = true
+	v21.Modal = false
+	v21.Text = "📢 News"
+	v21.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v21.TextSize = 14
+	v21.Font = Enum.Font.FredokaOne
+	v21.TextWrapped = true
+	v21.TextScaled = true
+	v21.TextTransparency = 0
+	v21.TextStrokeTransparency = 1
+	v21.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v21.AutoButtonColor = true
+	v21.Rotation = 0
+	v21.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v22 = Instance.new("UICorner")
+	v22.Name = "UICorner"
+	v22.CornerRadius = UDim.new(0, 25)
+	v22.CornerRadius = UDim.new(0, 25)
+	local v23 = Instance.new("UIStroke")
+	v23.Name = "UIStroke"
+	v23.ZIndex = 0
+	v23.Thickness = 5
+	v23.Color = Color3.fromRGB(140, 1, 133)
+	v23.Transparency = 0.5
+	v23.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v23.Thickness = 5
+	v23.Color = Color3.fromRGB(140, 1, 133)
+	v23.Transparency = 0.5
+	local v24 = Instance.new("Frame")
+	v24.Name = "HomeFrame"
+	v24.AnchorPoint = Vector2.new(0.5, 0.5)
+	v24.Size = UDim2.new(0, 500, 0, 420)
+	v24.Position = UDim2.new(0.6466666460037231, 0, 0.5, 0)
+	v24.LayoutOrder = 0
+	v24.ZIndex = 1
+	v24.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v24.BackgroundTransparency = 1
+	v24.BorderSizePixel = 0
+	v24.ClipsDescendants = false
+	v24.Visible = true
+	v24.Active = false
+	v24.Selectable = false
+	v24.Rotation = 0
+	v24.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v25 = Instance.new("ImageLabel")
+	v25.Name = "GameImage"
+	v25.AnchorPoint = Vector2.new(0, 0)
+	v25.Size = UDim2.new(0, 150, 0, 150)
+	v25.Position = UDim2.new(0.03999999910593033, 0, 0.24285714328289032, 0)
+	v25.LayoutOrder = 0
+	v25.ZIndex = 1
+	v25.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v25.BackgroundTransparency = 0
+	v25.BorderSizePixel = 0
+	v25.ClipsDescendants = false
+	v25.Visible = true
+	v25.Active = false
+	v25.Selectable = false
+	v25.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+	v25.ImageColor3 = Color3.fromRGB(255, 255, 255)
+	v25.ImageRectOffset = Vector2.new(0, 0)
+	v25.ImageRectSize = Vector2.new(0, 0)
+	v25.ScaleType = Enum.ScaleType.Stretch
+	v25.Rotation = 0
+	v25.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v26 = Instance.new("TextLabel")
+	v26.Name = "Today"
+	v26.AnchorPoint = Vector2.new(0, 0)
+	v26.Size = UDim2.new(0, 250, 0, 35)
+	v26.Position = UDim2.new(0.24866650998592377, 0, 0.13333334028720856, 0)
+	v26.LayoutOrder = 0
+	v26.ZIndex = 1
+	v26.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v26.BackgroundTransparency = 1
+	v26.BorderSizePixel = 0
+	v26.ClipsDescendants = false
+	v26.Visible = true
+	v26.Active = false
+	v26.Selectable = false
+	v26.Text = "Most used Game Today :"
+	v26.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v26.TextSize = 14
+	v26.Font = Enum.Font.FredokaOne
+	v26.TextWrapped = true
+	v26.TextScaled = true
+	v26.TextTransparency = 0
+	v26.TextStrokeTransparency = 1
+	v26.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v26.Rotation = 0
+	v26.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v27 = Instance.new("UIStroke")
+	v27.Name = "UIStroke"
+	v27.ZIndex = 1
+	v27.Thickness = 5
+	v27.Color = Color3.fromRGB(0, 0, 0)
+	v27.Transparency = 0.5
+	v27.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v27.Thickness = 5
+	v27.Color = Color3.fromRGB(0, 0, 0)
+	v27.Transparency = 0.5
+	local v28 = Instance.new("TextLabel")
+	v28.Name = "Welcome"
+	v28.AnchorPoint = Vector2.new(0, 0)
+	v28.Size = UDim2.new(0, 250, 0, 35)
+	v28.Position = UDim2.new(0.24866650998592377, 0, 0.02380952425301075, 0)
+	v28.LayoutOrder = 0
+	v28.ZIndex = 1
+	v28.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v28.BackgroundTransparency = 1
+	v28.BorderSizePixel = 0
+	v28.ClipsDescendants = false
+	v28.Visible = true
+	v28.Active = false
+	v28.Selectable = false
+	v28.Text = "Welcome to Home!"
+	v28.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v28.TextSize = 14
+	v28.Font = Enum.Font.FredokaOne
+	v28.TextWrapped = true
+	v28.TextScaled = true
+	v28.TextTransparency = 0
+	v28.TextStrokeTransparency = 1
+	v28.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v28.Rotation = 0
+	v28.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v29 = Instance.new("UIStroke")
+	v29.Name = "UIStroke"
+	v29.ZIndex = 1
+	v29.Thickness = 5
+	v29.Color = Color3.fromRGB(0, 0, 0)
+	v29.Transparency = 0.5
+	v29.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v29.Thickness = 5
+	v29.Color = Color3.fromRGB(0, 0, 0)
+	v29.Transparency = 0.5
+	local v30 = Instance.new("TextLabel")
+	v30.Name = "GameName"
+	v30.AnchorPoint = Vector2.new(0, 0)
+	v30.Size = UDim2.new(0, 250, 0, 35)
+	v30.Position = UDim2.new(0.39866650104522705, 0, 0.24285714328289032, 0)
+	v30.LayoutOrder = 0
+	v30.ZIndex = 1
+	v30.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v30.BackgroundTransparency = 1
+	v30.BorderSizePixel = 0
+	v30.ClipsDescendants = false
+	v30.Visible = true
+	v30.Active = false
+	v30.Selectable = false
+	v30.Text = "Tower Defense"
+	v30.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v30.TextSize = 14
+	v30.Font = Enum.Font.FredokaOne
+	v30.TextWrapped = true
+	v30.TextScaled = true
+	v30.TextTransparency = 0
+	v30.TextStrokeTransparency = 1
+	v30.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v30.Rotation = 0
+	v30.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v31 = Instance.new("UIStroke")
+	v31.Name = "UIStroke"
+	v31.ZIndex = 1
+	v31.Thickness = 5
+	v31.Color = Color3.fromRGB(0, 0, 0)
+	v31.Transparency = 0.5
+	v31.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v31.Thickness = 5
+	v31.Color = Color3.fromRGB(0, 0, 0)
+	v31.Transparency = 0.5
+	local v32 = Instance.new("TextLabel")
+	v32.Name = "PlayerUsed"
+	v32.AnchorPoint = Vector2.new(0, 0)
+	v32.Size = UDim2.new(0, 250, 0, 35)
+	v32.Position = UDim2.new(0.39866650104522705, 0, 0.3499999940395355, 0)
+	v32.LayoutOrder = 0
+	v32.ZIndex = 1
+	v32.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v32.BackgroundTransparency = 1
+	v32.BorderSizePixel = 0
+	v32.ClipsDescendants = false
+	v32.Visible = true
+	v32.Active = false
+	v32.Selectable = false
+	v32.Text = "Player Used : 91"
+	v32.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v32.TextSize = 14
+	v32.Font = Enum.Font.FredokaOne
+	v32.TextWrapped = true
+	v32.TextScaled = true
+	v32.TextTransparency = 0
+	v32.TextStrokeTransparency = 1
+	v32.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v32.Rotation = 0
+	v32.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v33 = Instance.new("UIStroke")
+	v33.Name = "UIStroke"
+	v33.ZIndex = 1
+	v33.Thickness = 5
+	v33.Color = Color3.fromRGB(0, 0, 0)
+	v33.Transparency = 0.5
+	v33.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v33.Thickness = 5
+	v33.Color = Color3.fromRGB(0, 0, 0)
+	v33.Transparency = 0.5
+	local v34 = Instance.new("TextButton")
+	v34.Name = "Run"
+	v34.AnchorPoint = Vector2.new(0, 0)
+	v34.Size = UDim2.new(0, 250, 0, 40)
+	v34.Position = UDim2.new(0.4000000059604645, 0, 0.4809523820877075, 0)
+	v34.LayoutOrder = 0
+	v34.ZIndex = 1
+	v34.BackgroundColor3 = Color3.fromRGB(47, 255, 0)
+	v34.BackgroundTransparency = 0
+	v34.BorderSizePixel = 0
+	v34.ClipsDescendants = false
+	v34.Visible = true
+	v34.Active = true
+	v34.Selectable = true
+	v34.Modal = false
+	v34.Text = "Run Now"
+	v34.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v34.TextSize = 14
+	v34.Font = Enum.Font.FredokaOne
+	v34.TextWrapped = true
+	v34.TextScaled = true
+	v34.TextTransparency = 0
+	v34.TextStrokeTransparency = 1
+	v34.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v34.AutoButtonColor = true
+	v34.Rotation = 0
+	v34.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v35 = Instance.new("UIStroke")
+	v35.Name = "UIStroke"
+	v35.ZIndex = 1
+	v35.Thickness = 3
+	v35.Color = Color3.fromRGB(0, 0, 0)
+	v35.Transparency = 0
+	v35.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v35.Thickness = 3
+	v35.Color = Color3.fromRGB(0, 0, 0)
+	v35.Transparency = 0
+	local v36 = Instance.new("UIStroke")
+	v36.Name = "UIStroke"
+	v36.ZIndex = 1
+	v36.Thickness = 5
+	v36.Color = Color3.fromRGB(0, 0, 0)
+	v36.Transparency = 0
+	v36.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v36.Thickness = 5
+	v36.Color = Color3.fromRGB(0, 0, 0)
+	v36.Transparency = 0
+	local v37 = Instance.new("UICorner")
+	v37.Name = "UICorner"
+	v37.CornerRadius = UDim.new(0, 8)
+	v37.CornerRadius = UDim.new(0, 8)
+	local v38 = Instance.new("TextLabel")
+	v38.Name = "NewStuff"
+	v38.AnchorPoint = Vector2.new(0, 0)
+	v38.Size = UDim2.new(0, 465, 0, 35)
+	v38.Position = UDim2.new(0.0386665053665638, 0, 0.6666666865348816, 0)
+	v38.LayoutOrder = 0
+	v38.ZIndex = 1
+	v38.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v38.BackgroundTransparency = 1
+	v38.BorderSizePixel = 0
+	v38.ClipsDescendants = false
+	v38.Visible = true
+	v38.Active = false
+	v38.Selectable = false
+	v38.Text = "New Stuff :"
+	v38.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v38.TextSize = 14
+	v38.Font = Enum.Font.FredokaOne
+	v38.TextWrapped = true
+	v38.TextScaled = true
+	v38.TextTransparency = 0
+	v38.TextStrokeTransparency = 1
+	v38.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v38.Rotation = 0
+	v38.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v39 = Instance.new("UIStroke")
+	v39.Name = "UIStroke"
+	v39.ZIndex = 1
+	v39.Thickness = 5
+	v39.Color = Color3.fromRGB(0, 0, 0)
+	v39.Transparency = 0.5
+	v39.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v39.Thickness = 5
+	v39.Color = Color3.fromRGB(0, 0, 0)
+	v39.Transparency = 0.5
+	local v40 = Instance.new("TextLabel")
+	v40.Name = "1"
+	v40.AnchorPoint = Vector2.new(0, 0)
+	v40.Size = UDim2.new(0, 465, 0, 35)
+	v40.Position = UDim2.new(0.0386665053665638, 0, 0.7857142686843872, 0)
+	v40.LayoutOrder = 0
+	v40.ZIndex = 1
+	v40.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v40.BackgroundTransparency = 1
+	v40.BorderSizePixel = 0
+	v40.ClipsDescendants = false
+	v40.Visible = true
+	v40.Active = false
+	v40.Selectable = false
+	v40.Text = "Drop Dis Gui : 8.11.2025"
+	v40.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v40.TextSize = 14
+	v40.Font = Enum.Font.FredokaOne
+	v40.TextWrapped = true
+	v40.TextScaled = true
+	v40.TextTransparency = 0
+	v40.TextStrokeTransparency = 1
+	v40.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v40.Rotation = 0
+	v40.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v41 = Instance.new("UIStroke")
+	v41.Name = "UIStroke"
+	v41.ZIndex = 1
+	v41.Thickness = 5
+	v41.Color = Color3.fromRGB(0, 0, 0)
+	v41.Transparency = 0.5
+	v41.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v41.Thickness = 5
+	v41.Color = Color3.fromRGB(0, 0, 0)
+	v41.Transparency = 0.5
+	local v42 = Instance.new("TextLabel")
+	v42.Name = "2"
+	v42.AnchorPoint = Vector2.new(0, 0)
+	v42.Size = UDim2.new(0, 465, 0, 35)
+	v42.Position = UDim2.new(0.0386665053665638, 0, 0.8690476417541504, 0)
+	v42.LayoutOrder = 0
+	v42.ZIndex = 1
+	v42.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v42.BackgroundTransparency = 1
+	v42.BorderSizePixel = 0
+	v42.ClipsDescendants = false
+	v42.Visible = true
+	v42.Active = false
+	v42.Selectable = false
+	v42.Text = "FIXING BUGS SOON IS A BETA !!!"
+	v42.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v42.TextSize = 14
+	v42.Font = Enum.Font.FredokaOne
+	v42.TextWrapped = true
+	v42.TextScaled = true
+	v42.TextTransparency = 0
+	v42.TextStrokeTransparency = 1
+	v42.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v42.Rotation = 0
+	v42.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v43 = Instance.new("UIStroke")
+	v43.Name = "UIStroke"
+	v43.ZIndex = 1
+	v43.Thickness = 5
+	v43.Color = Color3.fromRGB(0, 0, 0)
+	v43.Transparency = 0.5
+	v43.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v43.Thickness = 5
+	v43.Color = Color3.fromRGB(0, 0, 0)
+	v43.Transparency = 0.5
+	local v44 = Instance.new("Frame")
+	v44.Name = "ScriptFrame"
+	v44.AnchorPoint = Vector2.new(0.5, 0.5)
+	v44.Size = UDim2.new(0, 500, 0, 420)
+	v44.Position = UDim2.new(0.6470000147819519, 0, 0.5, 0)
+	v44.LayoutOrder = 0
+	v44.ZIndex = 1
+	v44.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v44.BackgroundTransparency = 1
+	v44.BorderSizePixel = 0
+	v44.ClipsDescendants = false
+	v44.Visible = false
+	v44.Active = false
+	v44.Selectable = false
+	v44.Rotation = 0
+	v44.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v45 = Instance.new("TextLabel")
+	v45.Name = "Welcome"
+	v45.AnchorPoint = Vector2.new(0, 0)
+	v45.Size = UDim2.new(0, 250, 0, 35)
+	v45.Position = UDim2.new(0.24866650998592377, 0, 0.02380952425301075, 0)
+	v45.LayoutOrder = 0
+	v45.ZIndex = 1
+	v45.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v45.BackgroundTransparency = 1
+	v45.BorderSizePixel = 0
+	v45.ClipsDescendants = false
+	v45.Visible = true
+	v45.Active = false
+	v45.Selectable = false
+	v45.Text = "Welcome to Scripts!"
+	v45.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v45.TextSize = 14
+	v45.Font = Enum.Font.FredokaOne
+	v45.TextWrapped = true
+	v45.TextScaled = true
+	v45.TextTransparency = 0
+	v45.TextStrokeTransparency = 1
+	v45.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v45.Rotation = 0
+	v45.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v46 = Instance.new("UIStroke")
+	v46.Name = "UIStroke"
+	v46.ZIndex = 1
+	v46.Thickness = 5
+	v46.Color = Color3.fromRGB(0, 0, 0)
+	v46.Transparency = 0.5
+	v46.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v46.Thickness = 5
+	v46.Color = Color3.fromRGB(0, 0, 0)
+	v46.Transparency = 0.5
+	local v47 = Instance.new("TextBox")
+	v47.Name = "SearchBox"
+	v47.AnchorPoint = Vector2.new(0, 0)
+	v47.Size = UDim2.new(0, 250, 0, 35)
+	v47.Position = UDim2.new(0.24866650998592377, 0, 0.1071428582072258, 0)
+	v47.LayoutOrder = 0
+	v47.ZIndex = 1
+	v47.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v47.BackgroundTransparency = 1
+	v47.BorderSizePixel = 0
+	v47.ClipsDescendants = false
+	v47.Visible = true
+	v47.Active = true
+	v47.Selectable = true
+	v47.Text = ""
+	v47.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v47.TextSize = 14
+	v47.Font = Enum.Font.FredokaOne
+	v47.TextWrapped = true
+	v47.TextScaled = true
+	v47.TextTransparency = 0
+	v47.TextStrokeTransparency = 1
+	v47.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v47.PlaceholderText = "Search box ..."
+	v47.Rotation = 0
+	v47.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v48 = Instance.new("ScrollingFrame")
+	v48.Name = "ScrollingFrame"
+	v48.AnchorPoint = Vector2.new(0, 0)
+	v48.Size = UDim2.new(0, 500, 0, 331)
+	v48.Position = UDim2.new(0, 0, 0.21190476417541504, 0)
+	v48.LayoutOrder = 0
+	v48.ZIndex = 1
+	v48.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v48.BackgroundTransparency = 1
+	v48.BorderSizePixel = 0
+	v48.ClipsDescendants = true
+	v48.Visible = true
+	v48.Active = true
+	v48.Selectable = true
+	v48.Rotation = 0
+	v48.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	v48.CanvasSize = UDim2.new(0, 0, 2, 0)
+	v48.ScrollBarThickness = 0
+	v48.ScrollingDirection = Enum.ScrollingDirection.XY
+	local v49 = Instance.new("UIListLayout")
+	v49.Name = "UIListLayout"
+	v49.SortOrder = Enum.SortOrder.LayoutOrder
+	v49.Padding = UDim.new(0, 15)
+	v49.FillDirection = Enum.FillDirection.Vertical
+	v49.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	v49.VerticalAlignment = Enum.VerticalAlignment.Top
+	local v50 = Instance.new("Frame")
+	v50.Name = "Game-1"
+	v50.AnchorPoint = Vector2.new(0, 0)
+	v50.Size = UDim2.new(0, 460, 0, 100)
+	v50.Position = UDim2.new(0, 0, 0, 0)
+	v50.LayoutOrder = 0
+	v50.ZIndex = 1
+	v50.BackgroundColor3 = Color3.fromRGB(180, 5, 255)
+	v50.BackgroundTransparency = 0
+	v50.BorderSizePixel = 0
+	v50.ClipsDescendants = false
+	v50.Visible = true
+	v50.Active = false
+	v50.Selectable = false
+	v50.Rotation = 0
+	v50.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v51 = Instance.new("UICorner")
+	v51.Name = "UICorner"
+	v51.CornerRadius = UDim.new(0, 20)
+	v51.CornerRadius = UDim.new(0, 20)
+	local v52 = Instance.new("TextLabel")
+	v52.Name = "GameName"
+	v52.AnchorPoint = Vector2.new(0, 0)
+	v52.Size = UDim2.new(0, 200, 0, 50)
+	v52.Position = UDim2.new(0.043478261679410934, 0, 0.25, 0)
+	v52.LayoutOrder = 0
+	v52.ZIndex = 1
+	v52.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v52.BackgroundTransparency = 1
+	v52.BorderSizePixel = 0
+	v52.ClipsDescendants = false
+	v52.Visible = true
+	v52.Active = false
+	v52.Selectable = false
+	v52.Text = "Game-1"
+	v52.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v52.TextSize = 14
+	v52.Font = Enum.Font.FredokaOne
+	v52.TextWrapped = true
+	v52.TextScaled = true
+	v52.TextTransparency = 0
+	v52.TextStrokeTransparency = 1
+	v52.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v52.Rotation = 0
+	v52.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v53 = Instance.new("TextButton")
+	v53.Name = "Run"
+	v53.AnchorPoint = Vector2.new(0, 0)
+	v53.Size = UDim2.new(0, 120, 0, 25)
+	v53.Position = UDim2.new(0.70652174949646, 0, 0.6100000143051147, 0)
+	v53.LayoutOrder = 0
+	v53.ZIndex = 1
+	v53.BackgroundColor3 = Color3.fromRGB(100, 255, 3)
+	v53.BackgroundTransparency = 0
+	v53.BorderSizePixel = 0
+	v53.ClipsDescendants = false
+	v53.Visible = true
+	v53.Active = true
+	v53.Selectable = true
+	v53.Modal = false
+	v53.Text = "Run"
+	v53.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v53.TextSize = 14
+	v53.Font = Enum.Font.FredokaOne
+	v53.TextWrapped = true
+	v53.TextScaled = true
+	v53.TextTransparency = 0
+	v53.TextStrokeTransparency = 1
+	v53.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v53.AutoButtonColor = true
+	v53.Rotation = 0
+	v53.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v54 = Instance.new("UICorner")
+	v54.Name = "UICorner"
+	v54.CornerRadius = UDim.new(0, 8)
+	v54.CornerRadius = UDim.new(0, 8)
+	local v55 = Instance.new("UIStroke")
+	v55.Name = "UIStroke"
+	v55.ZIndex = 1
+	v55.Thickness = 3
+	v55.Color = Color3.fromRGB(0, 0, 0)
+	v55.Transparency = 0
+	v55.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v55.Thickness = 3
+	v55.Color = Color3.fromRGB(0, 0, 0)
+	v55.Transparency = 0
+	local v56 = Instance.new("UIStroke")
+	v56.Name = "UIStroke"
+	v56.ZIndex = 1
+	v56.Thickness = 3
+	v56.Color = Color3.fromRGB(0, 0, 0)
+	v56.Transparency = 0
+	v56.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v56.Thickness = 3
+	v56.Color = Color3.fromRGB(0, 0, 0)
+	v56.Transparency = 0
+	local v57 = Instance.new("TextButton")
+	v57.Name = "Info"
+	v57.AnchorPoint = Vector2.new(0, 0)
+	v57.Size = UDim2.new(0, 120, 0, 25)
+	v57.Position = UDim2.new(0.70652174949646, 0, 0.10999999940395355, 0)
+	v57.LayoutOrder = 0
+	v57.ZIndex = 1
+	v57.BackgroundColor3 = Color3.fromRGB(1, 200, 255)
+	v57.BackgroundTransparency = 0
+	v57.BorderSizePixel = 0
+	v57.ClipsDescendants = false
+	v57.Visible = true
+	v57.Active = true
+	v57.Selectable = true
+	v57.Modal = false
+	v57.Text = "Info"
+	v57.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v57.TextSize = 14
+	v57.Font = Enum.Font.FredokaOne
+	v57.TextWrapped = true
+	v57.TextScaled = true
+	v57.TextTransparency = 0
+	v57.TextStrokeTransparency = 1
+	v57.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v57.AutoButtonColor = true
+	v57.Rotation = 0
+	v57.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v58 = Instance.new("UIStroke")
+	v58.Name = "UIStroke"
+	v58.ZIndex = 1
+	v58.Thickness = 3
+	v58.Color = Color3.fromRGB(0, 0, 0)
+	v58.Transparency = 0
+	v58.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v58.Thickness = 3
+	v58.Color = Color3.fromRGB(0, 0, 0)
+	v58.Transparency = 0
+	local v59 = Instance.new("UIStroke")
+	v59.Name = "UIStroke"
+	v59.ZIndex = 1
+	v59.Thickness = 3
+	v59.Color = Color3.fromRGB(0, 0, 0)
+	v59.Transparency = 0
+	v59.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v59.Thickness = 3
+	v59.Color = Color3.fromRGB(0, 0, 0)
+	v59.Transparency = 0
+	local v60 = Instance.new("UICorner")
+	v60.Name = "UICorner"
+	v60.CornerRadius = UDim.new(0, 8)
+	v60.CornerRadius = UDim.new(0, 8)
+	local v61 = Instance.new("TextButton")
+	v61.Name = "fav"
+	v61.AnchorPoint = Vector2.new(0, 0)
+	v61.Size = UDim2.new(0, 75, 0, 25)
+	v61.Position = UDim2.new(0.510869562625885, 0, 0.36000001430511475, 0)
+	v61.LayoutOrder = 0
+	v61.ZIndex = 1
+	v61.BackgroundColor3 = Color3.fromRGB(255, 204, 0)
+	v61.BackgroundTransparency = 0
+	v61.BorderSizePixel = 0
+	v61.ClipsDescendants = false
+	v61.Visible = true
+	v61.Active = true
+	v61.Selectable = true
+	v61.Modal = false
+	v61.Text = "☆/★"
+	v61.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v61.TextSize = 14
+	v61.Font = Enum.Font.FredokaOne
+	v61.TextWrapped = true
+	v61.TextScaled = true
+	v61.TextTransparency = 0
+	v61.TextStrokeTransparency = 1
+	v61.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v61.AutoButtonColor = true
+	v61.Rotation = 0
+	v61.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v62 = Instance.new("UIStroke")
+	v62.Name = "UIStroke"
+	v62.ZIndex = 1
+	v62.Thickness = 3
+	v62.Color = Color3.fromRGB(0, 0, 0)
+	v62.Transparency = 0
+	v62.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v62.Thickness = 3
+	v62.Color = Color3.fromRGB(0, 0, 0)
+	v62.Transparency = 0
+	local v63 = Instance.new("UIStroke")
+	v63.Name = "UIStroke"
+	v63.ZIndex = 1
+	v63.Thickness = 3
+	v63.Color = Color3.fromRGB(0, 0, 0)
+	v63.Transparency = 0
+	v63.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v63.Thickness = 3
+	v63.Color = Color3.fromRGB(0, 0, 0)
+	v63.Transparency = 0
+	local v64 = Instance.new("UICorner")
+	v64.Name = "UICorner"
+	v64.CornerRadius = UDim.new(0, 8)
+	v64.CornerRadius = UDim.new(0, 8)
+	local v65 = Instance.new("Frame")
+	v65.Name = "Game-2"
+	v65.AnchorPoint = Vector2.new(0, 0)
+	v65.Size = UDim2.new(0, 460, 0, 100)
+	v65.Position = UDim2.new(0, 0, 0, 0)
+	v65.LayoutOrder = 0
+	v65.ZIndex = 1
+	v65.BackgroundColor3 = Color3.fromRGB(180, 5, 255)
+	v65.BackgroundTransparency = 0
+	v65.BorderSizePixel = 0
+	v65.ClipsDescendants = false
+	v65.Visible = true
+	v65.Active = false
+	v65.Selectable = false
+	v65.Rotation = 0
+	v65.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v66 = Instance.new("UICorner")
+	v66.Name = "UICorner"
+	v66.CornerRadius = UDim.new(0, 20)
+	v66.CornerRadius = UDim.new(0, 20)
+	local v67 = Instance.new("TextLabel")
+	v67.Name = "GameName"
+	v67.AnchorPoint = Vector2.new(0, 0)
+	v67.Size = UDim2.new(0, 200, 0, 50)
+	v67.Position = UDim2.new(0.043478261679410934, 0, 0.25, 0)
+	v67.LayoutOrder = 0
+	v67.ZIndex = 1
+	v67.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v67.BackgroundTransparency = 1
+	v67.BorderSizePixel = 0
+	v67.ClipsDescendants = false
+	v67.Visible = true
+	v67.Active = false
+	v67.Selectable = false
+	v67.Text = "Game-2"
+	v67.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v67.TextSize = 14
+	v67.Font = Enum.Font.FredokaOne
+	v67.TextWrapped = true
+	v67.TextScaled = true
+	v67.TextTransparency = 0
+	v67.TextStrokeTransparency = 1
+	v67.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v67.Rotation = 0
+	v67.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v68 = Instance.new("TextButton")
+	v68.Name = "Run"
+	v68.AnchorPoint = Vector2.new(0, 0)
+	v68.Size = UDim2.new(0, 120, 0, 25)
+	v68.Position = UDim2.new(0.70652174949646, 0, 0.6100000143051147, 0)
+	v68.LayoutOrder = 0
+	v68.ZIndex = 1
+	v68.BackgroundColor3 = Color3.fromRGB(100, 255, 3)
+	v68.BackgroundTransparency = 0
+	v68.BorderSizePixel = 0
+	v68.ClipsDescendants = false
+	v68.Visible = true
+	v68.Active = true
+	v68.Selectable = true
+	v68.Modal = false
+	v68.Text = "Run"
+	v68.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v68.TextSize = 14
+	v68.Font = Enum.Font.FredokaOne
+	v68.TextWrapped = true
+	v68.TextScaled = true
+	v68.TextTransparency = 0
+	v68.TextStrokeTransparency = 1
+	v68.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v68.AutoButtonColor = true
+	v68.Rotation = 0
+	v68.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v69 = Instance.new("UICorner")
+	v69.Name = "UICorner"
+	v69.CornerRadius = UDim.new(0, 8)
+	v69.CornerRadius = UDim.new(0, 8)
+	local v70 = Instance.new("UIStroke")
+	v70.Name = "UIStroke"
+	v70.ZIndex = 1
+	v70.Thickness = 3
+	v70.Color = Color3.fromRGB(0, 0, 0)
+	v70.Transparency = 0
+	v70.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v70.Thickness = 3
+	v70.Color = Color3.fromRGB(0, 0, 0)
+	v70.Transparency = 0
+	local v71 = Instance.new("UIStroke")
+	v71.Name = "UIStroke"
+	v71.ZIndex = 1
+	v71.Thickness = 3
+	v71.Color = Color3.fromRGB(0, 0, 0)
+	v71.Transparency = 0
+	v71.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v71.Thickness = 3
+	v71.Color = Color3.fromRGB(0, 0, 0)
+	v71.Transparency = 0
+	local v72 = Instance.new("TextButton")
+	v72.Name = "Info"
+	v72.AnchorPoint = Vector2.new(0, 0)
+	v72.Size = UDim2.new(0, 120, 0, 25)
+	v72.Position = UDim2.new(0.70652174949646, 0, 0.10999999940395355, 0)
+	v72.LayoutOrder = 0
+	v72.ZIndex = 1
+	v72.BackgroundColor3 = Color3.fromRGB(1, 200, 255)
+	v72.BackgroundTransparency = 0
+	v72.BorderSizePixel = 0
+	v72.ClipsDescendants = false
+	v72.Visible = true
+	v72.Active = true
+	v72.Selectable = true
+	v72.Modal = false
+	v72.Text = "Info"
+	v72.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v72.TextSize = 14
+	v72.Font = Enum.Font.FredokaOne
+	v72.TextWrapped = true
+	v72.TextScaled = true
+	v72.TextTransparency = 0
+	v72.TextStrokeTransparency = 1
+	v72.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v72.AutoButtonColor = true
+	v72.Rotation = 0
+	v72.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v73 = Instance.new("UIStroke")
+	v73.Name = "UIStroke"
+	v73.ZIndex = 1
+	v73.Thickness = 3
+	v73.Color = Color3.fromRGB(0, 0, 0)
+	v73.Transparency = 0
+	v73.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v73.Thickness = 3
+	v73.Color = Color3.fromRGB(0, 0, 0)
+	v73.Transparency = 0
+	local v74 = Instance.new("UIStroke")
+	v74.Name = "UIStroke"
+	v74.ZIndex = 1
+	v74.Thickness = 3
+	v74.Color = Color3.fromRGB(0, 0, 0)
+	v74.Transparency = 0
+	v74.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v74.Thickness = 3
+	v74.Color = Color3.fromRGB(0, 0, 0)
+	v74.Transparency = 0
+	local v75 = Instance.new("UICorner")
+	v75.Name = "UICorner"
+	v75.CornerRadius = UDim.new(0, 8)
+	v75.CornerRadius = UDim.new(0, 8)
+	local v76 = Instance.new("TextButton")
+	v76.Name = "fav"
+	v76.AnchorPoint = Vector2.new(0, 0)
+	v76.Size = UDim2.new(0, 75, 0, 25)
+	v76.Position = UDim2.new(0.510869562625885, 0, 0.36000001430511475, 0)
+	v76.LayoutOrder = 0
+	v76.ZIndex = 1
+	v76.BackgroundColor3 = Color3.fromRGB(255, 204, 0)
+	v76.BackgroundTransparency = 0
+	v76.BorderSizePixel = 0
+	v76.ClipsDescendants = false
+	v76.Visible = true
+	v76.Active = true
+	v76.Selectable = true
+	v76.Modal = false
+	v76.Text = "☆/★"
+	v76.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v76.TextSize = 14
+	v76.Font = Enum.Font.FredokaOne
+	v76.TextWrapped = true
+	v76.TextScaled = true
+	v76.TextTransparency = 0
+	v76.TextStrokeTransparency = 1
+	v76.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v76.AutoButtonColor = true
+	v76.Rotation = 0
+	v76.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v77 = Instance.new("UIStroke")
+	v77.Name = "UIStroke"
+	v77.ZIndex = 1
+	v77.Thickness = 3
+	v77.Color = Color3.fromRGB(0, 0, 0)
+	v77.Transparency = 0
+	v77.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v77.Thickness = 3
+	v77.Color = Color3.fromRGB(0, 0, 0)
+	v77.Transparency = 0
+	local v78 = Instance.new("UIStroke")
+	v78.Name = "UIStroke"
+	v78.ZIndex = 1
+	v78.Thickness = 3
+	v78.Color = Color3.fromRGB(0, 0, 0)
+	v78.Transparency = 0
+	v78.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v78.Thickness = 3
+	v78.Color = Color3.fromRGB(0, 0, 0)
+	v78.Transparency = 0
+	local v79 = Instance.new("UICorner")
+	v79.Name = "UICorner"
+	v79.CornerRadius = UDim.new(0, 8)
+	v79.CornerRadius = UDim.new(0, 8)
+	local v80 = Instance.new("Frame")
+	v80.Name = "MiscFrame"
+	v80.AnchorPoint = Vector2.new(0.5, 0.5)
+	v80.Size = UDim2.new(0, 500, 0, 420)
+	v80.Position = UDim2.new(0.6470000147819519, 0, 0.5, 0)
+	v80.LayoutOrder = 0
+	v80.ZIndex = 1
+	v80.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v80.BackgroundTransparency = 1
+	v80.BorderSizePixel = 0
+	v80.ClipsDescendants = false
+	v80.Visible = false
+	v80.Active = false
+	v80.Selectable = false
+	v80.Rotation = 0
+	v80.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v81 = Instance.new("TextLabel")
+	v81.Name = "Welcome"
+	v81.AnchorPoint = Vector2.new(0, 0)
+	v81.Size = UDim2.new(0, 250, 0, 35)
+	v81.Position = UDim2.new(0.24866650998592377, 0, 0.02380952425301075, 0)
+	v81.LayoutOrder = 0
+	v81.ZIndex = 1
+	v81.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v81.BackgroundTransparency = 1
+	v81.BorderSizePixel = 0
+	v81.ClipsDescendants = false
+	v81.Visible = true
+	v81.Active = false
+	v81.Selectable = false
+	v81.Text = "Welcome to Misc!"
+	v81.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v81.TextSize = 14
+	v81.Font = Enum.Font.FredokaOne
+	v81.TextWrapped = true
+	v81.TextScaled = true
+	v81.TextTransparency = 0
+	v81.TextStrokeTransparency = 1
+	v81.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v81.Rotation = 0
+	v81.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v82 = Instance.new("UIStroke")
+	v82.Name = "UIStroke"
+	v82.ZIndex = 1
+	v82.Thickness = 5
+	v82.Color = Color3.fromRGB(0, 0, 0)
+	v82.Transparency = 0.5
+	v82.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v82.Thickness = 5
+	v82.Color = Color3.fromRGB(0, 0, 0)
+	v82.Transparency = 0.5
+	local v83 = Instance.new("ScrollingFrame")
+	v83.Name = "ScrollingFrame"
+	v83.AnchorPoint = Vector2.new(0, 0)
+	v83.Size = UDim2.new(0, 470, 0, 365)
+	v83.Position = UDim2.new(0.029999999329447746, 0, 0.130952388048172, 0)
+	v83.LayoutOrder = 0
+	v83.ZIndex = 1
+	v83.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v83.BackgroundTransparency = 1
+	v83.BorderSizePixel = 0
+	v83.ClipsDescendants = true
+	v83.Visible = true
+	v83.Active = true
+	v83.Selectable = true
+	v83.Rotation = 0
+	v83.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	v83.CanvasSize = UDim2.new(0, 0, 2, 0)
+	v83.ScrollBarThickness = 0
+	v83.ScrollingDirection = Enum.ScrollingDirection.XY
+	local v84 = Instance.new("UIListLayout")
+	v84.Name = "UIListLayout"
+	v84.SortOrder = Enum.SortOrder.LayoutOrder
+	v84.Padding = UDim.new(0, 5)
+	v84.FillDirection = Enum.FillDirection.Vertical
+	v84.HorizontalAlignment = Enum.HorizontalAlignment.Left
+	v84.VerticalAlignment = Enum.VerticalAlignment.Top
+	local v85 = Instance.new("Frame")
+	v85.Name = "BackgroundFrame"
+	v85.AnchorPoint = Vector2.new(0, 0)
+	v85.Size = UDim2.new(0, 471, 0, 150)
+	v85.Position = UDim2.new(-0.0042553190141916275, 0, -0.002739726100116968, 0)
+	v85.LayoutOrder = 0
+	v85.ZIndex = 1
+	v85.BackgroundColor3 = Color3.fromRGB(183, 1, 255)
+	v85.BackgroundTransparency = 0.5
+	v85.BorderSizePixel = 0
+	v85.ClipsDescendants = false
+	v85.Visible = true
+	v85.Active = false
+	v85.Selectable = false
+	v85.Rotation = 0
+	v85.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v86 = Instance.new("TextLabel")
+	v86.Name = "Text"
+	v86.AnchorPoint = Vector2.new(0, 0)
+	v86.Size = UDim2.new(0, 200, 0, 50)
+	v86.Position = UDim2.new(0, 0, 0, 0)
+	v86.LayoutOrder = 0
+	v86.ZIndex = 1
+	v86.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	v86.BackgroundTransparency = 1
+	v86.BorderSizePixel = 0
+	v86.ClipsDescendants = false
+	v86.Visible = true
+	v86.Active = false
+	v86.Selectable = false
+	v86.Text = "Background"
+	v86.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v86.TextSize = 14
+	v86.Font = Enum.Font.FredokaOne
+	v86.TextWrapped = true
+	v86.TextScaled = true
+	v86.TextTransparency = 0
+	v86.TextStrokeTransparency = 1
+	v86.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v86.Rotation = 0
+	v86.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v87 = Instance.new("TextButton")
+	v87.Name = "Default"
+	v87.AnchorPoint = Vector2.new(0, 0)
+	v87.Size = UDim2.new(0, 200, 0, 40)
+	v87.Position = UDim2.new(0.02123142220079899, 0, 0.36666667461395264, 0)
+	v87.LayoutOrder = 0
+	v87.ZIndex = 1
+	v87.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v87.BackgroundTransparency = 1
+	v87.BorderSizePixel = 0
+	v87.ClipsDescendants = false
+	v87.Visible = true
+	v87.Active = true
+	v87.Selectable = true
+	v87.Modal = false
+	v87.Text = "Default"
+	v87.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v87.TextSize = 14
+	v87.Font = Enum.Font.FredokaOne
+	v87.TextWrapped = true
+	v87.TextScaled = true
+	v87.TextTransparency = 0
+	v87.TextStrokeTransparency = 1
+	v87.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v87.AutoButtonColor = true
+	v87.Rotation = 0
+	v87.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v88 = Instance.new("TextButton")
+	v88.Name = "Blue"
+	v88.AnchorPoint = Vector2.new(0, 0)
+	v88.Size = UDim2.new(0, 200, 0, 40)
+	v88.Position = UDim2.new(0.02123142220079899, 0, 0.6466666460037231, 0)
+	v88.LayoutOrder = 0
+	v88.ZIndex = 1
+	v88.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v88.BackgroundTransparency = 1
+	v88.BorderSizePixel = 0
+	v88.ClipsDescendants = false
+	v88.Visible = true
+	v88.Active = true
+	v88.Selectable = true
+	v88.Modal = false
+	v88.Text = "Blue"
+	v88.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v88.TextSize = 14
+	v88.Font = Enum.Font.FredokaOne
+	v88.TextWrapped = true
+	v88.TextScaled = true
+	v88.TextTransparency = 0
+	v88.TextStrokeTransparency = 1
+	v88.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v88.AutoButtonColor = true
+	v88.Rotation = 0
+	v88.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v89 = Instance.new("TextButton")
+	v89.Name = "Green"
+	v89.AnchorPoint = Vector2.new(0, 0)
+	v89.Size = UDim2.new(0, 200, 0, 40)
+	v89.Position = UDim2.new(0.5541401505470276, 0, 0.36666667461395264, 0)
+	v89.LayoutOrder = 0
+	v89.ZIndex = 1
+	v89.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v89.BackgroundTransparency = 1
+	v89.BorderSizePixel = 0
+	v89.ClipsDescendants = false
+	v89.Visible = true
+	v89.Active = true
+	v89.Selectable = true
+	v89.Modal = false
+	v89.Text = "Green"
+	v89.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v89.TextSize = 14
+	v89.Font = Enum.Font.FredokaOne
+	v89.TextWrapped = true
+	v89.TextScaled = true
+	v89.TextTransparency = 0
+	v89.TextStrokeTransparency = 1
+	v89.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v89.AutoButtonColor = true
+	v89.Rotation = 0
+	v89.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v90 = Instance.new("TextButton")
+	v90.Name = "Black"
+	v90.AnchorPoint = Vector2.new(0, 0)
+	v90.Size = UDim2.new(0, 200, 0, 40)
+	v90.Position = UDim2.new(0.5541401505470276, 0, 0.6466666460037231, 0)
+	v90.LayoutOrder = 0
+	v90.ZIndex = 1
+	v90.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v90.BackgroundTransparency = 1
+	v90.BorderSizePixel = 0
+	v90.ClipsDescendants = false
+	v90.Visible = true
+	v90.Active = true
+	v90.Selectable = true
+	v90.Modal = false
+	v90.Text = "Black"
+	v90.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v90.TextSize = 14
+	v90.Font = Enum.Font.FredokaOne
+	v90.TextWrapped = true
+	v90.TextScaled = true
+	v90.TextTransparency = 0
+	v90.TextStrokeTransparency = 1
+	v90.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v90.AutoButtonColor = true
+	v90.Rotation = 0
+	v90.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v91 = Instance.new("Frame")
+	v91.Name = "KeyBindFrame"
+	v91.AnchorPoint = Vector2.new(0, 0)
+	v91.Size = UDim2.new(0, 471, 0, 150)
+	v91.Position = UDim2.new(-0.0042553190141916275, 0, -0.002739726100116968, 0)
+	v91.LayoutOrder = 0
+	v91.ZIndex = 1
+	v91.BackgroundColor3 = Color3.fromRGB(183, 1, 255)
+	v91.BackgroundTransparency = 0.5
+	v91.BorderSizePixel = 0
+	v91.ClipsDescendants = false
+	v91.Visible = true
+	v91.Active = false
+	v91.Selectable = false
+	v91.Rotation = 0
+	v91.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v92 = Instance.new("TextLabel")
+	v92.Name = "Key-Bind"
+	v92.AnchorPoint = Vector2.new(0, 0)
+	v92.Size = UDim2.new(0, 200, 0, 35)
+	v92.Position = UDim2.new(0.02123142220079899, 0, 0, 0)
+	v92.LayoutOrder = 0
+	v92.ZIndex = 1
+	v92.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	v92.BackgroundTransparency = 1
+	v92.BorderSizePixel = 0
+	v92.ClipsDescendants = false
+	v92.Visible = true
+	v92.Active = false
+	v92.Selectable = false
+	v92.Text = "Key-Bind"
+	v92.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v92.TextSize = 14
+	v92.Font = Enum.Font.FredokaOne
+	v92.TextWrapped = true
+	v92.TextScaled = true
+	v92.TextTransparency = 0
+	v92.TextStrokeTransparency = 1
+	v92.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v92.Rotation = 0
+	v92.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v93 = Instance.new("TextLabel")
+	v93.Name = "Key-Bind-currency"
+	v93.AnchorPoint = Vector2.new(0, 0)
+	v93.Size = UDim2.new(0, 200, 0, 50)
+	v93.Position = UDim2.new(0.5541401505470276, 0, 0.013333333656191826, 0)
+	v93.LayoutOrder = 0
+	v93.ZIndex = 1
+	v93.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	v93.BackgroundTransparency = 1
+	v93.BorderSizePixel = 0
+	v93.ClipsDescendants = false
+	v93.Visible = true
+	v93.Active = false
+	v93.Selectable = false
+	v93.Text = "[Right-Schift]"
+	v93.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v93.TextSize = 14
+	v93.Font = Enum.Font.FredokaOne
+	v93.TextWrapped = true
+	v93.TextScaled = true
+	v93.TextTransparency = 0
+	v93.TextStrokeTransparency = 1
+	v93.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v93.Rotation = 0
+	v93.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v94 = Instance.new("TextBox")
+	v94.Name = "InputBox"
+	v94.AnchorPoint = Vector2.new(0, 0)
+	v94.Size = UDim2.new(0, 200, 0, 50)
+	v94.Position = UDim2.new(0.05095541477203369, 0, 0.47999998927116394, 0)
+	v94.LayoutOrder = 0
+	v94.ZIndex = 1
+	v94.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v94.BackgroundTransparency = 1
+	v94.BorderSizePixel = 0
+	v94.ClipsDescendants = false
+	v94.Visible = true
+	v94.Active = true
+	v94.Selectable = true
+	v94.Text = ""
+	v94.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v94.TextSize = 14
+	v94.Font = Enum.Font.FredokaOne
+	v94.TextWrapped = true
+	v94.TextScaled = true
+	v94.TextTransparency = 0
+	v94.TextStrokeTransparency = 1
+	v94.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v94.PlaceholderText = "New Key-Bind"
+	v94.Rotation = 0
+	v94.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v95 = Instance.new("TextButton")
+	v95.Name = "Confirm"
+	v95.AnchorPoint = Vector2.new(0, 0)
+	v95.Size = UDim2.new(0, 200, 0, 50)
+	v95.Position = UDim2.new(0.5541401505470276, 0, 0.47999998927116394, 0)
+	v95.LayoutOrder = 0
+	v95.ZIndex = 1
+	v95.BackgroundColor3 = Color3.fromRGB(77, 255, 0)
+	v95.BackgroundTransparency = 0
+	v95.BorderSizePixel = 0
+	v95.ClipsDescendants = false
+	v95.Visible = true
+	v95.Active = true
+	v95.Selectable = true
+	v95.Modal = false
+	v95.Text = "Confirm"
+	v95.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v95.TextSize = 14
+	v95.Font = Enum.Font.FredokaOne
+	v95.TextWrapped = true
+	v95.TextScaled = true
+	v95.TextTransparency = 0
+	v95.TextStrokeTransparency = 1
+	v95.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v95.AutoButtonColor = true
+	v95.Rotation = 0
+	v95.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v96 = Instance.new("UICorner")
+	v96.Name = "UICorner"
+	v96.CornerRadius = UDim.new(0, 8)
+	v96.CornerRadius = UDim.new(0, 8)
+	local v97 = Instance.new("UIStroke")
+	v97.Name = "UIStroke"
+	v97.ZIndex = 1
+	v97.Thickness = 3
+	v97.Color = Color3.fromRGB(0, 0, 0)
+	v97.Transparency = 0
+	v97.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v97.Thickness = 3
+	v97.Color = Color3.fromRGB(0, 0, 0)
+	v97.Transparency = 0
+	local v98 = Instance.new("UIStroke")
+	v98.Name = "UIStroke"
+	v98.ZIndex = 1
+	v98.Thickness = 4
+	v98.Color = Color3.fromRGB(0, 0, 0)
+	v98.Transparency = 0
+	v98.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	v98.Thickness = 4
+	v98.Color = Color3.fromRGB(0, 0, 0)
+	v98.Transparency = 0
+	local v99 = Instance.new("Frame")
+	v99.Name = "ProfileFrame"
+	v99.AnchorPoint = Vector2.new(0.5, 0.5)
+	v99.Size = UDim2.new(0, 500, 0, 420)
+	v99.Position = UDim2.new(0.6470000147819519, 0, 0.5, 0)
+	v99.LayoutOrder = 0
+	v99.ZIndex = 1
+	v99.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v99.BackgroundTransparency = 1
+	v99.BorderSizePixel = 0
+	v99.ClipsDescendants = false
+	v99.Visible = false
+	v99.Active = false
+	v99.Selectable = false
+	v99.Rotation = 0
+	v99.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v100 = Instance.new("TextLabel")
+	v100.Name = "Welcome"
+	v100.AnchorPoint = Vector2.new(0, 0)
+	v100.Size = UDim2.new(0, 250, 0, 35)
+	v100.Position = UDim2.new(0.24866650998592377, 0, 0.02380952425301075, 0)
+	v100.LayoutOrder = 0
+	v100.ZIndex = 1
+	v100.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v100.BackgroundTransparency = 1
+	v100.BorderSizePixel = 0
+	v100.ClipsDescendants = false
+	v100.Visible = true
+	v100.Active = false
+	v100.Selectable = false
+	v100.Text = "Welcome to Pfofile!"
+	v100.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v100.TextSize = 14
+	v100.Font = Enum.Font.FredokaOne
+	v100.TextWrapped = true
+	v100.TextScaled = true
+	v100.TextTransparency = 0
+	v100.TextStrokeTransparency = 1
+	v100.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v100.Rotation = 0
+	v100.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v101 = Instance.new("UIStroke")
+	v101.Name = "UIStroke"
+	v101.ZIndex = 1
+	v101.Thickness = 5
+	v101.Color = Color3.fromRGB(0, 0, 0)
+	v101.Transparency = 0.5
+	v101.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v101.Thickness = 5
+	v101.Color = Color3.fromRGB(0, 0, 0)
+	v101.Transparency = 0.5
+	local v102 = Instance.new("TextLabel")
+	v102.Name = "Soon"
+	v102.AnchorPoint = Vector2.new(0, 0)
+	v102.Size = UDim2.new(0, 250, 0, 35)
+	v102.Position = UDim2.new(0.24866650998592377, 0, 0.4571428596973419, 0)
+	v102.LayoutOrder = 0
+	v102.ZIndex = 1
+	v102.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v102.BackgroundTransparency = 1
+	v102.BorderSizePixel = 0
+	v102.ClipsDescendants = false
+	v102.Visible = true
+	v102.Active = false
+	v102.Selectable = false
+	v102.Text = "Adding Content Soon!"
+	v102.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v102.TextSize = 14
+	v102.Font = Enum.Font.FredokaOne
+	v102.TextWrapped = true
+	v102.TextScaled = true
+	v102.TextTransparency = 0
+	v102.TextStrokeTransparency = 1
+	v102.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v102.Rotation = 0
+	v102.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v103 = Instance.new("UIStroke")
+	v103.Name = "UIStroke"
+	v103.ZIndex = 1
+	v103.Thickness = 5
+	v103.Color = Color3.fromRGB(0, 0, 0)
+	v103.Transparency = 0.5
+	v103.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v103.Thickness = 5
+	v103.Color = Color3.fromRGB(0, 0, 0)
+	v103.Transparency = 0.5
+	local v104 = Instance.new("Frame")
+	v104.Name = "NewsFrame"
+	v104.AnchorPoint = Vector2.new(0.5, 0.5)
+	v104.Size = UDim2.new(0, 500, 0, 420)
+	v104.Position = UDim2.new(0.6470000147819519, 0, 0.5, 0)
+	v104.LayoutOrder = 0
+	v104.ZIndex = 1
+	v104.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v104.BackgroundTransparency = 1
+	v104.BorderSizePixel = 0
+	v104.ClipsDescendants = false
+	v104.Visible = false
+	v104.Active = false
+	v104.Selectable = false
+	v104.Rotation = 0
+	v104.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v105 = Instance.new("TextLabel")
+	v105.Name = "Welcome"
+	v105.AnchorPoint = Vector2.new(0, 0)
+	v105.Size = UDim2.new(0, 250, 0, 35)
+	v105.Position = UDim2.new(0.24866650998592377, 0, 0.02380952425301075, 0)
+	v105.LayoutOrder = 0
+	v105.ZIndex = 1
+	v105.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v105.BackgroundTransparency = 1
+	v105.BorderSizePixel = 0
+	v105.ClipsDescendants = false
+	v105.Visible = true
+	v105.Active = false
+	v105.Selectable = false
+	v105.Text = "Welcome to News!"
+	v105.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v105.TextSize = 14
+	v105.Font = Enum.Font.FredokaOne
+	v105.TextWrapped = true
+	v105.TextScaled = true
+	v105.TextTransparency = 0
+	v105.TextStrokeTransparency = 1
+	v105.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v105.Rotation = 0
+	v105.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v106 = Instance.new("UIStroke")
+	v106.Name = "UIStroke"
+	v106.ZIndex = 1
+	v106.Thickness = 5
+	v106.Color = Color3.fromRGB(0, 0, 0)
+	v106.Transparency = 0.5
+	v106.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v106.Thickness = 5
+	v106.Color = Color3.fromRGB(0, 0, 0)
+	v106.Transparency = 0.5
+	local v107 = Instance.new("TextLabel")
+	v107.Name = "Soon"
+	v107.AnchorPoint = Vector2.new(0, 0)
+	v107.Size = UDim2.new(0, 250, 0, 35)
+	v107.Position = UDim2.new(0.24866650998592377, 0, 0.4571428596973419, 0)
+	v107.LayoutOrder = 0
+	v107.ZIndex = 1
+	v107.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	v107.BackgroundTransparency = 1
+	v107.BorderSizePixel = 0
+	v107.ClipsDescendants = false
+	v107.Visible = true
+	v107.Active = false
+	v107.Selectable = false
+	v107.Text = "Adding Content Soon!"
+	v107.TextColor3 = Color3.fromRGB(255, 255, 255)
+	v107.TextSize = 14
+	v107.Font = Enum.Font.FredokaOne
+	v107.TextWrapped = true
+	v107.TextScaled = true
+	v107.TextTransparency = 0
+	v107.TextStrokeTransparency = 1
+	v107.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	v107.Rotation = 0
+	v107.SizeConstraint = Enum.SizeConstraint.RelativeXY
+	local v108 = Instance.new("UIStroke")
+	v108.Name = "UIStroke"
+	v108.ZIndex = 1
+	v108.Thickness = 5
+	v108.Color = Color3.fromRGB(0, 0, 0)
+	v108.Transparency = 0.5
+	v108.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	v108.Thickness = 5
+	v108.Color = Color3.fromRGB(0, 0, 0)
+	v108.Transparency = 0.5
+	v3.Parent = v2
+	v4.Parent = v2
+	v6.Parent = v5
+	v5.Parent = v2
+	v8.Parent = v7
+	v10.Parent = v9
+	v11.Parent = v9
+	v9.Parent = v7
+	v13.Parent = v12
+	v14.Parent = v12
+	v12.Parent = v7
+	v16.Parent = v15
+	v17.Parent = v15
+	v15.Parent = v7
+	v19.Parent = v18
+	v20.Parent = v18
+	v18.Parent = v7
+	v22.Parent = v21
+	v23.Parent = v21
+	v21.Parent = v7
+	v7.Parent = v2
+	v25.Parent = v24
+	v27.Parent = v26
+	v26.Parent = v24
+	v29.Parent = v28
+	v28.Parent = v24
+	v31.Parent = v30
+	v30.Parent = v24
+	v33.Parent = v32
+	v32.Parent = v24
+	v35.Parent = v34
+	v36.Parent = v34
+	v37.Parent = v34
+	v34.Parent = v24
+	v39.Parent = v38
+	v38.Parent = v24
+	v41.Parent = v40
+	v40.Parent = v24
+	v43.Parent = v42
+	v42.Parent = v24
+	v24.Parent = v2
+	v46.Parent = v45
+	v45.Parent = v44
+	v47.Parent = v44
+	v49.Parent = v48
+	v51.Parent = v50
+	v52.Parent = v50
+	v54.Parent = v53
+	v55.Parent = v53
+	v56.Parent = v53
+	v53.Parent = v50
+	v58.Parent = v57
+	v59.Parent = v57
+	v60.Parent = v57
+	v57.Parent = v50
+	v62.Parent = v61
+	v63.Parent = v61
+	v64.Parent = v61
+	v61.Parent = v50
+	v50.Parent = v48
+	v66.Parent = v65
+	v67.Parent = v65
+	v69.Parent = v68
+	v70.Parent = v68
+	v71.Parent = v68
+	v68.Parent = v65
+	v73.Parent = v72
+	v74.Parent = v72
+	v75.Parent = v72
+	v72.Parent = v65
+	v77.Parent = v76
+	v78.Parent = v76
+	v79.Parent = v76
+	v76.Parent = v65
+	v65.Parent = v48
+	v48.Parent = v44
+	v44.Parent = v2
+	v82.Parent = v81
+	v81.Parent = v80
+	v84.Parent = v83
+	v86.Parent = v85
+	v87.Parent = v85
+	v88.Parent = v85
+	v89.Parent = v85
+	v90.Parent = v85
+	v85.Parent = v83
+	v92.Parent = v91
+	v93.Parent = v91
+	v94.Parent = v91
+	v96.Parent = v95
+	v97.Parent = v95
+	v98.Parent = v95
+	v95.Parent = v91
+	v91.Parent = v83
+	v83.Parent = v80
+	v80.Parent = v2
+	v101.Parent = v100
+	v100.Parent = v99
+	v103.Parent = v102
+	v102.Parent = v99
+	v99.Parent = v2
+	v106.Parent = v105
+	v105.Parent = v104
+	v108.Parent = v107
+	v107.Parent = v104
+	v104.Parent = v2
+	v2.Parent = v1
+	v1.Parent = player:WaitForChild('PlayerGui')
+
+	-- =========================
+	--  HIER BEGINNT DIE LOGIK
+	-- =========================
+
+	local Players = game:GetService("Players")
+	local MarketplaceService = game:GetService("MarketplaceService")
+	local UserInputService = game:GetService("UserInputService")
+
+	-- safety helper
+	local function safe(name, obj)
+		if not obj then
+			warn("Erwartetes GUI-Objekt fehlt: "..tostring(name))
+			return false
+		end
+		return true
+	end
+
+	if not (safe("MainFrame (v2)", v2) and safe("MainFrame UIStroke (v4)", v4) and safe("SideBarScrollingFrame (v7)", v7)
+		and safe("ScriptContainer (v48)", v48) and safe("template (v50)", v50)) then
+		return
+	end
+
+	-- ensure gui not removed on respawn
+	pcall(function() v1.ResetOnSpawn = false end)
+	player.CharacterAdded:Connect(function()
+		task.delay(0.5, function()
+			local pg = player:FindFirstChild("PlayerGui")
+			if pg and v1 and v1.Parent ~= pg then
+				pcall(function() v1.Parent = pg end)
+			end
+		end)
+	end)
+
+	-- update game name labels
+	local function safeGetPlaceName()
+		local ok, info = pcall(function()
+			return MarketplaceService:GetProductInfo(game.PlaceId)
+		end)
+		if ok and type(info) == "table" and info.Name then
+			return info.Name
+		else
+			return "Unknown"
+		end
+	end
+
+	local function updateGameNameUI()
+		local gamename = safeGetPlaceName()
+		pcall(function() if v5 and v5:IsA("TextLabel") then v5.Text = "Nexor | " .. tostring(gamename) end end)
+		pcall(function() if v30 and v30:IsA("TextLabel") then v30.Text = tostring(gamename) end end)
+	end
+	updateGameNameUI()
+
+	-- frames map
+	local frames = {
+		Home = v24,
+		Scripts = v44,
+		Misc = v80,
+		Profile = v99,
+		News = v104
+	}
+	local function showFrame(name)
+		for k, f in pairs(frames) do
+			if f and f:IsA("Instance") then
+				f.Visible = (k == name)
+			end
+		end
+	end
+
+	-- connect sidebar buttons
+	local function safeConnectButton(btn, name)
+		if btn and btn:IsA("TextButton") then
+			btn.MouseButton1Click:Connect(function()
+				showFrame(name)
+			end)
+		end
+	end
+	safeConnectButton(v9, "Home")
+	safeConnectButton(v12, "Scripts")
+	safeConnectButton(v15, "Misc")
+	safeConnectButton(v18, "Profile")
+	safeConnectButton(v21, "News")
+	showFrame("Home")
+
+	-- Config table (deine Einträge; unverändert)
+	local Config = {
+		[1] = { Name = "Notruf Hambrug", PlaceId = 7711635737, Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/ghost-749/nebula-free-hub/refs/heads/main/nebula.lua'))()
+		end},
+		[2] = { Name = "THA BRONX 3", PlaceId = 16472538603, Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/voidrzn/Axion-/refs/heads/main/Tha%20bronx%203',true))()
+		end},
+		[3] = { Name = "99 Night in the Forest", PlaceId = 79546208627805, Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/inkgame.lua", true))()
+		end},
+		[4] = { Name = "Murder Mystery 2", PlaceId = 142823291, Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/Ihaveash0rtnamefordiscord/Releases/main/MurderMystery2HighlightESP'))(' Watermelon ?')
+		end},
+		[5] = { Name = "Cut trees simulator", PlaceId = 135880624242201, Run = function()
+			loadstring(game:HttpGet("https://pastebin.com/raw/Rh3nPMpF"))()
+		end},
+		[6] = { Name = "Brookhaven 🏡 RP", PlaceId = 4924922222, Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/TheDarkoneMarcillisePex/Other-Scripts/main/Brook%20Haven%20Gui'))()
+		end},
+		[7] = { Name = "Slap Battles", PlaceId = 6403373529, Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Articles-Hub/ROBLOXScript/refs/heads/main/File-Script/Slap_Battles.lua"))()
+		end},
+		[8] = { Name = "Counter Blox", PlaceId = 301549746, Run = function()
+			loadstring(game:HttpGet("https://pastebin.com/raw/bPUYMYis"))()
+		end},
+		[9] = { Name = "Universal ESP", PlaceId = false, Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/RostarG/Universal-ESP/refs/heads/main/univESP.lua'))()
+		end},
+		[10] = { Name = "Vc Unban", PlaceId = false, Run = function()
+			loadstring(game:HttpGet('https://pastebin.com/raw/GG5i3uRG'))()
+		end},
+		[11] = { Name = "Infinite Yield (cmds)", PlaceId = false, Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+		end},
+		[12] = { Name = "My Pet Rock", PlaceId = 91232956735357, Run = function()
+			loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-Size-Rock-Cat-Puppy-Snowball-ETC-24882'))()
+		end},
+		[13] = { Name = "Restaurant Tycoon 3", PlaceId = 119048529960596, Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/ago106/SpaceHub/refs/heads/main/loader.lua'))()
+		end},
+		[14] = { Name = "Flex Your FPS And Ping", PlaceId = 18667984660, Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/zezor-scripts/hi/refs/heads/main/main.lua'))()
+		end},
+		[15] = { Name = "Rivals/Arsenal", PlaceId = 17625359962, Run = function()
+			loadstring(game:HttpGet(('https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/main.lua')))()
+		end},
+		[16] = { Name = "Murderers VS Sheriffs DUELS", PlaceId = 12355337193, Run = function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/evelynnscripts/Scripts/refs/heads/main/Loader.lua',true))()
+		end},
+		[17] = { Name = "Universal Hitbox Expander+", PlaceId = false, Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/xBENBEN2008x/wadawd/refs/heads/main/Hit-Box%2BMore", true))()
+		end},
+		[18] = { Name = "Build A Boat For Treasure", PlaceId = 537413528, Run = function()
+			loadstring(game:HttpGet('https://orbitsc.net/babft'))()
+		end},
+		[19] = { Name = "Destruction Simulator", PlaceId = 2248408710, Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/xBENBEN2008x/wadawd/refs/heads/main/inf%20Money%20ReplicatedStorage", true))()
+		end},
+		[20] = { Name = "Forsaken", PlaceId = 18687417158, Run = function()
+			loadstring(game:HttpGet("https://rawscripts.net/raw/Forsaken-Stamina-settings-for-forsaken-35367"))()
+		end},
+		[21] = { Name = "BEST UNIVERSAL", PlaceId = false, Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Chxnged/2/refs/heads/main/universalaimbotesp.lua"))()
+		end},
+		[22] = { Name = "Piggy", PlaceId = 4623386862, Run = function()
+			loadstring(game:HttpGet("https://rawscripts.net/raw/Piggy-open-source-15390"))()
+		end},
+		[23] = { Name = "Weird Gun Game", PlaceId = 94590879393563, Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Scripybara/WeirdGunGame-SwiftbaraHub/refs/heads/main/loader.lua"))()
+		end},
+		[24] = { Name = "Hypershot", PlaceId = 17516596118, Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Yomkaa/YOXI-HUB/refs/heads/main/loader",true))()
+		end},
+		[25] = { Name = "Operation One", PlaceId = 72920620366355, Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/CheeseBall024/MidNight/refs/heads/main/Operation%20One%20Midnight.o1"))()
+		end},
+		[26] = { Name = "Defuse Division", PlaceId = 112757576021097, Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Zylang104/Spectre/refs/heads/main/main.lua",true))() 
+		end},
+		[27] = { Name = "SNIPER-DUELS", PlaceId = 109397169461300, Run = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/SNIPER-DUELS.lua"))()
+		end},
+	}
+
+	-- Favorites persistence
+	local function split(str, sep)
+		if not str or str == "" then return {} end
+		sep = sep or ";"
+		local t = {}
+		for s in string.gmatch(str, "([^" .. sep .. "]+)") do
+			table.insert(t, s)
+		end
+		return t
+	end
+	local function join(tbl, sep)
+		sep = sep or ";"
+		if not tbl or #tbl == 0 then return "" end
+		return table.concat(tbl, sep)
+	end
+
+	local Favs = {}
+	local stored = player:GetAttribute("NexorFavs")
+	if stored and type(stored) == "string" and stored ~= "" then
+		Favs = split(stored, ";")
+	end
+	local function saveFavs()
+		player:SetAttribute("NexorFavs", join(Favs, ";"))
+	end
+	local function isFav(name) return table.find(Favs, name) ~= nil end
+
+	-- script container & templates
+	local scriptContainer = v48
+	local template = v50
+	local template2 = v65
+	if template then template.Visible = false end
+	if template2 then template2.Visible = false end
+
+	-- helper to find child recursively
+	local function findChildRecursive(parent, name)
+		if not parent then return nil end
+		for _, c in pairs(parent:GetChildren()) do
+			if c.Name == name then return c end
+			local found = findChildRecursive(c, name)
+			if found then return found end
+		end
+		return nil
+	end
+
+	-- forward declare rebuildScriptList so createEntry can call it
+	local rebuildScriptList
+
+	local function findConfigByName(name)
+		for _, d in ipairs(Config) do
+			if d.Name == name then return d end
+		end
+		return nil
+	end
+
+	-- create entry
+	local function createEntry(data, opts)
+		opts = opts or {}
+		local isPlaceMatch = opts.placeMatch or false
+		if not template then return nil end
+		local clone = template:Clone()
+		clone.Name = "Entry_" .. tostring(data.Name)
+		clone.Parent = scriptContainer
+		clone.Visible = true
+
+		local nameLabel = findChildRecursive(clone, "GameName")
+		if nameLabel and nameLabel:IsA("TextLabel") then
+			nameLabel.Text = tostring(data.Name)
+		end
+
+		-- background color logic
+		if isPlaceMatch then
+			if clone:IsA("Frame") then clone.BackgroundColor3 = Color3.fromRGB(0,120,255) end
+		elseif isFav(data.Name) then
+			if clone:IsA("Frame") then clone.BackgroundColor3 = Color3.fromRGB(255,204,0) end
+		else
+			if clone:IsA("Frame") then clone.BackgroundColor3 = Color3.fromRGB(180,5,255) end
+		end
+
+		-- Run
+		local runBtn = findChildRecursive(clone, "Run")
+		if runBtn and runBtn:IsA("TextButton") then
+			runBtn.MouseButton1Click:Connect(function()
+				local ok, err = pcall(function() data.Run() end)
+				if not ok then warn("Fehler beim Run von '"..tostring(data.Name).."': "..tostring(err)) end
+			end)
+		end
+
+		-- Info
+		local infoBtn = findChildRecursive(clone, "Info")
+		if infoBtn and infoBtn:IsA("TextButton") then
+			infoBtn.MouseButton1Click:Connect(function()
+				print("Info:", data.Name, "PlaceId:", tostring(data.PlaceId))
+			end)
+		end
+
+		-- Fav
+		local favBtn = findChildRecursive(clone, "fav")
+		if favBtn and favBtn:IsA("TextButton") then
+			local function updateFavVisual()
+				if isFav(data.Name) then favBtn.Text = "★" else favBtn.Text = "☆" end
+				if isPlaceMatch then
+					-- leave blue
+				else
+					if isFav(data.Name) then
+						clone.BackgroundColor3 = Color3.fromRGB(255,204,0)
+					else
+						clone.BackgroundColor3 = Color3.fromRGB(180,5,255)
+					end
+				end
+			end
+			updateFavVisual()
+			favBtn.MouseButton1Click:Connect(function()
+				if isFav(data.Name) then
+					table.remove(Favs, table.find(Favs, data.Name))
+				else
+					table.insert(Favs, data.Name)
+				end
+				saveFavs()
+				rebuildScriptList(v47 and v47:IsA("TextBox") and v47.Text or "")
+			end)
+		end
+
+		return clone
+	end
+
+	function rebuildScriptList(filter)
+		filter = filter or ""
+		-- clear existing (except templates)
+		for _, f in ipairs(scriptContainer:GetChildren()) do
+			if f:IsA("Frame") and (f ~= template and f ~= template2) then
+				f:Destroy()
+			end
+		end
+
+		local currentPlace = tostring(game.PlaceId)
+		local usedNames = {}
+
+		local placeMatches = {}
+		local favMatches = {}
+		local others = {}
+
+		-- place matches
+		for _, d in ipairs(Config) do
+			if d.PlaceId and tostring(d.PlaceId) == currentPlace then
+				if filter == "" or string.find(string.lower(d.Name), string.lower(filter)) then
+					table.insert(placeMatches, d)
+					usedNames[d.Name] = true
+				end
+			end
+		end
+
+		-- favorites in stored order
+		for _, fname in ipairs(Favs) do
+			if not usedNames[fname] then
+				local d = findConfigByName(fname)
+				if d then
+					if filter == "" or string.find(string.lower(d.Name), string.lower(filter)) then
+						table.insert(favMatches, d)
+						usedNames[d.Name] = true
+					end
+				end
+			end
+		end
+
+		-- others
+		for _, d in ipairs(Config) do
+			if not usedNames[d.Name] then
+				if filter == "" or string.find(string.lower(d.Name), string.lower(filter)) then
+					table.insert(others, d)
+					usedNames[d.Name] = true
+				end
+			end
+		end
+
+		-- create entries in order: placeMatches, favMatches, others
+		for _, d in ipairs(placeMatches) do
+			createEntry(d, { placeMatch = true })
+		end
+		for _, d in ipairs(favMatches) do
+			createEntry(d, { placeMatch = false })
+		end
+		for _, d in ipairs(others) do
+			createEntry(d, { placeMatch = false })
+		end
+
+		-- adjust CanvasSize
+		task.spawn(function()
+			local count = 0
+			for _,c in pairs(scriptContainer:GetChildren()) do
+				if c:IsA("Frame") and c.Visible and c ~= template and c ~= template2 then count = count + 1 end
+			end
+			scriptContainer.CanvasSize = UDim2.new(0,0,0, math.max(1, count) * 115)
+		end)
+	end
+
+	-- Search box live filter
+	if v47 and v47:IsA("TextBox") then
+		v47:GetPropertyChangedSignal("Text"):Connect(function()
+			local txt = v47.Text or ""
+			rebuildScriptList(txt)
+		end)
+	end
+
+	-- initial build
+	rebuildScriptList("")
+
+	-- Run Now button behavior
+	if v34 and v34:IsA("TextButton") then
+		v34.MouseButton1Click:Connect(function()
+			local currentPlace = tostring(game.PlaceId)
+			local chosen = nil
+			for _,d in ipairs(Config) do
+				if tostring(d.PlaceId) == currentPlace then
+					chosen = d
+					break
+				end
+			end
+			if not chosen then chosen = Config[1] end
+			if chosen and chosen.Run then
+				local ok, err = pcall(function() chosen.Run() end)
+				if not ok then warn("Fehler in Run-Funktion: "..tostring(err)) end
+			end
+		end)
+	end
+
+	-- THEME handling
+	local ThemeColors = {
+		Default = {
+			main = Color3.fromRGB(179, 1, 170),
+			stroke = Color3.fromRGB(140, 1, 133),
+			button = Color3.fromRGB(183,1,255),
+			buttonStroke = Color3.fromRGB(140,1,133),
+		},
+		Black = {
+			main = Color3.fromRGB(30,30,30),
+			stroke = Color3.fromRGB(10,10,10),
+			button = Color3.fromRGB(40,40,40),
+			buttonStroke = Color3.fromRGB(0,0,0),
+		},
+		Blue = {
+			main = Color3.fromRGB(12,97,255),
+			stroke = Color3.fromRGB(0,80,200),
+			button = Color3.fromRGB(0,120,255),
+			buttonStroke = Color3.fromRGB(0,80,200),
+		},
+		Green = {
+			main = Color3.fromRGB(24,200,50),
+			stroke = Color3.fromRGB(20,170,40),
+			button = Color3.fromRGB(47,255,0),
+			buttonStroke = Color3.fromRGB(20,170,40),
+		},
+	}
+
+	local currentTheme = player:GetAttribute("NexorTheme") or "Default"
+	if not ThemeColors[currentTheme] then currentTheme = "Default" end
+
+	local function applyTheme(themeName)
+		local t = ThemeColors[themeName]
+		if not t then return end
+		currentTheme = themeName
+		player:SetAttribute("NexorTheme", themeName)
+		-- MainFrame
+		if v2 and v2:IsA("Frame") then pcall(function() v2.BackgroundColor3 = t.main end) end
+		if v4 and v4:IsA("UIStroke") then pcall(function() v4.Color = t.stroke end) end
+		-- Sidebar buttons (first-level children)
+		for _, btn in pairs(v7:GetChildren()) do
+			if btn:IsA("TextButton") then
+				pcall(function() btn.BackgroundColor3 = t.button end)
+				for _, c in pairs(btn:GetChildren()) do
+					if c:IsA("UIStroke") then
+						pcall(function() c.Color = t.buttonStroke end)
+					end
+				end
+			end
+		end
+		-- Misc background frame (v85)
+		if v85 and v85:IsA("Frame") then pcall(function() v85.BackgroundColor3 = t.button end) end
+	end
+
+	-- wire theme buttons
+	if v87 and v87:IsA("TextButton") then v87.MouseButton1Click:Connect(function() applyTheme("Default") end) end
+	if v88 and v88:IsA("TextButton") then v88.MouseButton1Click:Connect(function() applyTheme("Blue") end) end
+	if v89 and v89:IsA("TextButton") then v89.MouseButton1Click:Connect(function() applyTheme("Green") end) end
+	if v90 and v90:IsA("TextButton") then v90.MouseButton1Click:Connect(function() applyTheme("Black") end) end
+	applyTheme(currentTheme)
+
+	-- Keybind (toggle GUI)
+	local defaultKey = "RightShift"
+	local function parseKeyName(name)
+		if not name or name == "" then return Enum.KeyCode.RightShift end
+		if Enum.KeyCode[name] then return Enum.KeyCode[name] end
+		-- try uppercase
+		local up = string.upper(name)
+		if Enum.KeyCode[up] then return Enum.KeyCode[up] end
+		return Enum.KeyCode.RightShift
+	end
+
+	local savedBind = player:GetAttribute("NexorKeyBind")
+	if savedBind == nil then
+		player:SetAttribute("NexorKeyBind", defaultKey)
+		savedBind = defaultKey
+	end
+
+	if v93 and v93:IsA("TextLabel") then v93.Text = "["..tostring(savedBind).."]" end
+	local currentBindEnum = parseKeyName(savedBind)
+
+	local function toggleGuiVisible()
+		if v1 and v1:IsA("ScreenGui") and v2 and v2:IsA("Frame") then
+			v2.Visible = not v2.Visible
+		end
+	end
+
+	UserInputService.InputBegan:Connect(function(input, gameProcessed)
+		if gameProcessed then return end
+		if input.KeyCode == currentBindEnum then
+			toggleGuiVisible()
+		end
+	end)
+
+	-- set keybind via UI
+	if v94 and v94:IsA("TextBox") and v95 and v95:IsA("TextButton") then
+		v95.MouseButton1Click:Connect(function()
+			local text = (v94.Text or ""):gsub("%s+","")
+			if text == "" then return end
+			if Enum.KeyCode[text] == nil then
+				local up = string.upper(text)
+				if Enum.KeyCode[up] then text = up end
+			end
+			if Enum.KeyCode[text] then
+				player:SetAttribute("NexorKeyBind", text)
+				currentBindEnum = Enum.KeyCode[text]
+				if v93 and v93:IsA("TextLabel") then v93.Text = "["..tostring(text).."]" end
+				v94.Text = ""
+			else
+				local prev = v94.PlaceholderText
+				v94.PlaceholderText = "Ungültiger Key (z.B. RightShift)"
+				v94.Text = ""
+				task.delay(1.5, function() v94.PlaceholderText = prev end)
+			end
+		end)
+	end
+
+	-- attribute change listeners
+	player:GetAttributeChangedSignal("NexorFavs"):Connect(function()
+		local s = player:GetAttribute("NexorFavs")
+		if s and type(s) == "string" then
+			Favs = split(s, ";")
+		else
+			Favs = {}
+		end
+		rebuildScriptList(v47 and v47:IsA("TextBox") and v47.Text or "")
+	end)
+	player:GetAttributeChangedSignal("NexorTheme"):Connect(function()
+		local t = player:GetAttribute("NexorTheme")
+		if t and ThemeColors[t] then applyTheme(t) end
+	end)
+	player:GetAttributeChangedSignal("NexorKeyBind"):Connect(function()
+		local k = player:GetAttribute("NexorKeyBind")
+		if k and Enum.KeyCode[k] then
+			currentBindEnum = Enum.KeyCode[k]
+			if v93 and v93:IsA("TextLabel") then v93.Text = "["..tostring(k).."]" end
+		end
+	end)
+
+	-- final touches
+	rebuildScriptList("")
+	updateGameNameUI()
+
+	print("[NexorGui] Full script loaded: Theme, Keybind, Favorites, PlaceId-Highlight active.")
+end
+
+if type(__converted) == 'function' then
+	local success, err = pcall(__converted)
+	if not success then warn('Error running converted module: '..tostring(err)) end
+else
+	warn('Converted module \'NexorGui_ExportedModule\' did not return a function')
+end
